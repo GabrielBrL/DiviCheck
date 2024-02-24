@@ -1,0 +1,73 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CTRLInvesting.Client
+build_property.RootNamespace = CTRLInvesting.Client
+build_property.ProjectDir = C:\Projeto Controle Investimentos\CTRLInvesting.Client\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Projeto Controle Investimentos\CTRLInvesting.Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/AcoesCompradas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNvZXNDb21wcmFkYXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Carteira.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydGVpcmEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/ComposicaoCarteira.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9zaWNhb0NhcnRlaXJhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Dividendos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGl2aWRlbmRvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Login/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Login/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/DialogInformationStock.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0luZm9ybWF0aW9uU3RvY2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-rlcubbfglp
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-83bxta4jgw
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

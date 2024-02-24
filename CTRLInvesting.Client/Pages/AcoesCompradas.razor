@@ -1,0 +1,95 @@
+@inject IDialogService DialogService
+
+<MudItem xs="12" xxl="4" xl="4" lg="4" md="4" sm="12">
+    <MudCard Elevation="20" Outlined="true" Class="rounded-lg pb-4">
+        <MudCardMedia Class="imgAcao" Image="@($"/assets/{acao.Symbol.Substring(0,4)}.svg")" Height="150" />
+        <MudCardContent>
+            <MudStack Spacing="0" Row="true" AlignItems="AlignItems.Center" Justify="Justify.Center">
+                <MudText Typo="Typo.h5">@acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))
+                </MudText>
+                <MudIconButton Icon="@Icons.Material.Filled.Info" OnClick="@(() => OpenInformationAboutStock(acao))" />
+            </MudStack>
+            <MudGrid Justify="Justify.Center" Spacing="0">
+                <MudItem xs="12" Class="pt-5 pb-2">
+                    <MudStack Justify="Justify.Center" Spacing="2" Row="true">
+                        <MudText Class="variacaoCarteira"
+                            Color="(acao.VariacaoPercentual < 0 ? Color.Error : acao.VariacaoPercentual == 0 ? Color.Primary : Color.Success)">
+                            @acao.VariacaoPercentual.ToString("P2")
+                        </MudText>
+                        <MudText Class="variacaoCarteira"
+                            Color="(acao.VariacaoValue < 0 ? Color.Error : acao.VariacaoValue == 0 ? Color.Primary : Color.Success)">
+                            @acao.VariacaoValue.ToString("N2")
+                        </MudText>
+                    </MudStack>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudText Align="Align.Center" Class="precoCarteira">@acao.CurrentPrice.Value.ToString("C")</MudText>
+                </MudItem>
+            </MudGrid>
+            <MudText Align="Align.Center" Typo="Typo.h4">@acao.NumeroAcoes</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudGrid>
+                <MudItem xs="12" sm="7">
+                    <MudNumericField T="int" style="margin: 0;" FullWidth="false" @bind-Value="acao.NumeroAcoesVendidas"
+                        Min="0" />
+                </MudItem>
+                <MudItem xs="12" sm="5">
+                    <MudButton OnClick="@(() => BuyAcaoInvoke(acao))" Variant="Variant.Text" Color="Color.Primary">
+                        Adicionar</MudButton>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudButton OnClick="@(() => SellAcaoInvoke(acao))" Variant="Variant.Text" Color="Color.Primary">
+                        Vender</MudButton>
+                    <MudButton OnClick="(() => SellAllAcoesInvoke(acao))" Variant="Variant.Text" Color="Color.Primary">
+                        Vender tudo</MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudCardActions>
+    </MudCard>
+</MudItem>
+
+@code {
+    [Parameter]
+    public StockDataDetails acao { get; set; }
+    [Parameter]
+    public Func<StockDataDetails, Task>? BuyAcaoParameter { get; set; }
+    private async Task BuyAcaoInvoke(StockDataDetails acao)
+    {
+        if (BuyAcaoParameter != null)
+        {
+            await BuyAcaoParameter.Invoke(acao);
+        }
+    }
+    [Parameter]
+    public Func<StockDataDetails, Task>? SellAcaoParameter { get; set; }
+    private async Task SellAcaoInvoke(StockDataDetails acao)
+    {
+        if (SellAcaoParameter != null)
+        {
+            await SellAcaoParameter.Invoke(acao);
+        }
+    }
+    [Parameter]
+    public Func<StockDataDetails, Task>? SellAllAcoesParameter { get; set; }
+    private async Task SellAllAcoesInvoke(StockDataDetails acao)
+    {
+        if (SellAllAcoesParameter != null)
+        {
+            await SellAllAcoesParameter.Invoke(acao);
+        }
+    }
+    private async Task OpenInformationAboutStock(StockDataDetails stock)
+    {
+        var options = new DialogOptions
+            {
+                ClassBackground = "dialogInformationStock",
+                MaxWidth = MaxWidth.Large,
+                FullWidth = true,
+                CloseButton = true
+            };
+        var parameter = new DialogParameters<DialogInformationStock> { { x => x.stock, stock } };
+        await DialogService.ShowAsync<DialogInformationStock>(stock.Symbol.Substring(0, stock.Symbol.IndexOf('.')), parameter,
+        options);
+    }
+}

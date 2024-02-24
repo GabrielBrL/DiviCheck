@@ -1,0 +1,93 @@
+@inject IAcoesService acoesService
+@inject IDialogService DialogService
+@inject Blazored.LocalStorage.ILocalStorageService _localStore
+
+<MudDataGrid Items="_acoes" SortMode="SortMode.Single" ShowFilterIcons="false" Loading="loadingGrid">
+    <Columns>      
+        <TemplateColumn Title="Papel">
+            <CellTemplate>
+                <MudStack Row="true">
+                    <MudText>@context.Item.Symbol.Substring(0, context.Item.Symbol.IndexOf('.'))</MudText>
+                    <MudIconButton Icon="@Icons.Material.Filled.Info" Class="p-0" Size="MudBlazor.Size.Small"
+                        @onclick="@(() => OpenInformationAboutStock(context.Item))" />
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : x.CurrentPrice.Value" Format="C" Title="Cotação" />
+        <PropertyColumn Property="x => x.NumeroAcoes" Title="Número de ações" />
+        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C"
+            Title="Valor total" />
+        <PropertyColumn Property="x => x.DividendYield" Format="P" Title="Percentual de dividendos a.a." />
+        <TemplateColumn Title="Valor de dividendos m.m.">
+            <CellTemplate>
+                <MudStack Spacing="0">
+                    @context.Item.VlrDivYieldMes.ToString("C")
+                    @if (context.Item.DividendYield == null)
+                    {
+                        <MudText style="font-size: 10px;" Typo="Typo.caption">(Baseado no último dividendo)</MudText>
+                    }
+                </MudStack>
+            </CellTemplate>
+            <FooterTemplate>
+                @(context.Items.Sum(x => x.VlrDivYieldMes).ToString("C"))
+            </FooterTemplate>
+        </TemplateColumn>
+        <TemplateColumn Title="Valor de dividendos a.a.">
+            <CellTemplate>
+                <MudStack Spacing="0">
+                    @context.Item.VlrDivYieldAno.ToString("C")
+                    @if (context.Item.DividendYield == null)
+                    {
+                        <MudText style="font-size: 10px;" Typo="Typo.caption">(Baseado no último dividendo)</MudText>
+                    }
+                </MudStack>
+            </CellTemplate>
+            <FooterTemplate>
+                @(context.Items.Sum(x => x.VlrDivYieldAno).ToString("C"))
+            </FooterTemplate>
+        </TemplateColumn>
+    </Columns>
+</MudDataGrid>
+
+@code {
+    [Parameter]
+    public List<StockDataDetails> acoesPapel { get; set; }
+    private List<StockDataDetails> _acoes = new List<StockDataDetails>();
+    private bool loadingGrid = false;
+    protected async override Task OnInitializedAsync()
+    {
+        _acoes.Clear();
+        loadingGrid = true;
+        List<StockDataDetails> listAcoes = new List<StockDataDetails>();
+        foreach (var item in acoesPapel)
+        {
+            string ticket = item.Symbol.Substring(0, item.Symbol.IndexOf('.'));
+            //var result = acoesService.GetAcao(ticket);
+            //var local = await _localStore.GetItemAsync<List<StockDataDetails>>("acoes");
+            //result.NumeroAcoes = local.SingleOrDefault(x => x.Symbol == item.Symbol).NumeroAcoes;            
+            double cotacao = item.CurrentPrice == null ? 0 : item.CurrentPrice.Value;
+            int numeroAcoes = item.NumeroAcoes;
+            double perc_dividendos = item.DividendYield == null ? (item.LastDividendValue.Value * 12) /
+            item.CurrentPrice.Value : item.DividendYield.Value;
+            item.VlrDivYieldAno = cotacao * numeroAcoes * perc_dividendos;
+            item.VlrDivYieldMes = item.VlrDivYieldAno / 12;
+            //listAcoes.Add(result);
+        }
+        //_acoes.AddRange(listAcoes);
+        _acoes = acoesPapel;
+        loadingGrid = false;
+    }
+    private async Task OpenInformationAboutStock(StockDataDetails stock)
+    {
+        var options = new DialogOptions
+            {
+                ClassBackground = "dialogInformationStock",
+                MaxWidth = MaxWidth.Large,
+                FullWidth = true,
+                CloseButton = true
+            };
+        var parameter = new DialogParameters<DialogInformationStock> { { x => x.stock, stock } };
+        await DialogService.ShowAsync<DialogInformationStock>(stock.Symbol.Substring(0, stock.Symbol.IndexOf('.')), parameter,
+        options);
+    }
+}

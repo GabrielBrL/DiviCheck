@@ -1,0 +1,130 @@
+﻿@inherits LayoutComponentBase
+@using System.Security.Claims;
+
+
+@inject Blazored.LocalStorage.ILocalStorageService _localStore
+@inject ISnackbar Snackbar
+@inject IAcoesService _acoesService
+@inject NavigationManager _nav
+
+<PageTitle>CTRLInvesting</PageTitle>
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="MyCustomTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Style="@($"background:{Colors.Blue.Accent1}")">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start"
+            OnClick="@((e) => DrawerToggle())" />
+        <MudText Typo="Typo.body1" Style="font-weight:bold">Control Investing</MudText>
+        <MudSpacer />
+        <AuthorizeView>
+            <Authorized>
+                <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Dark" AnchorOrigin="Origin.BottomCenter"
+                    TransformOrigin="Origin.TopCenter" ActivationEvent="@MouseEvent.LeftClick" Class="mx-5">
+                    <ChildContent>
+                        <MudMenuItem>Perfil</MudMenuItem>
+                        <MudMenuItem OnClick="(() => LogOut())">Sair</MudMenuItem>
+                    </ChildContent>
+                </MudMenu>
+            </Authorized>
+            <NotAuthorized>
+                <MudLink Href="/login" Underline="Underline.Hover" style="color: #FFFFFF!important;" Class="mx-5">Login</MudLink>
+                <MudText Typo="Typo.body1">|</MudText>
+                <MudLink Href="/register" Underline="Underline.Hover" style="color: #FFFFFF!important;" Class="mx-5">Registrar</MudLink>
+            </NotAuthorized>
+        </AuthorizeView>
+        @if (this._isDarkMode)
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.LightMode" Class="ml-2 mudIconButtonThemeLight"
+                OnClick="@this.SwitchTheme" Title="Light mode" />
+        }
+        else
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.DarkMode" Class="ml-2 mudIconButtonThemeDark" OnClick="@this.SwitchTheme"
+                Title="Dark mode" />
+        }
+
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mt-5" Fixed="true">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+@code {
+    bool _drawerOpen = false;
+    private bool _isDarkMode = true;
+    private string _iconTheme = Icons.Material.Filled.LightMode;
+    private Snackbar? _snackBar;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
+            Snackbar.Configuration.VisibleStateDuration = 2000;
+            Snackbar.Configuration.ShowCloseIcon = false;
+            _isDarkMode = await _localStore.GetItemAsync<bool>("themeMode");
+            StateHasChanged();
+        }
+    }
+
+    public bool _isOpen = true;
+
+    public void ToggleOpen()
+    {
+        if (_isOpen)
+            _isOpen = false;
+        else
+            _isOpen = true;
+    }
+    private string? UserDisplayName(List<Claim> claims)
+    {
+        return claims.Where(_ => _.Type == "Username").Select(_ => _.Value).FirstOrDefault();
+    }
+    private async Task LogOut()
+    {
+        await _localStore.SetItemAsync<string>("token", string.Empty);
+        await _localStore.SetItemAsync<string>("acoes", string.Empty);
+        _nav.NavigateTo("/", true);
+    }
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+    async void SwitchTheme()
+    {
+        this._isDarkMode = !this._isDarkMode;
+        await _localStore.SetItemAsync<bool>("themeMode", _isDarkMode);
+    }
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            Palette = new PaletteLight()
+            {
+                Primary = Colors.Grey.Darken4,
+                Secondary = Colors.Grey.Lighten3,
+                TextPrimary = Colors.Grey.Darken4,
+                TextSecondary = Colors.Grey.Darken4,
+                ActionDefault = Colors.Grey.Darken2,
+                AppbarText = Colors.Shades.White
+            },
+            PaletteDark = new PaletteDark()
+            {
+                Primary = Colors.Grey.Lighten3,
+                Secondary = Colors.Grey.Darken3,
+                TextPrimary = Colors.Shades.White,
+                TextSecondary = Colors.Shades.White,
+                ActionDefault = Colors.Grey.Lighten1,
+                AppbarText = Colors.Shades.White
+            },
+            LayoutProperties = new LayoutProperties()
+            {
+                DrawerWidthLeft = "160px",
+                DrawerWidthRight = "250px"                
+            }
+        };
+}

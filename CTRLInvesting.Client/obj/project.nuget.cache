@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "ot/o7FpTqAXMH8S+NWNujBlcs/Y9wZU9pro2Cm+hTKooLv4ILrprluAK0GtV0bHmsiYcB9XVInuRd8/wviQ9kw==",
+  "success": true,
+  "projectFilePath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\blazor.bootstrap\\1.11.1\\blazor.bootstrap.1.11.1.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\blazored.localstorage\\4.4.0\\blazored.localstorage.4.4.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.14\\microsoft.aspnetcore.authorization.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.14\\microsoft.aspnetcore.components.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.14\\microsoft.aspnetcore.components.analyzers.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\7.0.14\\microsoft.aspnetcore.components.forms.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.web\\7.0.14\\microsoft.aspnetcore.components.web.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.14\\microsoft.aspnetcore.metadata.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.localization\\7.0.14\\microsoft.extensions.localization.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\7.0.14\\microsoft.extensions.localization.abstractions.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.jsinterop\\7.0.14\\microsoft.jsinterop.7.0.14.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\mudblazor\\6.12.0\\mudblazor.6.12.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,17 @@
+﻿<MudNavMenu>
+    <MudNavLink Href="/" Class="navMenu" Match="NavLinkMatch.All">
+        <MudText Class="navLink" Typo="Typo.body1">Home</MudText>
+    </MudNavLink>
+    <AuthorizeView Roles="Free">
+        <Authorized>
+            <MudNavLink Href="/carteira" Class="navMenu" Match="NavLinkMatch.Prefix">
+                <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
+            </MudNavLink>
+        </Authorized>
+        <NotAuthorized>
+            <MudNavLink Disabled="true" Icon="@Icons.Material.Filled.Lock" Match="NavLinkMatch.Prefix">
+                Carteira
+            </MudNavLink>
+        </NotAuthorized>
+    </AuthorizeView>
+</MudNavMenu>

@@ -1,0 +1,105 @@
+<MudDialog>
+    <DialogContent>
+        <MudGrid>
+            <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+                <MudCard Outlined="false" Class="rounded-lg pb-4">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.body1">Dividend Yield</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        @if (stock.DividendYield != null)
+                        {
+                            @stock.DividendYield.Value.ToString("P2")
+                        }
+                        else
+                        {
+                            <MudText>N/A</MudText>
+                        }
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+                <MudCard Outlined="false" Class="rounded-lg pb-4">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.body1">Data do último dividendo</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        @if (stock.LastDividendDate != null)
+                        {
+                            @DateTimeOffset.FromUnixTimeSeconds(stock.LastDividendDate.Value).ToString("dd/MM/yyyy")
+                        }
+                        else
+                        {
+                            <MudText>N/A</MudText>
+                        }
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+                <MudCard Outlined="false" Class="rounded-lg pb-4">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.body1">Valor do último dividendo</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        @if (stock.LastDividendValue != null)
+                        {
+                            @stock.LastDividendValue.Value.ToString("C")
+                        }
+                        else
+                        {
+                            <MudText>N/A</MudText>
+                        }
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            @* <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+            <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+            <MudText Typo="Typo.body1">Variação de 52 sem.</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+            @stock._52WeekChange.Value.ToString("P2")
+            </MudCardContent>
+            </MudCard>
+            </MudItem>
+            <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+            <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+            <MudText Typo="Typo.body1">Alta de 52 sem.</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+            @stock.FiftyTwoWeekHigh.Value.ToString("C")
+            </MudCardContent>
+            </MudCard>
+            </MudItem>
+            <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+            <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+            <MudText Typo="Typo.body1">Alta de 52 sem.</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+            @stock.FiftyTwoWeekHigh.Value.ToString("C")
+            </MudCardContent>
+            </MudCard>
+            </MudItem>
+            <MudItem xs="4" xl="4" xxl="4" lg="4" md="6" sm="6">
+            <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+            <MudText Typo="Typo.body1">Ebitda</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+            @stock.Ebitda.Value.ToString("C")
+            </MudCardContent>
+            </MudCard>
+            </MudItem> *@
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Close">Fechar</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter] public StockDataDetails stock { get; set; } = new StockDataDetails();
+    void Close() => MudDialog.Close();
+}

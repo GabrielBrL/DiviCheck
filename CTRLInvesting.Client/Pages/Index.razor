@@ -1,0 +1,189 @@
+﻿@page "/"
+@inject IAcoesService acoesService
+@inject IInvestimentosService investimentos
+@inject Blazored.LocalStorage.ILocalStorageService _localStore
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+
+<PageTitle>Index</PageTitle>
+@if (loading)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
+}
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" sm="4">
+        <MudTextField T="string" Text="@searchText" TextChanged="this.FilterData" Immediate="true"
+            Placeholder="Digite o ticket da empresa" Variant="Variant.Outlined" />
+    </MudItem>
+</MudGrid>
+@if(!containsStock)
+{
+    <MudText Align="Align.Center" Typo="Typo.h3">Não há dados sobre esse papel</MudText>
+}
+<MudGrid Class="pt-5" Justify="Justify.Center">
+    @if (filterData)
+    {
+        <MudItem xs="12" lg="3" md="4" sm="6">
+            <MudCard Elevation="20" Outlined="true" Class="rounded-lg pb-4">
+                <MudCardContent>
+                    <MudSkeleton Width="50%" Height="200px;" />
+                    <MudSkeleton Width="30%" />
+                    <MudSkeleton Width="100%" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudSkeleton Width="64px" Height="40px" Class="ml-2" />
+                    <MudSkeleton Width="105px" Height="40px" Class="ml-3" />
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    }
+    @if (_acoesFiltradas != null && _acoesFiltradas.Count > 0)
+    {
+        foreach (var acao in _acoesFiltradas)
+        {
+            <MudItem xs="12" lg="3" md="4" sm="6">
+                <MudCard Elevation="20" Outlined="true" Class="rounded-lg pb-4">
+                    <MudCardMedia Image="@($"/assets/{acao.Symbol.Substring(0,4)}.svg")" Height="150" />
+                    <MudCardContent>
+                        <MudStack Spacing="0" Row="true" AlignItems="AlignItems.Center" Justify="Justify.Center">
+                            <MudText Typo="Typo.h5">@acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))
+                            </MudText>
+                            <MudIconButton Icon="@Icons.Material.Filled.Info"
+                                OnClick="@(() => OpenInformationAboutStock(acao))" />
+                        </MudStack>
+                        <MudGrid Justify="Justify.FlexStart">
+                            <MudItem xs="8" Class="pt-5">
+                                <MudText Align="Align.End" Typo="Typo.h4">@acao.CurrentPrice.Value.ToString("C")</MudText>
+                            </MudItem>
+                            <MudItem xs="4" Class="pt-5">
+                                <MudStack AlignItems="AlignItems.Start" Spacing="0">
+                                    <MudText
+                                        Color="(acao.VariacaoPercentual < 0 ? Color.Error : acao.VariacaoPercentual == 0 ? Color.Primary : Color.Success)"
+                                        Typo="Typo.h6">
+                                        @acao.VariacaoPercentual.ToString("P2")
+                                    </MudText>
+                                    <MudText
+                                        Color="(acao.VariacaoValue < 0 ? Color.Error : acao.VariacaoValue == 0 ? Color.Primary : Color.Success)"
+                                        Typo="Typo.h6">
+                                        @acao.VariacaoValue.ToString("N2")
+                                    </MudText>
+                                </MudStack>
+                            </MudItem>
+                        </MudGrid>
+                        <MudListItem Icon="@Icons.Material.Filled.CalendarToday" Disabled="true">
+                            <MudText Typo="Typo.body2">@(acao.DataUltCotacao.ToString("dd/MM/yyyy"))
+                            </MudText>
+                        </MudListItem>
+                    </MudCardContent>
+                    <AuthorizeView>
+                        <Authorized>
+                            <MudCardActions>
+                                <MudGrid style="width: 100%;">
+                                    <MudItem xs="12" Class="ml-5 p-0">
+                                        <MudStack Spacing="0" Row="true">
+                                            <MudNumericField T="int" style="margin: 0; width: 75%;" FullWidth="false"
+                                                @bind-Value="acao.NumeroAcoes" Min="0" />
+                                            <MudButton OnClick="@(() => AddToWallet(acao))" Variant="Variant.Text"
+                                                Color="Color.Primary">
+                                                Adicionar</MudButton>
+                                        </MudStack>
+                                    </MudItem>
+                                    <MudItem xs="12" style="padding: 0;">
+                                        <MudStack Row="true" Spacing="0">
+                                            <MudButton OnClick="(() => UpdateNumberAcoes(10, acao))">+10</MudButton>
+                                            <MudButton OnClick="(() => UpdateNumberAcoes(100, acao))">+100</MudButton>
+                                        </MudStack>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudCardActions>
+                        </Authorized>
+                    </AuthorizeView>                    
+                </MudCard>
+            </MudItem>
+        }
+    }
+</MudGrid>
+
+@code {
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    private List<string> _tickets = new List<string>();    
+    private string? searchText;
+    private List<StockDataDetails> _acoesFiltradas = new List<StockDataDetails>();
+    private List<StockDataDetails> _acoesCompradas;            
+    private Snackbar _snackBar;
+    private bool loading;
+    private bool containsStock = true;
+    private bool filterData = false;
+    private int idUsuario;
+    protected override async Task OnInitializedAsync()
+    {        
+        _tickets = await acoesService.GetAllTicketsAsync();        
+        var acoesStorage = await _localStore.GetItemAsync<List<StockDataDetails>>("acoes");
+        _acoesCompradas = acoesStorage == null ? new List<StockDataDetails>() : acoesStorage;
+        var user = await authenticationStateTask;
+        var identity = user.User.Identity;
+        if(identity.IsAuthenticated)
+        {
+            idUsuario = Int32.Parse(user.User.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
+        }
+    }
+    private async Task OpenInformationAboutStock(StockDataDetails stock)
+    {
+        var options = new DialogOptions
+            {
+                ClassBackground = "dialogInformationStock",
+                MaxWidth = MaxWidth.Large,
+                FullWidth = true,
+                CloseButton = true
+            };
+        var parameter = new DialogParameters<DialogInformationStock> { { x => x.stock, stock } };
+        await DialogService.ShowAsync<DialogInformationStock>(stock.Symbol.Substring(0, stock.Symbol.IndexOf('.')), parameter, options);
+    }
+    private void UpdateNumberAcoes(int number, StockDataDetails acao) => acao.NumeroAcoes += number;
+    private void FilterData(string value)
+    {
+        _acoesFiltradas.Clear();
+        filterData = true;
+        containsStock = true;
+        searchText = value;
+        if (value.Length > 3)
+        {
+            var result = _tickets.Where(x => x.StartsWith(value, StringComparison.OrdinalIgnoreCase));
+            foreach (var item in result)
+            {
+                var stock = acoesService.GetAcao(item);                
+                if (stock.CurrentPrice != null)
+                {                    
+                    acoesService.GetVariationStocks(stock);
+                    _acoesFiltradas.Add(stock);
+                }
+            }
+            filterData = false;
+            if(_acoesFiltradas.Count == 0)
+            {
+                containsStock = false;
+            }
+            return;
+        }
+        if (searchText.Length == 0)
+            filterData = false;
+    }
+    private async Task AddToWallet(StockDataDetails acao)
+    {
+        if (acao.NumeroAcoes <= 0)
+        {
+            _snackBar = Snackbar.Add("Número de ações inválidas.", Severity.Error);
+            return;
+        }        
+        StockDataDetails existAcao = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
+        if (existAcao != null)
+            existAcao.NumeroAcoes += acao.NumeroAcoes;
+        else
+            _acoesCompradas.Add(acao);
+        await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
+        var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')),NumeroAcoes = acao.NumeroAcoes};
+        await investimentos.InsertStockDataDetails(formStock);
+        _snackBar = Snackbar.Add($"Parabéns!! {acao.NumeroAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))} foram adicionadas na sua carteira.",
+        Severity.Success);
+    }
+}
