@@ -6,11 +6,12 @@
 @inject NavigationManager _nav
 @inject ISnackbar Snackbar
 
+<PageTitle>Minha Carteira</PageTitle>
+
 <MudOverlay @bind-Visible="loading" DarkBackground="true" ZIndex="9999" AutoClose="true">
     <MudProgressCircular Color="Color.Default" Indeterminate="true" />
 </MudOverlay>
 <AuthorizeView Roles="Free,Premium">
-    <PageTitle>Minha Carteira</PageTitle>
 
     <MudText Typo="Typo.h2" Align="Align.End">Minha Carteira</MudText>
     <MudText Typo="Typo.h5" Align="Align.End">Patrimônio @patrimonioTotal.ToString("C")</MudText>

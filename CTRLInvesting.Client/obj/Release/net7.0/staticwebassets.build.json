@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "d8mu2KAcZ1UyZIuzZf7/n/M2nJZGyeE17Y5NXqxdz28=",
+  "Hash": "Bp1mR3Ad7cKCQhfuUzOY5RGzgflobTVYko8r+BCC8v8=",
   "Source": "CTRLInvesting.Client",
   "BasePath": "_content/CTRLInvesting.Client",
   "Mode": "Default",
@@ -323,23 +323,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\CSNA.svg"
     },
     {
-      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\DB.Browser.for.SQLite-3.12.2-win64.msi",
-      "SourceId": "CTRLInvesting.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
-      "BasePath": "_content/CTRLInvesting.Client",
-      "RelativePath": "assets/DB.Browser.for.SQLite-3.12.2-win64.msi",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\DB.Browser.for.SQLite-3.12.2-win64.msi"
-    },
-    {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\GGBR.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
@@ -355,23 +338,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\GGBR.svg"
-    },
-    {
-      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\heroku-x64.exe",
-      "SourceId": "CTRLInvesting.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
-      "BasePath": "_content/CTRLInvesting.Client",
-      "RelativePath": "assets/heroku-x64.exe",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\heroku-x64.exe"
     },
     {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\KLBN.svg",

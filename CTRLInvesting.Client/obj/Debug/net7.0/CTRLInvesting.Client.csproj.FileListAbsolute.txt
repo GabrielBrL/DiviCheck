@@ -48,3 +48,8 @@ C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInve
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.genruntimeconfig.cache
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\ref\CTRLInvesting.Client.dll
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\BlazorBootstrap.dll
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\web.config
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.deps.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.runtimeconfig.json

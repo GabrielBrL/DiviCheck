@@ -69,10 +69,6 @@
       "PackagePath": "staticwebassets\\assets\\CSNA.svg"
     },
     {
-      "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\DB.Browser.for.SQLite-3.12.2-win64.msi",
-      "PackagePath": "staticwebassets\\assets\\DB.Browser.for.SQLite-3.12.2-win64.msi"
-    },
-    {
       "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\GGBR.svg",
       "PackagePath": "staticwebassets\\assets\\GGBR.svg"
     },
@@ -99,10 +95,6 @@
     {
       "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\WEGE.svg",
       "PackagePath": "staticwebassets\\assets\\WEGE.svg"
-    },
-    {
-      "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\heroku-x64.exe",
-      "PackagePath": "staticwebassets\\assets\\heroku-x64.exe"
     },
     {
       "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
