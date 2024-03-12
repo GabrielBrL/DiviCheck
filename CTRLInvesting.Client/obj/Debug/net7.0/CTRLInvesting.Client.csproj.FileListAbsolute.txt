@@ -1,19 +1,72 @@
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.AssemblyReference.cache
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.GeneratedMSBuildEditorConfig.editorconfig
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.AssemblyInfoInputs.cache
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.AssemblyInfo.cs
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.CoreCompileInputs.cache
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.MvcApplicationPartsAssemblyInfo.cache
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.RazorAssemblyInfo.cache
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.RazorAssemblyInfo.cs
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\publish\web.config
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\appsettings.Development.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\appsettings.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.Development.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.deps.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.runtimeconfig.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.staticwebassets.runtime.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.exe
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.deps.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.runtimeconfig.json
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.pdb
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\BlazorBootstrap.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Blazored.LocalStorage.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\FluentValidation.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Components.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Forms.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Web.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.Extensions.Localization.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.Extensions.Localization.Abstractions.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.JSInterop.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\MudBlazor.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\Newtonsoft.Json.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Model.dll
+c:\PCI Front\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Model.pdb
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.AssemblyReference.cache
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.GeneratedMSBuildEditorConfig.editorconfig
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.AssemblyInfoInputs.cache
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.AssemblyInfo.cs
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.CoreCompileInputs.cache
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.MvcApplicationPartsAssemblyInfo.cache
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.RazorAssemblyInfo.cache
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.RazorAssemblyInfo.cs
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.CTRLInvesting.Client.Microsoft.AspNetCore.StaticWebAssets.props
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.build.CTRLInvesting.Client.props
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.CTRLInvesting.Client.props
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.CTRLInvesting.Client.props
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets.pack.json
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets.build.json
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets.development.json
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\bundle\CTRLInvesting.Client.styles.css
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\projectbundle\CTRLInvesting.Client.bundle.scp.css
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.CopyComplete
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.dll
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\refint\CTRLInvesting.Client.dll
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.pdb
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.genruntimeconfig.cache
+c:\PCI Front\CTRLInvesting.Client\obj\Debug\net7.0\ref\CTRLInvesting.Client.dll
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\web.config
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\appsettings.Development.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\appsettings.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.deps.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.runtimeconfig.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.staticwebassets.runtime.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.exe
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.deps.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.runtimeconfig.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Client.pdb
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\BlazorBootstrap.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\Blazored.LocalStorage.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\FluentValidation.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
@@ -30,6 +83,14 @@ C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\MudBlazo
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Model.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\CTRLInvesting.Model.pdb
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.AssemblyReference.cache
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.AssemblyInfoInputs.cache
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.AssemblyInfo.cs
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.csproj.CoreCompileInputs.cache
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.RazorAssemblyInfo.cache
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.RazorAssemblyInfo.cs
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.CTRLInvesting.Client.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.build.CTRLInvesting.Client.props
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.CTRLInvesting.Client.props
@@ -47,9 +108,3 @@ C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\refint\C
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.pdb
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\CTRLInvesting.Client.genruntimeconfig.cache
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\ref\CTRLInvesting.Client.dll
-c:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\BlazorBootstrap.dll
-C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\web.config
-C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.Development.json
-C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\appsettings.json
-C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.deps.json
-C:\Projeto Controle Investimentos\CTRLInvesting.Client\bin\Debug\net7.0\publish\CTRLInvesting.Client.runtimeconfig.json

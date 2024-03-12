@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y3z2CoL9dgqzw/z/FGDRC2TSgpU9DSsteia+PzA/2sg=",
+  "Hash": "GEObnK/zoJDv/undyjSGeKZyfjKPqMW+aDEZMnj7kfo=",
   "Source": "CTRLInvesting.Client",
   "BasePath": "_content/CTRLInvesting.Client",
   "Mode": "Default",
@@ -323,23 +323,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\CSNA.svg"
     },
     {
-      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\DB.Browser.for.SQLite-3.12.2-win64.msi",
-      "SourceId": "CTRLInvesting.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
-      "BasePath": "_content/CTRLInvesting.Client",
-      "RelativePath": "assets/DB.Browser.for.SQLite-3.12.2-win64.msi",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\DB.Browser.for.SQLite-3.12.2-win64.msi"
-    },
-    {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\GGBR.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
@@ -355,23 +338,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\GGBR.svg"
-    },
-    {
-      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\heroku-x64.exe",
-      "SourceId": "CTRLInvesting.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
-      "BasePath": "_content/CTRLInvesting.Client",
-      "RelativePath": "assets/heroku-x64.exe",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\heroku-x64.exe"
     },
     {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\KLBN.svg",
@@ -510,23 +476,6 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "CTRLInvesting.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
-      "BasePath": "_content/CTRLInvesting.Client",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
@@ -627,6 +576,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "CTRLInvesting.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "BasePath": "_content/CTRLInvesting.Client",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",

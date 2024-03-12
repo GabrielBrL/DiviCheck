@@ -4,8 +4,8 @@ namespace CTRLInvesting.Client.Interfaces;
 
 public interface IAcoesService
 {
-    Dictionary<string, double> GetValueAcao(string ticket);
+    Dictionary<string, double> GetVariacaoAcao(string ticket, string variacao);
+    Task<Dictionary<string, double>> GetVariacaoAcaoAsync(string ticket, string variacao);
     StockDataDetails GetAcao(string ticket);
-    Task<List<string>> GetAllTicketsAsync();
-    void GetVariationStocks(StockDataDetails acao);
+    Task<List<Stock>> GetAllTicketsAsync();
 }

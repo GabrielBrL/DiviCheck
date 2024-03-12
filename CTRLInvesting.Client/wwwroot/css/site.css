@@ -17,7 +17,7 @@ h1:focus {
 }
 
 .navLink {
-    color: #FFFFFF;
+    color: var(--mud-palette-text-primary) !important;
 }
 
 .navLink:hover {
@@ -50,7 +50,12 @@ h1:focus {
 }
 
 .navMenu {
-    --mud-palette-action-default-hover: #82B1FF
+    --mud-palette-action-default-hover: #82B1FF;
+}
+
+.btnPeriodSelected {
+    background: var(--mud-palette-action-default) !important;
+    color: var(--mud-palette-primary-text) !important;
 }
 
 @media screen and (min-width: 600px) {
@@ -60,6 +65,15 @@ h1:focus {
 
     .variacaoCarteira {
         font-size: 20px !important;
+    }
+
+    .pieChart {
+        width: 500px;
+        margin-left: 50px;
+    }
+
+    .dividendSum {
+        display: none;
     }
 }
 
@@ -78,5 +92,21 @@ h1:focus {
 
     .imgAcao {
         display: none !important;
+    }
+
+    .pieChart {
+        width: 320px;
+    }
+
+    .dividendSum {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+    }
+
+    .mudDataGridDividend {
+        margin-bottom: 40px;
     }
 }

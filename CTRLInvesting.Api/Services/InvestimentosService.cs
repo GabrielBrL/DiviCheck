@@ -27,6 +27,24 @@ public class InvestimentosService : IInvestimentosService
         return stockDataDetails;
     }
 
+    public async Task<List<StockDataDetails>> GetStockDataDetailsAsync(int idUsuario)
+    {
+        var investimentos = _investidorRepo.GetInvestidors(idUsuario);
+        List<StockDataDetails> stockDataDetails = new List<StockDataDetails>();
+        foreach (var investimento in investimentos)
+        {
+            var stock = await _acoesService.GetAcaoAsync(investimento.Ticket);
+            stock.NumeroAcoes = investimento.QtdStocks;
+            stockDataDetails.Add(stock);
+        }
+        return stockDataDetails;
+    }
+
+    public List<string> GetTop5Tickets(int idUsuario)
+    {
+        return _investidorRepo.GetTop5Tickets(idUsuario);
+    }
+
     public async Task InsertStockAsync(int idUsuario, string symbol, int numeroAcoes)
     {
         await _investidorRepo.InsertStockAsync(idUsuario, symbol, numeroAcoes);

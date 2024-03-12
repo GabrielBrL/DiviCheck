@@ -22,26 +22,18 @@ public class AcoesService : IAcoesService
         return _httpClient.GetFromJsonAsync<StockDataDetails>($"/Acoes/papel/{ticket}").GetAwaiter().GetResult();
     }
 
-    public Dictionary<string, double> GetValueAcao(string ticket)
+    public Dictionary<string, double> GetVariacaoAcao(string ticket, string variacao)
     {
-        return _httpClient.GetFromJsonAsync<Dictionary<string, double>>($"/Acoes/{ticket}").GetAwaiter().GetResult();
+        return _httpClient.GetFromJsonAsync<Dictionary<string, double>>($"/Acoes/{ticket}/{variacao}").GetAwaiter().GetResult();
     }
 
-    public async Task<List<string>> GetAllTicketsAsync()
+    public async Task<Dictionary<string, double>> GetVariacaoAcaoAsync(string ticket, string variacao)
     {
-        return await _httpClient.GetFromJsonAsync<List<string>>("/Acoes/papeis");
+        return await _httpClient.GetFromJsonAsync<Dictionary<string, double>>($"/Acoes/{ticket}/{variacao}");
     }
 
-    public void GetVariationStocks(StockDataDetails acao)
+    public async Task<List<Stock>> GetAllTicketsAsync()
     {
-        var variacao = GetValueAcao(acao.Symbol.Substring(0,acao.Symbol.IndexOf('.'))).TakeLast(2);
-        var ultData = Convert.ToDateTime(variacao.Last().Key);
-        double vlrFinal = variacao.Last().Value;
-        double vlrInicial = variacao.First().Value;
-        double variacaoValue = vlrFinal - vlrInicial;
-        double variacaoPercentual = (variacaoValue / vlrInicial);
-        acao.VariacaoPercentual = variacaoPercentual;
-        acao.VariacaoValue = variacaoValue;
-        acao.DataUltCotacao = ultData;
+        return await _httpClient.GetFromJsonAsync<List<Stock>>("/Acoes/papeis");
     }
 }

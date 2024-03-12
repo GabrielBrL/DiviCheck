@@ -1,5 +1,5 @@
 @page "/carteira"
-
+@attribute [Authorize]
 @inject IInvestimentosService investimentos
 @inject IAcoesService acoesService
 @inject Blazored.LocalStorage.ILocalStorageService _localStore
@@ -8,7 +8,7 @@
 
 <PageTitle>Minha Carteira</PageTitle>
 
-<MudOverlay @bind-Visible="loading" DarkBackground="true" ZIndex="9999" AutoClose="true">
+<MudOverlay @bind-Visible="loading" DarkBackground="true" ZIndex="9999" AutoClose="false">
     <MudProgressCircular Color="Color.Default" Indeterminate="true" />
 </MudOverlay>
 <AuthorizeView Roles="Free,Premium">
@@ -80,7 +80,7 @@
     private int idUsuario;
     private bool loading;
     protected override async Task OnInitializedAsync()
-    {
+    {        
         loading = true;
         var user = (await AuthStat).User;
         bool authenticated = user.Identity.IsAuthenticated;
@@ -109,14 +109,12 @@
         _nav.NavigateTo("/login");
     }     
     private async Task cData(int idUsuario)
-    {           
-        await Task.Delay(1000);
-        _acoesCompradas = investimentos.GetStockDataDetails(idUsuario);            
+    {                   
+        _acoesCompradas = await investimentos.GetStockDataDetails(idUsuario);        
         patrimonioTotal = 0;
         _composicaoAcoes.Clear();
         foreach (var item in _acoesCompradas)
         {
-            acoesService.GetVariationStocks(item);
             var cotacao = item.CurrentPrice.Value;
             double valorTotal = Convert.ToDouble(item.NumeroAcoes * cotacao);
             _composicaoAcoes.Add(new KeyValuePair<string, double>(item.Symbol, valorTotal));
@@ -126,7 +124,8 @@
         StateHasChanged();        
     }
     private async Task SellAcao(StockDataDetails acao)
-    {       
+    {     
+        acao.loading = true;    
         if (acao.NumeroAcoes == acao.NumeroAcoesVendidas)
         {
             await SellAllAcao(acao);
@@ -145,16 +144,21 @@
                 option.CloseAfterNavigation = true;
             });
             await cData(idUsuario);
+            loading = false;
+            StateHasChanged();
             return;
         }
         _snackBar = Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
         {
             option.CloseAfterNavigation = true;
         });
+        acao.loading = false;
+        StateHasChanged();
     }
 
     private async Task SellAllAcao(StockDataDetails acao)
-    {        
+    {      
+        acao.loading = true;  
         var numAcoes = acao.NumeroAcoes;
         _acoesCompradas.Remove(acao);
         await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
@@ -165,10 +169,13 @@
             option.CloseAfterNavigation = true;
         });
         await cData(idUsuario);
+        acao.loading = false;
+        StateHasChanged();
     }
 
     private async Task BuyAcao(StockDataDetails acao)
     {                
+        acao.loading = true;
         var numAcoes = acao.NumeroAcoesVendidas;
         if(numAcoes > 0){
             var acaoSelected = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
@@ -180,12 +187,16 @@
             {
                 option.CloseAfterNavigation = true;
             });
-            await cData(idUsuario);                   
+            await cData(idUsuario);
+            acao.loading = false;
+            StateHasChanged();
             return;
         }
         _snackBar = Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
         {
             option.CloseAfterNavigation = true;
         });
+        acao.loading = false;
+        StateHasChanged();
     }
 }

@@ -1,11 +1,9 @@
 <MudText Typo="Typo.h6" Class="m-2" Align="Align.Start">Composição da carteira:</MudText>
 <MudList></MudList>
-<MudGrid Justify="Justify.Center">
-    <MudItem xs="3" />
-    <MudItem xs="5">
-        <PieChart @ref="pieChart" Width="600" Class="mb-5 justify-center" />
+<MudGrid Justify="Justify.FlexStart">
+    <MudItem xs="12">
+        <PieChart @ref="pieChart" Class="pieChart mb-5 justify-center" />
     </MudItem>
-    <MudItem xs="4" />
 </MudGrid>
 
 @code {
@@ -49,19 +47,21 @@
         backgroundColors = ColorBuilder.CategoricalTwelveColors;
         chartData = new ChartData { Labels = labels, Datasets = data };
         pieChartOptions = new();
-        pieChartOptions.Responsive = true;
+        pieChartOptions.Responsive = false;
         pieChartOptions.Plugins.Legend.Position = "right";
         pieChartOptions.Plugins.Datalabels.Color = "black";
         pieChartOptions.Plugins.Datalabels.Padding = 10;
         pieChartOptions.Plugins.Tooltip = new ChartPluginsTooltip
-        {
-            BodyFont = new ChartPluginsTooltipFont {
-                Size = 20,                
-            },
-            TitleFont = new ChartPluginsTooltipFont{
-                Size = 30,
-            }            
-        };
+            {
+                BodyFont = new ChartPluginsTooltipFont
+                {
+                    Size = 20,
+                },
+                TitleFont = new ChartPluginsTooltipFont
+                {
+                    Size = 30,
+                }
+            };
     }
     @* private void OnSelectedValue(ChartType tipo)
 {

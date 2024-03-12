@@ -19,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
 
+builder.Services.AddHttpClient<IAcoesService, AcoesService>();
 builder.Services.AddScoped<IAcoesService, AcoesService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
@@ -26,8 +27,8 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IHashService, HashService>();
 builder.Services.AddScoped<IInvestimentosService, InvestimentosService>();
 
-builder.Services.AddScoped<IAcoesRepository, AcoesRepository>();
 builder.Services.AddScoped<IInvestidorRepository, InvestidorRepository>();
+builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<RolesRepository>();
 
 builder.Services.AddDbContext<DataContext>(options =>
@@ -57,8 +58,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("UserFree", policy => policy.RequireRole("Free"));
+    options.AddPolicy("UserDefault", policy => policy.RequireRole("Free", "Premium"));
     options.AddPolicy("UserPremium", policy => policy.RequireRole("Premium"));
+    options.AddPolicy("Manager", policy => policy.RequireRole("Admin"));
 });
 
 builder.Services.AddSwaggerGen(opt =>
@@ -97,11 +99,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
-else
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+
 }
 
 app.UseHttpsRedirection();

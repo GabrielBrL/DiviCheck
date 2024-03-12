@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CTRLInvesting.Api.Controllers;
 
-[Authorize]
+[Authorize(Policy = "Manager")]
 [ApiController]
 [Route("[controller]")]
 public class RolesController : ControllerBase

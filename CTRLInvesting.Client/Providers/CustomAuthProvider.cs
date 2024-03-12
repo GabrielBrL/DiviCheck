@@ -16,7 +16,7 @@ public class CustomAuthProvider : AuthenticationStateProvider
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
         var jwt = await _localStorageService.GetItemAsync<string>("token");
-        if (string.IsNullOrEmpty(jwt))
+        if (string.IsNullOrEmpty(jwt) || isValidateExpiredToken(jwt))
         {
             return new AuthenticationState(
                 new ClaimsPrincipal(new ClaimsIdentity())
@@ -26,6 +26,20 @@ public class CustomAuthProvider : AuthenticationStateProvider
             new ClaimsIdentity(ParseClaimsFromJwt(jwt), "JwtAuth")
         ));
     }
+
+    private bool isValidateExpiredToken(string jwt)
+    {
+        var claims = ParseClaimsFromJwt(jwt);
+        var exp = claims.Where(key => key.Type == "exp").Select(key => key.Value).First();
+        var expirationTime = DateTimeOffset.FromUnixTimeSeconds(long.Parse(exp)).UtcDateTime;
+        if (expirationTime <= DateTime.UtcNow)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
     {
         var payload = jwt.Split('.')[1];

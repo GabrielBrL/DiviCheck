@@ -18,6 +18,7 @@ builder.Services.AddScoped<IAcoesService, AcoesService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IInvestimentosService, InvestimentosService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
+builder.Services.AddScoped<CustomHttpHandler>();
 
 builder.Services.AddScoped<FluentValidationRegisterUsuario>();
 
@@ -30,6 +31,8 @@ builder.Services.AddAuthenticationCore();
 
 builder.Services.AddBlazorBootstrap();
 
+builder.Services.AddLocalization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,6 +43,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseRequestLocalization("pt-BR");
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

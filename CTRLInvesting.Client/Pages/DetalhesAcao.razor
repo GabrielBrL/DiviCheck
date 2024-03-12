@@ -1,0 +1,73 @@
+<MudGrid Justify="Justify.Center" Spacing="1">
+    <MudItem xs="12">
+        <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+                <MudText Typo="Typo.body1" Align="Align.Center" Inline="true">Empresa</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                @if (stock.LongName != null)
+                {                    
+                    <MudText Typo="Typo.h5" Align="Align.Center">@stock.LongName</MudText>
+                }
+                else
+                {
+                    <MudText>N/A</MudText>
+                }
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" xl="4" xxl="4" lg="4" md="12" sm="12">
+        <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+                <MudText Typo="Typo.body1" Inline="true">Dividend Yield</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                @if (stock.DividendYield != null)
+                {
+                    @stock.DividendYield.Value.ToString("P2")
+                }
+                else
+                {
+                    <MudText>N/A</MudText>
+                }
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" xl="4" xxl="4" lg="4" md="12" sm="12">
+        <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+                <MudText Typo="Typo.body1">Data do último dividendo</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                @if (stock.LastDividendDate != null)
+                {
+                    @DateTimeOffset.FromUnixTimeSeconds(stock.LastDividendDate.Value).ToString("dd/MM/yyyy")
+                }
+                else
+                {
+                    <MudText>N/A</MudText>
+                }
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" xl="4" xxl="4" lg="4" md="12" sm="12">
+        <MudCard Outlined="false" Class="rounded-lg pb-4">
+            <MudCardHeader>
+                <MudText Typo="Typo.body1">Valor do último dividendo</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                @if (stock.LastDividendValue != null)
+                {
+                    @stock.LastDividendValue.Value.ToString("C")
+                }
+                else
+                {
+                    <MudText>N/A</MudText>
+                }
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+@code {
+    [Parameter] public StockDataDetails stock { get; set; } = new StockDataDetails();
+}

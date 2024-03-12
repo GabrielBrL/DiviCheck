@@ -2,7 +2,7 @@
 @inject IDialogService DialogService
 @inject Blazored.LocalStorage.ILocalStorageService _localStore
 
-<MudDataGrid Items="_acoes" SortMode="SortMode.Single" ShowFilterIcons="false" Loading="loadingGrid">
+<MudDataGrid Items="_acoes" SortMode="SortMode.Single" ShowFilterIcons="false" Class="mudDataGridDividend" Loading="loadingGrid">
     <Columns>      
         <TemplateColumn Title="Papel">
             <CellTemplate>
@@ -13,15 +13,15 @@
                 </MudStack>
             </CellTemplate>
         </TemplateColumn>
-        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : x.CurrentPrice.Value" Format="C" Title="Cotação" />
+        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : x.CurrentPrice.Value" Format="C" Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Cotação" />
         <PropertyColumn Property="x => x.NumeroAcoes" Title="Número de ações" />
-        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C"
+        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C" Culture='(new System.Globalization.CultureInfo("pt-BR"))'
             Title="Valor total" />
         <PropertyColumn Property="x => x.DividendYield" Format="P" Title="Percentual de dividendos a.a." />
         <TemplateColumn Title="Valor de dividendos m.m.">
             <CellTemplate>
                 <MudStack Spacing="0">
-                    @context.Item.VlrDivYieldMes.ToString("C")
+                    @context.Item.VlrDivYieldMes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
                     @if (context.Item.DividendYield == null)
                     {
                         <MudText style="font-size: 10px;" Typo="Typo.caption">(Baseado no último dividendo)</MudText>
@@ -29,13 +29,13 @@
                 </MudStack>
             </CellTemplate>
             <FooterTemplate>
-                @(context.Items.Sum(x => x.VlrDivYieldMes).ToString("C"))
+                @(context.Items.Sum(x => x.VlrDivYieldMes).ToString("C", new System.Globalization.CultureInfo("pt-BR")))
             </FooterTemplate>
         </TemplateColumn>
         <TemplateColumn Title="Valor de dividendos a.a.">
             <CellTemplate>
                 <MudStack Spacing="0">
-                    @context.Item.VlrDivYieldAno.ToString("C")
+                    @context.Item.VlrDivYieldAno.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
                     @if (context.Item.DividendYield == null)
                     {
                         <MudText style="font-size: 10px;" Typo="Typo.caption">(Baseado no último dividendo)</MudText>
@@ -43,11 +43,21 @@
                 </MudStack>
             </CellTemplate>
             <FooterTemplate>
-                @(context.Items.Sum(x => x.VlrDivYieldAno).ToString("C"))
+                @(context.Items.Sum(x => x.VlrDivYieldAno).ToString("C", new System.Globalization.CultureInfo("pt-BR")))
             </FooterTemplate>
         </TemplateColumn>
     </Columns>
 </MudDataGrid>
+<MudPaper Class="dividendSum" Outlined="true" Square="true">
+    <MudGrid Justify="Justify.Center" Spacing="5">
+        <MudItem sm="6">
+            <strong>Valor de dividendos m.m.</strong> <MudText Typo="Typo.body1">@_acoes.Sum(x => x.VlrDivYieldMes).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</MudText>
+        </MudItem>
+        <MudItem sm="6">
+             <strong>Valor de dividendos a.a.</strong> <MudText Typo="Typo.body1">@_acoes.Sum(x => x.VlrDivYieldAno).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</MudText>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
 
 @code {
     [Parameter]
@@ -82,7 +92,7 @@
         var options = new DialogOptions
             {
                 ClassBackground = "dialogInformationStock",
-                MaxWidth = MaxWidth.Large,
+                MaxWidth = MaxWidth.Medium,
                 FullWidth = true,
                 CloseButton = true
             };

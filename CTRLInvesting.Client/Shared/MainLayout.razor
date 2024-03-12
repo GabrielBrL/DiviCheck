@@ -7,7 +7,7 @@
 @inject IAcoesService _acoesService
 @inject NavigationManager _nav
 
-<PageTitle>CTRLInvesting</PageTitle>
+<PageTitle>DiviCheck</PageTitle>
 
 <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="MyCustomTheme" />
 <MudDialogProvider />
@@ -17,14 +17,14 @@
     <MudAppBar Style="@($"background:{Colors.Blue.Accent1}")">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start"
             OnClick="@((e) => DrawerToggle())" />
-        <MudText Typo="Typo.body1" Style="font-weight:bold">Control Investing</MudText>
+        <MudText Typo="Typo.body1" Style="font-weight:bold">DiviCheck</MudText>
         <MudSpacer />
         <AuthorizeView>
             <Authorized>
                 <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Dark" AnchorOrigin="Origin.BottomCenter"
                     TransformOrigin="Origin.TopCenter" ActivationEvent="@MouseEvent.LeftClick" Class="mx-5">
                     <ChildContent>
-                        <MudMenuItem>Perfil</MudMenuItem>
+                        <MudMenuItem Href="/perfil">Perfil</MudMenuItem>
                         <MudMenuItem OnClick="(() => LogOut())">Sair</MudMenuItem>
                     </ChildContent>
                 </MudMenu>
@@ -37,17 +37,17 @@
         </AuthorizeView>
         @if (this._isDarkMode)
         {
-            <MudIconButton Icon="@Icons.Material.Filled.LightMode" Class="ml-2 mudIconButtonThemeLight"
-                OnClick="@this.SwitchTheme" Title="Light mode" />
-        }
-        else
-        {
             <MudIconButton Icon="@Icons.Material.Filled.DarkMode" Class="ml-2 mudIconButtonThemeDark" OnClick="@this.SwitchTheme"
                 Title="Dark mode" />
         }
+        else
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.LightMode" Class="ml-2 mudIconButtonThemeLight"
+                OnClick="@this.SwitchTheme" Title="Light mode" />
+        }
 
     </MudAppBar>
-    <MudDrawer @bind-Open="@_drawerOpen">
+    <MudDrawer @bind-Open="@_drawerOpen" Variant="@DrawerVariant.Temporary">
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
@@ -68,7 +68,7 @@
             Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
             Snackbar.Configuration.VisibleStateDuration = 2000;
             Snackbar.Configuration.ShowCloseIcon = false;
-            _isDarkMode = await _localStore.GetItemAsync<bool>("themeMode");
+            _isDarkMode = (await _localStore.GetItemAsync<string>("themeMode")) == null ? true : (await _localStore.GetItemAsync<bool>("themeMode"));
             StateHasChanged();
         }
     }
@@ -88,8 +88,8 @@
     }
     private async Task LogOut()
     {
-        await _localStore.SetItemAsync<string>("token", string.Empty);
-        await _localStore.SetItemAsync<string>("acoes", string.Empty);
+        await _localStore.RemoveItemAsync("token");
+        await _localStore.RemoveItemAsync("acoes");
         _nav.NavigateTo("/", true);
     }
     void DrawerToggle()
@@ -118,7 +118,8 @@
                 Secondary = Colors.Grey.Darken3,
                 TextPrimary = Colors.Shades.White,
                 TextSecondary = Colors.Shades.White,
-                ActionDefault = Colors.Grey.Lighten1,
+                PrimaryContrastText = Colors.Shades.Black,
+                ActionDefault = Colors.Shades.White,
                 AppbarText = Colors.Shades.White
             },
             LayoutProperties = new LayoutProperties()

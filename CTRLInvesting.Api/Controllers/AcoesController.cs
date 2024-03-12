@@ -4,6 +4,7 @@ using System.Text.Json;
 using CTRLInvesting.Api.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using CTRLInvesting.Model.Stocks;
+using CTRLInvesting.Model;
 
 namespace CTRLInvesting.Api.Controllers
 {    
@@ -16,21 +17,27 @@ namespace CTRLInvesting.Api.Controllers
         public AcoesController(IAcoesService acoesService)
         {
             _acoesService = acoesService;
-        }        
+        }
         [HttpGet("papel/{ticket}")]
         public StockDataDetails GetAcao(string ticket)
         {
             return _acoesService.GetAcao(ticket);
-        }        
-        [HttpGet("{ticket}")]
-        public Dictionary<string, double> GetValueAcao(string ticket)
+        }
+        [HttpGet("{ticket}/{variacao}")]
+        public Dictionary<DateTime, double> GetVariacaoAcao(string ticket, string variacao)
         {
-            return _acoesService.GetValueAcao(ticket);
+            return _acoesService.GetVariacaoAcoes(ticket, variacao);
         }
         [HttpGet("papeis")]
-        public Task<List<string>> GetTickets()
+        public List<Stock> GetTickets()
         {
-            return _acoesService.GetAllTicketsAsync();
+            return _acoesService.GetAllTicketsFromDb();
+        }
+        // [Authorize(Policy = "Manager")]
+        [HttpGet("papeis/add")]
+        public Task<string> AddTickets()
+        {
+            return _acoesService.AddTicketStocks();
         }
     }
 }

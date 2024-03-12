@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+using CTRLInvesting.Model;
 using CTRLInvesting.Model.Investidor;
 using CTRLInvesting.Model.Roles;
 using CTRLInvesting.Model.Stocks;
@@ -15,6 +17,7 @@ namespace CTRLInvesting.Api.Data
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Investidor> Investidor { get; set; }
         public DbSet<Roles> Roles { get; set; }
+        public DbSet<Stock> Stock { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,7 +29,15 @@ namespace CTRLInvesting.Api.Data
             .HasOne(u => u.Role)
             .WithMany(r => r.Usuarios)
             .HasForeignKey(u => u.IdRole)
-            .IsRequired();            
+            .IsRequired();
+
+            // modelBuilder.Entity<Stock>()
+            // .Property(e => e.Symbol)
+            // .ValueGeneratedOnAdd();
+
+            // modelBuilder.Entity<Stock>()
+            // .Property(e => e.LongName)
+            // .ValueGeneratedOnAdd();
         }
     }
 }

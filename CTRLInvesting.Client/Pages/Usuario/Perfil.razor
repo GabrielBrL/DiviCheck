@@ -1,0 +1,101 @@
+@page "/perfil"
+
+@attribute [Authorize]
+@inject ISnackbar Snackbar
+@inject FluentValidationRegisterUsuario formValid
+@inject NavigationManager _nav
+@inject IUsuarioService _userService
+@inject IInvestimentosService _investidorService
+
+@using System.ComponentModel.DataAnnotations
+@using Model.Usuario
+@using Validations
+
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudForm Model="@model" @ref="@form" Disabled="@loading" Validation="formValid.ValidateValue" ValidationDelay="0">
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12">
+                <MudCard>
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudStack>
+                                <MudText Typo="Typo.h4" Align="Align.Center">Perfil</MudText>
+                                <MudChip Icon="@icon" Style="@($"background-color: {colorUser}")">@role</MudChip>
+                            </MudStack>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTextField Label="Usuário" ReadOnly="true" @bind-Value="model.UserName"
+                            For="@(() => model.UserName)" />
+                        <MudTextField Label="Email" ReadOnly="true" Class="mt-3" @bind-Value="model.Email"
+                            For="@(() => model.Email)" />
+                        @* <MudTextField Label="Senha" HelperText="Max. 20 caracteres" Class="mt-3"
+                        @bind-Value="model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
+                        <MudTextField Label="Confirme a senha" HelperText="Repita a senha" Class="mt-3"
+                        @bind-Value="model.ConfirmPassword" For="@(() => model.ConfirmPassword)"
+                        InputType="InputType.Password" /> *@
+                        <MudGrid Class="p-3">
+                            <MudItem xs="12">
+                                <MudText Typo="Typo.caption">Maior participação na carteira: </MudText>
+                            </MudItem>
+                            <MudItem xs="12" Class="pt-0">
+                                <MudGrid Spacing="1">
+                                    @foreach (var ticket in topTickets)
+                                    {
+                                        <MudItem>
+                                            @if (_investidorService.FileExist(ticket))
+                                            {
+                                                <MudAvatar>
+                                                    <MudImage Src=@($"assets/{ticket.Substring(0,4)}.svg") title=@($"{ticket}")
+                                                        Alt=@($"{ticket}")></MudImage>
+                                                </MudAvatar>
+                                            }
+                                            else
+                                            {
+                                                <MudAvatar title=@($"{ticket}")>@ticket.Substring(0, 1)</MudAvatar>
+                                            }
+                                        </MudItem>
+                                    }
+                                </MudGrid>
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudForm>
+</MudContainer>
+@if (loading)
+{
+    <MudProgressLinear Color="Color.Default" Indeterminate="true" Class="my-7" />
+}
+@code {
+    MudForm form;
+    private Snackbar? _snackBar;
+    Usuario model = new Usuario();
+    private bool loading = false;
+    private string colorUser;
+    private string icon;
+    private string role;
+    private static List<string> topTickets = new List<string>();
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var user = (await authenticationStateTask).User;
+        int idUsuario = Int32.Parse(user.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
+        model.UserName = user.Claims.Where(_ => _.Type == "Username").Select(_ => _.Value).First();
+        model.Email = user.Claims.Where(_ => _.Type == "Email").Select(_ => _.Value).First();
+        role = user.Claims.Where(_ => _.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Select(_ =>
+        _.Value).First();        
+        if (role == "Free")
+        {
+            icon = Icons.Material.Filled.Person;
+            colorUser = "#82B1FF";
+            topTickets = await _investidorService.GetTop5Tickets(idUsuario);
+            return;
+        }
+        icon = Icons.Material.Filled.AttachMoney;
+        colorUser = "#F3B93F";
+        topTickets = await _investidorService.GetTop5Tickets(idUsuario);
+    }    
+}
