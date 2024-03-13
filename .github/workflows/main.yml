@@ -46,7 +46,7 @@ jobs:
             604210/divicheck-api:latest
       
       - name: Instalando google cli
-        uses: google-github-actions/setup-gcloud@v2.1.0
+        uses: google-github-actions/setup-gcloud@v0
         with:
           project_id: ${{secrets.GOOGLE_PROJECT}}
           service_account_key: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
