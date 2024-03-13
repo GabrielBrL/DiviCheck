@@ -28,8 +28,8 @@ jobs:
       - name: Construindo imagem Docker do Client
         uses: docker/build-push-action@v5.2.0
         with:
-          context: ./CTRLInvesting.Client
-          file: ./CTRLInvesting.Client/Dockerfile
+          context: CTRLInvesting.Client
+          file: CTRLInvesting.Client/Dockerfile
           push: true
           tags: |
             604210/divicheck-client:${{github.run_number}}
