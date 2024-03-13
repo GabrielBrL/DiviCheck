@@ -33,4 +33,14 @@ jobs:
           push: true
           tags: |
             604210/divicheck-client:${{github.run_number}}
-            604210/divicheck-client:latest     
+            604210/divicheck-client:latest
+            
+      - name: Construindo imagem Docker da Api
+        uses: docker/build-push-action@v5.2.0
+        with:
+          context: .
+          file: CTRLInvesting.Api/Dockerfile
+          push: true
+          tags: |
+            604210/divicheck-api:${{github.run_number}}
+            604210/divicheck-api:latest   
