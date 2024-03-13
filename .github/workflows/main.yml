@@ -44,5 +44,21 @@ jobs:
           tags: |
             604210/divicheck-api:${{github.run_number}}
             604210/divicheck-api:latest
-
       
+      - name: Instalando google cli
+        uses: google-github-actions/setup-gcloud@v2.1.0
+        with:
+          project_id: ${{secrets.GOOGLE_PROJECT}}
+          service_account_key: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+          export_default_credentials: true
+          
+      - name: Construindo e enviando imagem docker
+        env:
+          GOOGLE_PROJECT: ${{secrets.GOOGLE_PROJECT}}
+        run:
+          gcloud auth configure-docker southamerica-east1southamerica-east1-docker.pkg.dev
+          docker build -t southamerica-east1-docker.pkg.dev/$GOOGLE_PROJECT/docker/client:latest .
+          docker push southamerica-east1-docker.pkg.dev/$GOOGLE_PROJECT/docker/client:latest
+
+
+          
