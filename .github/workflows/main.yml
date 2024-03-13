@@ -43,4 +43,6 @@ jobs:
           push: true
           tags: |
             604210/divicheck-api:${{github.run_number}}
-            604210/divicheck-api:latest   
+            604210/divicheck-api:latest
+
+      
