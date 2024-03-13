@@ -10,15 +10,15 @@ c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.dll
 c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\refint\CTRLInvesting.Model.dll
 c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.pdb
 c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\ref\CTRLInvesting.Model.dll
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.deps.json
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.dll
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.pdb
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.csproj.AssemblyReference.cache
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.AssemblyInfoInputs.cache
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.AssemblyInfo.cs
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.csproj.CoreCompileInputs.cache
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.dll
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\refint\CTRLInvesting.Model.dll
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.pdb
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\ref\CTRLInvesting.Model.dll
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.deps.json
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.dll
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.pdb
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.csproj.AssemblyReference.cache
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.GeneratedMSBuildEditorConfig.editorconfig
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.AssemblyInfoInputs.cache
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.AssemblyInfo.cs
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.csproj.CoreCompileInputs.cache
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.dll
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\refint\CTRLInvesting.Model.dll
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.pdb
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\ref\CTRLInvesting.Model.dll

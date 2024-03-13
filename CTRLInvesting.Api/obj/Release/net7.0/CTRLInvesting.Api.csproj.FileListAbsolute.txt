@@ -56,3 +56,8 @@ C:\Projeto Controle Investimentos\CTRLInvesting.Api\obj\Release\net7.0\refint\CT
 C:\Projeto Controle Investimentos\CTRLInvesting.Api\obj\Release\net7.0\CTRLInvesting.Api.pdb
 C:\Projeto Controle Investimentos\CTRLInvesting.Api\obj\Release\net7.0\CTRLInvesting.Api.genruntimeconfig.cache
 C:\Projeto Controle Investimentos\CTRLInvesting.Api\obj\Release\net7.0\ref\CTRLInvesting.Api.dll
+C:\Projeto Controle Investimentos\CTRLInvesting.Api\bin\Release\net7.0\publish\web.config
+C:\Projeto Controle Investimentos\CTRLInvesting.Api\bin\Release\net7.0\publish\appsettings.Development.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Api\bin\Release\net7.0\publish\appsettings.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Api\bin\Release\net7.0\publish\CTRLInvesting.Api.deps.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Api\bin\Release\net7.0\publish\CTRLInvesting.Api.runtimeconfig.json
