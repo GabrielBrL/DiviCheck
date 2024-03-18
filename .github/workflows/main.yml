@@ -45,7 +45,7 @@ jobs:
             604210/divicheck-api:${{github.run_number}}
             604210/divicheck-api:latest
       
-      - uses: google-github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@v0
         with:
           service_account_key: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
           project_id: ${{secrets.GOOGLE_PROJECT}}
