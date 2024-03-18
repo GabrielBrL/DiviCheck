@@ -47,16 +47,17 @@ jobs:
             604210/divicheck-api:${{github.run_number}}
             604210/divicheck-api:latest
       
-      - uses: google-github-actions/setup-gcloud@v0.2.0
+      - name: Inserindo credenciais
+        uses: google-github-actions/setup-gcloud@v0.2.0
         with:
           service_account_key: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
           project_id: ${{secrets.GOOGLE_PROJECT}}  
 
-      - name: Configure Docker
+      - name: Autenticação Google Cloud
         run: gcloud auth configure-docker --quiet
 
-      - name: Build Docker image
-        run: docker build -t $IMAGE_NAME .
+      - name: Build Docker image from dock hub
+        run: docker build -t $IMAGE_NAME -f CTRLInvesting.Api/Dockerfile .
 
       # push image to registry
       - name: Push Docker image
