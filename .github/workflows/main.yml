@@ -56,8 +56,8 @@ jobs:
       - name: Autenticação Google Cloud
         run: gcloud auth configure-docker --quiet
 
-      - name: Build Docker image from dock hub
-        run: docker build -t $IMAGE_NAME .
+      - name: Build Docker image
+        run: docker build -t $IMAGE_NAME -f CTRLInvesting.Client/Dockerfile .
 
       # push image to registry
       - name: Push Docker image
