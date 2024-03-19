@@ -10,7 +10,7 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: 604210/divicheck-api:latest
+      IMAGE_NAME: gcr.io/${{ secrets.GOOGLE_PROJECT }}/site:latest
 
     steps:
       - uses: actions/checkout@v2
@@ -57,7 +57,7 @@ jobs:
         run: gcloud auth configure-docker --quiet
 
       - name: Build Docker image from dock hub
-        run: docker build -t $IMAGE_NAME -f CTRLInvesting.Api/Dockerfile .
+        run: docker build -t $IMAGE_NAME .
 
       # push image to registry
       - name: Push Docker image
