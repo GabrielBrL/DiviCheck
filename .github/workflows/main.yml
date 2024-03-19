@@ -32,8 +32,8 @@ jobs:
           service_account_key: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
           project_id: ${{secrets.GOOGLE_PROJECT}}  
 
-      - name: Autenticação Google Cloud
-        run: gcloud auth configure-docker --quiet southamerica-east1-docker.pkg.dev
+      - name: Autenticação Google Cloud        
+        run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://southamerica-east1-docker.pkg.dev
 
       - name: Build Docker image
         run: docker build -t $IMAGE_NAME -f CTRLInvesting.Client/Dockerfile .
