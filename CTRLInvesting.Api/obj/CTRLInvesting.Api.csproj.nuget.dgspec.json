@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj": {}
+    "C:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj": {}
   },
   "projects": {
-    "c:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj": {
+    "C:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj",
+        "projectUniqueName": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj",
         "projectName": "CTRLInvesting.Api",
-        "projectPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj",
+        "projectPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\obj\\",
+        "outputPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
