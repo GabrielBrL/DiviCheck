@@ -21,6 +21,7 @@ builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("D
 
 builder.Services.AddHttpClient<IAcoesService, AcoesService>();
 builder.Services.AddScoped<IAcoesService, AcoesService>();
+builder.Services.AddScoped<IStocksHighLight, StocksHighLight>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();

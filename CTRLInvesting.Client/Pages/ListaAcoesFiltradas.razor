@@ -1,5 +1,5 @@
 @inject IInvestimentosService investimentos
-@inject Blazored.LocalStorage.ILocalStorageService _localStore
+@* @inject Blazored.LocalStorage.ILocalStorageService _localStore *@
 @inject ISnackbar Snackbar
 @inject IDialogService DialogService
 
@@ -158,7 +158,7 @@
                                                 <MudNumericField T="int" style="margin: 0; width: 75%;" FullWidth="false"
                                                     @bind-Value="acao.NumeroAcoes" Min="0" />
                                                 <MudButton OnClick="@(() => AddToWallet(acao))" Variant="Variant.Text"
-                                                    Color="Color.Primary">
+                                                    Color="Color.Primary" id="@acao.Symbol">
                                                     Adicionar</MudButton>
                                             </MudStack>
                                         </MudItem>
@@ -190,28 +190,30 @@
     public List<StockDataDetails> _acoesFiltradas { get; set; }
     [Parameter]
     public List<StockDataDetails> _acoesCompradas { get; set; }
-    private Snackbar _snackBar;
+    @* private Snackbar _snackBar; *@
     private void UpdateNumberAcoes(int number, StockDataDetails acao) => acao.NumeroAcoes += number;
     private async Task AddToWallet(StockDataDetails acao)
     {
         acao.loading = true;
         if (acao.NumeroAcoes <= 0)
         {
-            _snackBar = Snackbar.Add("Número de ações inválidas.", Severity.Error);
+            Snackbar.Add("Número de ações inválidas.", Severity.Error);
+            acao.loading = false;
             return;
-        }        
+        }       
+        int numAcoes = acao.NumeroAcoes; 
         StockDataDetails existAcao = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
         if (existAcao != null)
             existAcao.NumeroAcoes += acao.NumeroAcoes;
         else
             _acoesCompradas.Add(acao);
-        await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
+        //await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
         var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')),NumeroAcoes = acao.NumeroAcoes};
         await investimentos.InsertStockDataDetails(formStock);
-        _snackBar = Snackbar.Add($"Parabéns!! {acao.NumeroAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))} foram adicionadas na sua carteira.",
+        acao.NumeroAcoes = numAcoes;
+        Snackbar.Add($"Parabéns!! {acao.NumeroAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))} foram adicionadas na sua carteira.",
         Severity.Success);
         acao.loading = false;
-        StateHasChanged();
     }
     private async Task OpenInformationAboutStock(StockDataDetails stock)
     {

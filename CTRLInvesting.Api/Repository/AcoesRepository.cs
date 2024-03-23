@@ -12,9 +12,6 @@ namespace CTRLInvesting.Api.Repository;
 public class AcoesRepository : IAcoesRepository
 {
 
-    public AcoesRepository()
-    {
-    }
     public async Task<Dictionary<string, double>> GetValueAcoesAsync(string ticket)
     {
         using (HttpClient _httpClient = new HttpClient())

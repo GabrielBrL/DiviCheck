@@ -58,6 +58,10 @@ h1:focus {
     color: var(--mud-palette-primary-text) !important;
 }
 
+.hiddenTab {
+    display: none !important;
+}
+
 @media screen and (min-width: 600px) {
     .precoCarteira {
         font-size: 30px !important;

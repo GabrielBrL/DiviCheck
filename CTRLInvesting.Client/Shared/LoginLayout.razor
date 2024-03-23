@@ -1,6 +1,5 @@
 @inherits LayoutComponentBase
 
-@inject Blazored.LocalStorage.ILocalStorageService _localStore
 @inject ISnackbar Snackbar
 @inject IAcoesService _acoesService
 
@@ -18,7 +17,7 @@
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Small" Class="mt-5" >
+        <MudContainer MaxWidth="MaxWidth.Small" Class="mt-5">
             @Body
         </MudContainer>
     </MudMainContent>
@@ -27,17 +26,6 @@
     bool _drawerOpen = false;
     private bool _isDarkMode = true;
     private string _iconTheme = Icons.Material.Filled.LightMode;
-    private Snackbar? _snackBar;
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
-            Snackbar.Configuration.VisibleStateDuration = 2000;
-            Snackbar.Configuration.ShowCloseIcon = false;
-            StateHasChanged();
-        }
-    }
     MudTheme MyCustomTheme = new MudTheme()
         {
             Palette = new PaletteLight()

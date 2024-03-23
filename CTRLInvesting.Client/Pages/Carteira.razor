@@ -2,7 +2,7 @@
 @attribute [Authorize]
 @inject IInvestimentosService investimentos
 @inject IAcoesService acoesService
-@inject Blazored.LocalStorage.ILocalStorageService _localStore
+@* @inject Blazored.LocalStorage.ILocalStorageService _localStore *@
 @inject NavigationManager _nav
 @inject ISnackbar Snackbar
 
@@ -73,8 +73,7 @@
     private List<KeyValuePair<string, double>> _composicaoAcoes = new List<KeyValuePair<string, double>>();
     private List<string> _acoesPapel;
     private double patrimonioTotal = 0;
-    private int totalAtivos = 0;
-    private Snackbar? _snackBar;
+    private int totalAtivos = 0;    
     MudListItem? selectedItem;
     static object selectedValue = 1;
     private int idUsuario;
@@ -90,14 +89,14 @@
                 idUsuario = Int32.Parse(user.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
                 await cData(idUsuario);
                 if (_acoesCompradas.Count == 0)
-                    _snackBar = Snackbar.Add("Não há empresas na sua carteira", Severity.Warning, option =>
+                    Snackbar.Add("Não há empresas na sua carteira", Severity.Warning, option =>
                     {
                         option.CloseAfterNavigation = true;
                     });
             }
             catch (Exception e)
             {
-                _snackBar = Snackbar.Add("Não há empresas na sua carteira", Severity.Warning, option =>
+                Snackbar.Add("Não há empresas na sua carteira", Severity.Warning, option =>
                 {
                     option.CloseAfterNavigation = true;
                 });
@@ -135,11 +134,11 @@
         {
             var acoesSelected = _acoesCompradas.First(x => x.Symbol == acao.Symbol);
             acoesSelected.NumeroAcoes -= acao.NumeroAcoesVendidas;
-            await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
+            @* await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas); *@
             var qtdVendidas =  _acoesCompradas.First(x => x.Symbol == acao.Symbol).NumeroAcoes;
             var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')), NumeroAcoes = qtdVendidas };
             await investimentos.UpdateStockDataDetails(formStock);
-            _snackBar = Snackbar.Add($"Você vendeu {acao.NumeroAcoesVendidas} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))}", Severity.Success, option =>
+            Snackbar.Add($"Você vendeu {acao.NumeroAcoesVendidas} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))}", Severity.Success, option =>
             {
                 option.CloseAfterNavigation = true;
             });
@@ -148,7 +147,7 @@
             StateHasChanged();
             return;
         }
-        _snackBar = Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
+        Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
         {
             option.CloseAfterNavigation = true;
         });
@@ -161,10 +160,10 @@
         acao.loading = true;  
         var numAcoes = acao.NumeroAcoes;
         _acoesCompradas.Remove(acao);
-        await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
+        @* await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas); *@
         var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.'))};
         await investimentos.DeleteStockDataDetails(formStock);
-        _snackBar = Snackbar.Add($"Você vendeu {numAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))}", Severity.Success, option =>
+        Snackbar.Add($"Você vendeu {numAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))}", Severity.Success, option =>
         {
             option.CloseAfterNavigation = true;
         });
@@ -180,10 +179,10 @@
         if(numAcoes > 0){
             var acaoSelected = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
             acaoSelected.NumeroAcoes += numAcoes;
-            await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
+            @* await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas); *@
             var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')), NumeroAcoes = acaoSelected.NumeroAcoes};
             await investimentos.UpdateStockDataDetails(formStock);
-            _snackBar = Snackbar.Add($"Parabéns!! {numAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))} foram adicionadas na sua carteira.", Severity.Success, option =>
+            Snackbar.Add($"Parabéns!! {numAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))} foram adicionadas na sua carteira.", Severity.Success, option =>
             {
                 option.CloseAfterNavigation = true;
             });
@@ -192,7 +191,7 @@
             StateHasChanged();
             return;
         }
-        _snackBar = Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
+        Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
         {
             option.CloseAfterNavigation = true;
         });

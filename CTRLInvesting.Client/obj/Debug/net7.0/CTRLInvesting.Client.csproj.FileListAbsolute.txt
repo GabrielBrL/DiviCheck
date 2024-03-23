@@ -98,6 +98,7 @@ c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwe
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets.pack.json
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets.build.json
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\staticwebassets.development.json
+c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\Shared\DialogInformationStock.razor.rz.scp.css
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 c:\Projeto Controle Investimentos\CTRLInvesting.Client\obj\Debug\net7.0\scopedcss\bundle\CTRLInvesting.Client.styles.css

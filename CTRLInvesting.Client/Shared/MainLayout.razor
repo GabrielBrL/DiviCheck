@@ -30,15 +30,17 @@
                 </MudMenu>
             </Authorized>
             <NotAuthorized>
-                <MudLink Href="/login" Underline="Underline.Hover" style="color: #FFFFFF!important;" Class="mx-5">Login</MudLink>
+                <MudLink Href="/login" Underline="Underline.Hover" style="color: #FFFFFF!important;" Class="mx-5">Login
+                </MudLink>
                 <MudText Typo="Typo.body1">|</MudText>
-                <MudLink Href="/register" Underline="Underline.Hover" style="color: #FFFFFF!important;" Class="mx-5">Registrar</MudLink>
+                <MudLink Href="/register" Underline="Underline.Hover" style="color: #FFFFFF!important;" Class="mx-5">
+                    Registrar</MudLink>
             </NotAuthorized>
         </AuthorizeView>
         @if (this._isDarkMode)
         {
-            <MudIconButton Icon="@Icons.Material.Filled.DarkMode" Class="ml-2 mudIconButtonThemeDark" OnClick="@this.SwitchTheme"
-                Title="Dark mode" />
+            <MudIconButton Icon="@Icons.Material.Filled.DarkMode" Class="ml-2 mudIconButtonThemeDark"
+                OnClick="@this.SwitchTheme" Title="Dark mode" />
         }
         else
         {
@@ -60,15 +62,12 @@
     bool _drawerOpen = false;
     private bool _isDarkMode = true;
     private string _iconTheme = Icons.Material.Filled.LightMode;
-    private Snackbar? _snackBar;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
-            Snackbar.Configuration.VisibleStateDuration = 2000;
-            Snackbar.Configuration.ShowCloseIcon = false;
-            _isDarkMode = (await _localStore.GetItemAsync<string>("themeMode")) == null ? true : (await _localStore.GetItemAsync<bool>("themeMode"));
+            _isDarkMode = (await _localStore.GetItemAsync<string>("themeMode")) == null ? true : (await
+            _localStore.GetItemAsync<bool>("themeMode"));
             StateHasChanged();
         }
     }
@@ -89,7 +88,7 @@
     private async Task LogOut()
     {
         await _localStore.RemoveItemAsync("token");
-        await _localStore.RemoveItemAsync("acoes");
+        @* await _localStore.RemoveItemAsync("acoes"); *@
         _nav.NavigateTo("/", true);
     }
     void DrawerToggle()
@@ -125,7 +124,7 @@
             LayoutProperties = new LayoutProperties()
             {
                 DrawerWidthLeft = "160px",
-                DrawerWidthRight = "250px"                
+                DrawerWidthRight = "250px"
             }
         };
 }
