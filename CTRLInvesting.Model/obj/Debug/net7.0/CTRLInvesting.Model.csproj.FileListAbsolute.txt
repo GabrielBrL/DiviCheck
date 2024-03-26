@@ -10,7 +10,7 @@ c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.dll
 c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\refint\CTRLInvesting.Model.dll
 c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.pdb
 c:\PCI Front\CTRLInvesting.Model\obj\Debug\net7.0\ref\CTRLInvesting.Model.dll
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.deps.json
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.deps.json
 c:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.dll
 c:\Projeto Controle Investimentos\CTRLInvesting.Model\bin\Debug\net7.0\CTRLInvesting.Model.pdb
 c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.csproj.AssemblyReference.cache
@@ -21,4 +21,4 @@ c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInves
 c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.dll
 c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\refint\CTRLInvesting.Model.dll
 c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\CTRLInvesting.Model.pdb
-C:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\ref\CTRLInvesting.Model.dll
+c:\Projeto Controle Investimentos\CTRLInvesting.Model\obj\Debug\net7.0\ref\CTRLInvesting.Model.dll

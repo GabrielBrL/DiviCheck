@@ -22,17 +22,19 @@
     <MudGrid Justify="Justify.Center">
         <MudItem xs="8">
             @* <MudPaper Elevation="25"> *@
-                <MudText Align="Align.Justify" Inline="true" Typo="Typo.h5" Class="p-5">
-                    <p>O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
-                        criar e simular carteiras personalizadas.</p>
-                    <p> Nessa etapa você pode pesquisar pelos papeis que possui ou que
-                        deseja similuar seus investimetos.
-                    </p>
-                </MudText>
+            <MudText Align="Align.Justify" Inline="true" Typo="Typo.h5" Class="p-5">
+                <p>O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
+                    criar e simular carteiras personalizadas.</p>
+                <p> Nessa etapa você pode pesquisar pelos papeis que possui ou que
+                    deseja similuar seus investimetos.
+                </p>
+            </MudText>
             @* </MudPaper> *@
         </MudItem>
     </MudGrid>
 }
+
+<AdsComponente/>
 
 @code {
     [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
