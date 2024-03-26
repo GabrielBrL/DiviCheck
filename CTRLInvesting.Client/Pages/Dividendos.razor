@@ -2,8 +2,9 @@
 @inject IDialogService DialogService
 @* @inject Blazored.LocalStorage.ILocalStorageService _localStore *@
 
-<MudDataGrid Items="_acoes" SortMode="SortMode.Single" ShowFilterIcons="false" Class="mudDataGridDividend" Loading="loadingGrid">
-    <Columns>      
+<MudDataGrid Items="_acoes" SortMode="SortMode.Single" ShowFilterIcons="false" Class="mudDataGridDividend"
+    Loading="loadingGrid">
+    <Columns>
         <TemplateColumn Title="Papel">
             <CellTemplate>
                 <MudStack Row="true">
@@ -13,10 +14,11 @@
                 </MudStack>
             </CellTemplate>
         </TemplateColumn>
-        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : x.CurrentPrice.Value" Format="C" Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Cotação" />
+        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : x.CurrentPrice.Value" Format="C"
+            Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Cotação" />
         <PropertyColumn Property="x => x.NumeroAcoes" Title="Número de ações" />
-        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C" Culture='(new System.Globalization.CultureInfo("pt-BR"))'
-            Title="Valor total" />
+        <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C"
+            Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Valor total" />
         <PropertyColumn Property="x => x.DividendYield" Format="P" Title="Percentual de dividendos a.a." />
         <TemplateColumn Title="Valor de dividendos m.m.">
             <CellTemplate>
@@ -51,10 +53,14 @@
 <MudPaper Class="dividendSum" Outlined="true" Square="true">
     <MudGrid Justify="Justify.Center" Spacing="5">
         <MudItem sm="6">
-            <strong>Valor de dividendos m.m.</strong> <MudText Typo="Typo.body1">@_acoes.Sum(x => x.VlrDivYieldMes).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</MudText>
+            <strong>Valor de dividendos m.m.</strong>
+            <MudText Typo="Typo.body1">@_acoes.Sum(x => x.VlrDivYieldMes).ToString("C", new
+                System.Globalization.CultureInfo("pt-BR"))</MudText>
         </MudItem>
         <MudItem sm="6">
-             <strong>Valor de dividendos a.a.</strong> <MudText Typo="Typo.body1">@_acoes.Sum(x => x.VlrDivYieldAno).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</MudText>
+            <strong>Valor de dividendos a.a.</strong>
+            <MudText Typo="Typo.body1">@_acoes.Sum(x => x.VlrDivYieldAno).ToString("C", new
+                System.Globalization.CultureInfo("pt-BR"))</MudText>
         </MudItem>
     </MudGrid>
 </MudPaper>
@@ -74,11 +80,19 @@
             string ticket = item.Symbol.Substring(0, item.Symbol.IndexOf('.'));
             //var result = acoesService.GetAcao(ticket);
             //var local = await _localStore.GetItemAsync<List<StockDataDetails>>("acoes");
-            //result.NumeroAcoes = local.SingleOrDefault(x => x.Symbol == item.Symbol).NumeroAcoes;            
+            //result.NumeroAcoes = local.SingleOrDefault(x => x.Symbol == item.Symbol).NumeroAcoes;
             double cotacao = item.CurrentPrice == null ? 0 : item.CurrentPrice.Value;
             int numeroAcoes = item.NumeroAcoes;
-            double perc_dividendos = item.DividendYield == null ? (item.LastDividendValue.Value * 12) /
-            item.CurrentPrice.Value : item.DividendYield.Value;
+            double perc_dividendos = 0.0;
+            try
+            {
+                perc_dividendos = item.DividendYield == null ? (item.LastDividendValue.Value * 12) /
+                item.CurrentPrice.Value : item.DividendYield.Value;
+            }
+            catch (Exception e)
+            {
+                
+            }
             item.VlrDivYieldAno = cotacao * numeroAcoes * perc_dividendos;
             item.VlrDivYieldMes = item.VlrDivYieldAno / 12;
             //listAcoes.Add(result);
