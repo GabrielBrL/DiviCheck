@@ -21,6 +21,8 @@
         <MudSpacer />
         <AuthorizeView>
             <Authorized>
+                <MudLink Href="/carteira" Underline="Underline.Hover" style="color: #FFFFFF!important;">Minha carteira
+                </MudLink>
                 <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Dark" AnchorOrigin="Origin.BottomCenter"
                     TransformOrigin="Origin.TopCenter" ActivationEvent="@MouseEvent.LeftClick" Class="mx-5">
                     <ChildContent>
@@ -53,14 +55,12 @@
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mt-5" Fixed="true">
+        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mt-3" Fixed="true">
             @Body
         </MudContainer>
     </MudMainContent>
-    <div align="center">        
-        <!-- Anuncios01 -->
-        <ins class="adsbygoogle" style="display:block; background-color: red;" data-ad-client="ca-pub-2156396415229233"
-            data-ad-slot="6829164391" data-ad-format="auto" data-full-width-responsive="true" data-adtest="on"></ins>        
+    <div class="footerRecomendacao">
+        <p style="padding-top: 4px;"><strong>Não é uma recomendação de investimeto</strong></p>
     </div>
 </MudLayout>
 @code {

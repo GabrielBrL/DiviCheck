@@ -26,7 +26,7 @@
                 <p>O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
                     criar e simular carteiras personalizadas.</p>
                 <p> Nessa etapa você pode pesquisar pelos papeis que possui ou que
-                    deseja similuar seus investimetos.
+                    deseja simular seus investimetos.
                 </p>
             </MudText>
             @* </MudPaper> *@
@@ -34,7 +34,7 @@
     </MudGrid>
 }
 
-<AdsComponente/>
+<AdsComponente />
 
 @code {
     [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
@@ -98,7 +98,8 @@
                 }
                 if (stock.CurrentPrice != null)
                 {
-                    _acoesFiltradas.Add(stock);
+                    if (_acoesFiltradas.FirstOrDefault(x => x.Symbol == stock.Symbol) == null)
+                        _acoesFiltradas.Add(stock);
                 }
             }
             filterData = false;

@@ -105,12 +105,12 @@ h1:focus {
     .dividendSum {
         position: fixed;
         left: 0;
-        bottom: 0;
+        bottom: 25px;
         width: 100%;
         height: 50px;
     }
 
-    .mudDataGridDividend {
+    /* .mudDataGridDividend {
         margin-bottom: 40px;
-    }
+    } */
 }
