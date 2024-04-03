@@ -10,6 +10,7 @@ namespace CTRLInvesting.Api.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IStockRepository _stockRepository;
+
         public AcoesService(HttpClient httpClient, IStockRepository stockRepository)
         {
             _httpClient = httpClient;
@@ -47,8 +48,13 @@ namespace CTRLInvesting.Api.Services
             string url = $"https://flask-production-90940.up.railway.app/gab2020/papel/{ticket}";
             var response = _httpClient.GetAsync(url).GetAwaiter().GetResult();
             var jsonString = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            StockDataDetails stockData = JsonConvert.DeserializeObject<StockDataDetails>(jsonString);
-            return stockData;
+            StockDataDetails stock = JsonConvert.DeserializeObject<StockDataDetails>(jsonString);            
+            var dividends = GetHistDividendos(ticket);
+            double LastDividendValue = dividends.Last().Value;            
+            stock.LastDividendValue = LastDividendValue;
+            string date = dividends.Last().Key.ToString("dd/MM/yyyy");
+            stock.LastDividendDate = DateTime.Parse(date).Ticks / 10000000 - 62135596800;
+            return stock;
         }
 
         public async Task<List<string>> GetAllTickets()
@@ -58,6 +64,15 @@ namespace CTRLInvesting.Api.Services
             var jsonString = await response.Content.ReadAsStringAsync();
             List<string> tickets = JsonConvert.DeserializeObject<List<string>>(jsonString);
             return tickets;
+        }
+
+        public Dictionary<DateTime, double> GetHistDividendos(string ticket)
+        {
+            string url = $"https://flask-production-90940.up.railway.app/gab2020/dividends/{ticket}";
+            var response = _httpClient.GetAsync(url).GetAwaiter().GetResult();
+            var jsonString = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            Dictionary<DateTime, double> stockData = JsonConvert.DeserializeObject<Dictionary<DateTime, double>>(jsonString);
+            return stockData;
         }
 
         public List<Stock> GetAllTicketsFromDb()

@@ -18,6 +18,9 @@
 
     protected override void OnParametersSet()
     {
+#if DEBUG
+        Style = "display:block;background-color:red";
+#endif
         Ads = new RenderFragment(b =>
         {
             b.OpenElement(0, "ins");

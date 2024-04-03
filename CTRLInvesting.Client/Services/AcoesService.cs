@@ -22,6 +22,11 @@ public class AcoesService : IAcoesService
         return _httpClient.GetFromJsonAsync<StockDataDetails>($"/Acoes/papel/{ticket}").GetAwaiter().GetResult();
     }
 
+    public async Task<StockDataDetails> GetAcaoAsync(string ticket)
+    {
+        return await _httpClient.GetFromJsonAsync<StockDataDetails>($"/Acoes/papel/{ticket}");
+    }
+
     public Dictionary<string, double> GetVariacaoAcao(string ticket, string variacao)
     {
         return _httpClient.GetFromJsonAsync<Dictionary<string, double>>($"/Acoes/{ticket}/{variacao}").GetAwaiter().GetResult();
@@ -35,5 +40,10 @@ public class AcoesService : IAcoesService
     public async Task<List<Stock>> GetAllTicketsAsync()
     {
         return await _httpClient.GetFromJsonAsync<List<Stock>>("/Acoes/papeis");
+    }
+
+    public Dictionary<string, double> GetHistDividends(string ticket)
+    {
+        return _httpClient.GetFromJsonAsync<Dictionary<string, double>>($"/Acoes/dividendos/{ticket}").GetAwaiter().GetResult();
     }
 }

@@ -7,6 +7,7 @@ namespace CTRLInvesting.Api.Interfaces
     {
         Task<Dictionary<string, double>> GetVariacaoAcoesAsync(string ticket, string variacao);
         Dictionary<DateTime, double> GetVariacaoAcoes(string ticket, string variacao);
+        Dictionary<DateTime, double> GetHistDividendos(string ticket);
         Task<StockDataDetails> GetAcaoAsync(string ticket);
         StockDataDetails GetAcao(string ticket);
         Task<List<string>> GetAllTickets();

@@ -8,33 +8,71 @@
 {
     <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
 }
-<MudGrid Justify="Justify.Center">
+<MudGrid Justify="Justify.Center"
+    Style="position: fixed; object-position: center; left: 0; top:65px; background-color: var(--mud-palette-background); z-index:100;">
     <MudItem xs="12" sm="4">
         <MudTextField T="string" @bind-Value="@searchText" TextChanged="@FilterData" Immediate="true"
             Placeholder="Digite o ticket da empresa" Variant="Variant.Outlined" />
     </MudItem>
 </MudGrid>
-<ListaAcoesFiltradas containsStock="containsStock" filterData="filterData" _acoesFiltradas="_acoesFiltradas"
-    _acoesCompradas="_acoesCompradas" idUsuario="idUsuario" />
 
+<div style="margin-top: 100px;">
+    <ListaAcoesFiltradas containsStock="containsStock" filterData="filterData" _acoesFiltradas="_acoesFiltradas"
+        _acoesCompradas="_acoesCompradas" idUsuario="idUsuario" />
+</div>
 @if (!filterData && _acoesFiltradas.Count == 0 && containsStock)
 {
     <MudGrid Justify="Justify.Center">
         <MudItem xs="8">
-            @* <MudPaper Elevation="25"> *@
-            <MudText Align="Align.Justify" Inline="true" Typo="Typo.h5" Class="p-5">
+            <MudText Align="Align.Justify" Inline="true" Typo="Typo.h5" Class="p-3">
                 <p>O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
                     criar e simular carteiras personalizadas.</p>
-                <p> Nessa etapa você pode pesquisar pelos papeis que possui ou que
-                    deseja simular seus investimetos.
-                </p>
             </MudText>
-            @* </MudPaper> *@
+        </MudItem>
+    </MudGrid>
+    <div class="d-flex justify-center pb-5">        
+        <MudButton Color="Color.Error" Style="width: 50%; height: 100px;" Href="@(IsAuthenticated ? "/carteira" : "/register")" Variant="Variant.Filled">
+            <MudText Typo="Typo.h4" Style="font-weight: bold;">@(IsAuthenticated ? "Acesse sua carteira" : "Cadastre-se gratuitamente")</MudText>
+        </MudButton>
+    </div>
+    <AdsComponente />
+    <MudGrid Class="mb-10">
+        <MudItem xs="12" sm="4">
+            <MudTimeline>
+                <MudTimelineItem>
+                    <ItemContent>
+                        <MudText Color="Color.Info" Typo="Typo.h6" GutterBottom="true">Pesquise</MudText>
+                        <MudText Align="Align.Start">Pesquise o ticket ou nome da empresa.</MudText>
+                    </ItemContent>
+                </MudTimelineItem>
+                <MudTimelineItem>
+                    <ItemContent>
+                        <MudText Color="Color.Info" Typo="Typo.h6" Align="Align.End">Adicione</MudText>
+                        <MudText Align="Align.End">Adicione a quantidade de ações.</MudText>
+                    </ItemContent>
+                </MudTimelineItem>
+                <MudTimelineItem Color="Color.Success" Size="MudBlazor.Size.Medium">
+                    <ItemContent>
+                        <MudText Color="Color.Info" Typo="Typo.h6" GutterBottom="true">Carteira</MudText>
+                        <MudText Align="Align.Start">Acesse a sua carteira e visualize as informações sobre sua carteira.
+                        </MudText>
+                    </ItemContent>
+                </MudTimelineItem>
+            </MudTimeline>
+        </MudItem>
+        <MudItem xs="12" sm="8">
+            <MudText Typo="Typo.h1" Align="Align.Center" Style="font-weight: bold;">Simule seu Futuro Financeiro</MudText>
+            <MudText Typo="Typo.body1" Align="Align.Center">Nessa etapa você pode pesquisar pelos papeis que possui ou que
+                deseja simular seus investimetos.</MudText>
+            <MudText Typo="Typo.body1" Align="Align.Center">Digite o ticket da empresa ou o nome da mesma no campo acima.
+            </MudText>
         </MudItem>
     </MudGrid>
 }
-
-<AdsComponente />
+else
+{
+    <AdsComponente />
+}
 
 @code {
     [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
@@ -42,11 +80,14 @@
     private string? searchText;
     private List<StockDataDetails> _acoesFiltradas = new List<StockDataDetails>();
     private List<StockDataDetails> _acoesCompradas = new();
+    private List<StockDataDetails> _acoesAleatorias = new();
     private Snackbar _snackBar;
     private bool loading;
     private bool containsStock = true;
     private bool filterData = false;
+    private bool searchingRamdomStocks = false;
     private int idUsuario;
+    private bool IsAuthenticated = false;
     private Timer typingTimer;
     protected override async Task OnInitializedAsync()
     {
@@ -54,7 +95,8 @@
         @* var acoesStorage = await _localStore.GetItemAsync<List<StockDataDetails>>("acoes"); *@
         var user = await authenticationStateTask;
         var identity = user.User.Identity;
-        if (identity.IsAuthenticated)
+        IsAuthenticated = identity.IsAuthenticated;
+        if (IsAuthenticated)
         {
             idUsuario = Int32.Parse(user.User.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
         }

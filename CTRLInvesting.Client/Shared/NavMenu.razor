@@ -1,17 +1,37 @@
-﻿<MudNavMenu>
+﻿@inject ISnackbar Snackbar
+@inject NavigationManager nav
+
+<MudNavMenu>
     <MudNavLink Href="/" Class="navMenu" Match="NavLinkMatch.All">
         <MudText Class="navLink" Typo="Typo.body1">Home</MudText>
     </MudNavLink>
+    <MudNavLink OnClick="(() => AlertUser())" ForceLoad="true" Class="navMenu" Match="NavLinkMatch.Prefix">
+        <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
+    </MudNavLink>
     <AuthorizeView Roles="Free">
-        <Authorized>
-            <MudNavLink Href="/carteira" Class="navMenu" Match="NavLinkMatch.Prefix">
-                <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
-            </MudNavLink>
+        @* <Authorized>
+        <MudNavLink Href="/carteira" Class="navMenu" Match="NavLinkMatch.Prefix">
+        <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
+        </MudNavLink>
         </Authorized>
         <NotAuthorized>
-            <MudNavLink Disabled="true" Icon="@Icons.Material.Filled.Lock" Match="NavLinkMatch.Prefix">
-                <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
-            </MudNavLink>
-        </NotAuthorized>
+        <MudNavLink Disabled="true" Icon="@Icons.Material.Filled.Lock" Match="NavLinkMatch.Prefix">
+        <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
+        </MudNavLink>
+        </NotAuthorized> *@
     </AuthorizeView>
 </MudNavMenu>
+
+@code {
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    async Task AlertUser()
+    {
+        var user = (await authenticationStateTask).User;
+        if (!user.Identity.IsAuthenticated){
+            Snackbar.Add("Necessário estar logado para entrar na carteira.", Severity.Warning);
+            nav.NavigateTo("/login");
+            return;
+        }
+        nav.NavigateTo("/carteira");
+    }
+}

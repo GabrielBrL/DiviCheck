@@ -34,6 +34,9 @@
                 </MudCardActions>
             </MudCard>
         </MudItem>
+        <MudItem xs="12">            
+            Já possui conta? <MudLink OnClick='(() => _nav.NavigateTo("/login"))' Underline="Underline.Always" Disabled="@loading">Entrar na conta</MudLink>
+        </MudItem>
     </MudGrid>
 </MudForm>
 @if (loading)

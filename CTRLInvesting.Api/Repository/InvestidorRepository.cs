@@ -26,13 +26,14 @@ public class InvestidorRepository : IInvestidorRepository
     {
         List<KeyValuePair<string,double>> listStockDataDetails = new List<KeyValuePair<string,double>>();
         var stocks = _context.Investidor.Where(x => x.IdUsuario == idUsuario);
-        foreach (var stock in stocks)
-        {
-            var item = _acoesService.GetAcao(stock.Ticket);
-            var vlrTotal = item.CurrentPrice * stock.QtdStocks;
-            listStockDataDetails.Add(new KeyValuePair<string, double>(stock.Ticket, vlrTotal.Value));
-        }
-        return listStockDataDetails.OrderByDescending(x => x.Value).Take(5).Select(x => x.Key).ToList();
+        // foreach (var stock in stocks)
+        // {
+        //     var item = _acoesService.GetAcao(stock.Ticket);
+        //     var vlrTotal = item.CurrentPrice * stock.QtdStocks;
+        //     listStockDataDetails.Add(new KeyValuePair<string, double>(stock.Ticket, vlrTotal.Value));
+        // }
+        return stocks.OrderByDescending(x => x.QtdStocks).Take(5).Select(x => x.Ticket).ToList();
+        //return listStockDataDetails.OrderByDescending(x => x.Value).Take(5).Select(x => x.Key).ToList();
     }
 
     public async Task InsertStockAsync(int idUsuario, string symbol, int numeroAcoes)

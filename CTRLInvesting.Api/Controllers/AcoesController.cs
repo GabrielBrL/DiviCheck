@@ -28,6 +28,11 @@ namespace CTRLInvesting.Api.Controllers
         {
             return _acoesService.GetVariacaoAcoes(ticket, variacao);
         }
+        [HttpGet("dividendos/{ticket}")]
+        public Dictionary<DateTime, double> GetHistDividendos(string ticket)
+        {
+            return _acoesService.GetHistDividendos(ticket);
+        }
         [HttpGet("papeis")]
         public List<Stock> GetTickets()
         {

@@ -1,3 +1,5 @@
+@inject IAcoesService _acoesService
+
 <MudGrid Justify="Justify.Center" Spacing="1">
     <MudItem xs="12">
         <MudCard Outlined="false" Class="rounded-lg pb-4">
@@ -6,7 +8,7 @@
             </MudCardHeader>
             <MudCardContent>
                 @if (stock.LongName != null)
-                {                    
+                {
                     <MudText Typo="Typo.h5" Align="Align.Center">@stock.LongName</MudText>
                 }
                 else
@@ -70,4 +72,17 @@
 </MudGrid>
 @code {
     [Parameter] public StockDataDetails stock { get; set; } = new StockDataDetails();
+    @* protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            string ticket = stock.Symbol.Substring(0, stock.Symbol.IndexOf('.'));
+            var dividends = _acoesService.GetHistDividends(ticket);
+            double LastDividendValue = dividends.Last().Value;
+            string LastDividendDate = dividends.Last().Key;
+            stock.LastDividendValue = LastDividendValue;
+            string date = DateTime.Parse(LastDividendDate).ToString("dd/MM/yyyy");
+            stock.LastDividendDate = DateTime.Parse(date).Ticks / 10000000 - 62135596800;
+        }
+    } *@
 }

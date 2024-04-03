@@ -21,6 +21,12 @@ public class InvestimentosService : IInvestimentosService
         foreach (var investimento in investimentos)
         {
             var stock = _acoesService.GetAcao(investimento.Ticket);
+            string ticket = stock.Symbol.Substring(0, stock.Symbol.IndexOf('.'));
+            var dividends = _acoesService.GetHistDividendos(ticket);
+            double LastDividendValue = dividends.Last().Value;            
+            stock.LastDividendValue = LastDividendValue;
+            string date = dividends.Last().Key.ToString("dd/MM/yyyy");
+            stock.LastDividendDate = DateTime.Parse(date).Ticks / 10000000 - 62135596800;
             stock.NumeroAcoes = investimento.QtdStocks;
             stockDataDetails.Add(stock);
         }
@@ -34,6 +40,12 @@ public class InvestimentosService : IInvestimentosService
         foreach (var investimento in investimentos)
         {
             var stock = await _acoesService.GetAcaoAsync(investimento.Ticket);
+            string ticket = stock.Symbol.Substring(0, stock.Symbol.IndexOf('.'));
+            var dividends = _acoesService.GetHistDividendos(ticket);
+            double LastDividendValue = dividends.Last().Value;            
+            stock.LastDividendValue = LastDividendValue;
+            string date = dividends.Last().Key.ToString("dd/MM/yyyy");
+            stock.LastDividendDate = DateTime.Parse(date).Ticks / 10000000 - 62135596800;
             stock.NumeroAcoes = investimento.QtdStocks;
             stockDataDetails.Add(stock);
         }
