@@ -103,6 +103,7 @@ if (app.Environment.IsDevelopment())
 
 }
 
+app.UseRequestLocalization("pt-BR");
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

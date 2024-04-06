@@ -30,44 +30,47 @@
             </MudText>
         </MudItem>
     </MudGrid>
-    <div class="d-flex justify-center pb-5">        
-        <MudButton Color="Color.Error" Style="width: 50%; height: 100px;" Href="@(IsAuthenticated ? "/carteira" : "/register")" Variant="Variant.Filled">
-            <MudText Typo="Typo.h4" Style="font-weight: bold;">@(IsAuthenticated ? "Acesse sua carteira" : "Cadastre-se gratuitamente")</MudText>
-        </MudButton>
-    </div>
-    <AdsComponente />
-    <MudGrid Class="mb-10">
-        <MudItem xs="12" sm="4">
-            <MudTimeline>
-                <MudTimelineItem>
-                    <ItemContent>
-                        <MudText Color="Color.Info" Typo="Typo.h6" GutterBottom="true">Pesquise</MudText>
-                        <MudText Align="Align.Start">Pesquise o ticket ou nome da empresa.</MudText>
-                    </ItemContent>
-                </MudTimelineItem>
-                <MudTimelineItem>
-                    <ItemContent>
-                        <MudText Color="Color.Info" Typo="Typo.h6" Align="Align.End">Adicione</MudText>
-                        <MudText Align="Align.End">Adicione a quantidade de ações.</MudText>
-                    </ItemContent>
-                </MudTimelineItem>
-                <MudTimelineItem Color="Color.Success" Size="MudBlazor.Size.Medium">
-                    <ItemContent>
-                        <MudText Color="Color.Info" Typo="Typo.h6" GutterBottom="true">Carteira</MudText>
-                        <MudText Align="Align.Start">Acesse a sua carteira e visualize as informações sobre sua carteira.
-                        </MudText>
-                    </ItemContent>
-                </MudTimelineItem>
-            </MudTimeline>
-        </MudItem>
-        <MudItem xs="12" sm="8">
+    @* <AdsComponente /> *@
+    <MudGrid Class="mb-10" Spacing="10">
+        <MudItem xs="12">
             <MudText Typo="Typo.h1" Align="Align.Center" Style="font-weight: bold;">Simule seu Futuro Financeiro</MudText>
             <MudText Typo="Typo.body1" Align="Align.Center">Nessa etapa você pode pesquisar pelos papeis que possui ou que
                 deseja simular seus investimetos.</MudText>
             <MudText Typo="Typo.body1" Align="Align.Center">Digite o ticket da empresa ou o nome da mesma no campo acima.
             </MudText>
         </MudItem>
+        <MudItem xs="12">
+            <MudTimeline>
+                <MudTimelineItem>
+                    <ItemContent>
+                        <MudText Color="Color.Default" Typo="Typo.h6" GutterBottom="true">Pesquise</MudText>
+                        <MudText Align="Align.Start">Pesquise o ticket ou nome da empresa.</MudText>
+                    </ItemContent>
+                </MudTimelineItem>
+                <MudTimelineItem>
+                    <ItemContent>
+                        <MudText Color="Color.Default" Typo="Typo.h6" Align="Align.End">Adicione</MudText>
+                        <MudText Align="Align.End">Adicione a quantidade de ações.</MudText>
+                    </ItemContent>
+                </MudTimelineItem>
+                <MudTimelineItem Size="MudBlazor.Size.Medium">
+                    <ItemDot>
+                        <MudIcon Icon="@Icons.Material.Filled.Check" />
+                    </ItemDot>
+                    <ItemContent>
+                        <MudText Color="Color.Default" Typo="Typo.h6" GutterBottom="true">Carteira</MudText>
+                        <MudText Align="Align.Start">Acesse a sua carteira e visualize as informações sobre sua carteira.
+                        </MudText>
+                    </ItemContent>
+                </MudTimelineItem>
+            </MudTimeline>
+        </MudItem>
     </MudGrid>
+    <div class="d-flex justify-center pb-10">
+        <MudButton Color="Color.Error" Style="width: 50%; height: 100px;" Href="/carteira" Variant="Variant.Filled">
+            <MudText Typo="Typo.h4" Style="font-weight: bold;">Crie sua carteira gratuitamente</MudText>
+        </MudButton>
+    </div>
 }
 else
 {
