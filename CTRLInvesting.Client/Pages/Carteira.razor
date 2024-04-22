@@ -5,6 +5,7 @@
 @* @inject Blazored.LocalStorage.ILocalStorageService _localStore *@
 @inject NavigationManager _nav
 @inject ISnackbar Snackbar
+@inject IDialogService DialogService
 
 
 <PageTitle>Minha Carteira</PageTitle>
@@ -88,7 +89,8 @@
             try
             {
                 idUsuario = Int32.Parse(user.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
-                await cData(idUsuario);
+                _acoesCompradas = await investimentos.GetStockDataDetails(idUsuario);
+                cData();
                 if (_acoesCompradas.Count == 0)
                     Snackbar.Add("Não há empresas na sua carteira", Severity.Warning, option =>
                     {
@@ -105,26 +107,18 @@
             StateHasChanged();
             loading = false;
             return;
-        }
-        _nav.NavigateTo("/login");
+        }       
     }     
-    private async Task cData(int idUsuario)
-    {                   
-        _acoesCompradas = await investimentos.GetStockDataDetails(idUsuario);        
-        patrimonioTotal = 0;
-        _composicaoAcoes.Clear();
-        foreach (var item in _acoesCompradas)
-        {
-            var cotacao = item.CurrentPrice.Value;
-            double valorTotal = Convert.ToDouble(item.NumeroAcoes * cotacao);
-            _composicaoAcoes.Add(new KeyValuePair<string, double>(item.Symbol, valorTotal));
-            patrimonioTotal += cotacao * item.NumeroAcoes;
-        }
+    private void cData()
+    {            
+        _composicaoAcoes.Clear();        
+        _composicaoAcoes.AddRange(_acoesCompradas.Select(x => new KeyValuePair<string, double>(x.Symbol, x.NumeroAcoes * x.CurrentPrice.Value)));
+        patrimonioTotal = _acoesCompradas.Sum(x => x.NumeroAcoes * x.CurrentPrice.Value);
         totalAtivos = _acoesCompradas.Count;
-        StateHasChanged();        
+        StateHasChanged();
     }
     private async Task SellAcao(StockDataDetails acao)
-    {     
+    {            
         acao.loading = true;    
         if (acao.NumeroAcoes == acao.NumeroAcoesVendidas)
         {
@@ -143,8 +137,9 @@
             {
                 option.CloseAfterNavigation = true;
             });
-            await cData(idUsuario);
-            loading = false;
+            cData();
+            acao.loading = false;
+            acao.NumeroAcoesVendidas = 0;
             StateHasChanged();
             return;
         }
@@ -158,25 +153,35 @@
 
     private async Task SellAllAcao(StockDataDetails acao)
     {      
-        acao.loading = true;  
-        var numAcoes = acao.NumeroAcoes;
-        _acoesCompradas.Remove(acao);
-        @* await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas); *@
-        var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.'))};
-        await investimentos.DeleteStockDataDetails(formStock);
-        Snackbar.Add($"Você vendeu {numAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))}", Severity.Success, option =>
-        {
-            option.CloseAfterNavigation = true;
-        });
-        await cData(idUsuario);
+        var parameters = new DialogParameters<DialogTemporary>();
+        parameters.Add(x => x.ContentText, $"Você realmente deseja todas as ações de {acao.Symbol.Substring(0,acao.Symbol.IndexOf('.'))}?");
+        parameters.Add(x => x.ButtonText, "Vender tudo");
+        parameters.Add(x => x.Color, Color.Error);
+        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+        var dialog = await DialogService.ShowAsync<DialogTemporary>(acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')), parameters, options);
+        var result = await dialog.Result;
+        if(!result.Canceled){
+            acao.loading = true;  
+            var numAcoes = acao.NumeroAcoes;         
+            _acoesCompradas.Remove(acao);
+            @* await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas); *@
+            var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.'))};
+            await investimentos.DeleteStockDataDetails(formStock);
+            Snackbar.Add($"Você vendeu {numAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))}", Severity.Success, option =>
+            {
+                option.CloseAfterNavigation = true;
+            });
+            cData();            
+            StateHasChanged();
+        }
         acao.loading = false;
-        StateHasChanged();
     }
 
     private async Task BuyAcao(StockDataDetails acao)
     {                
         acao.loading = true;
         var numAcoes = acao.NumeroAcoesVendidas;
+        acao.NumeroAcoesVendidas = 0;
         if(numAcoes > 0){
             var acaoSelected = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
             acaoSelected.NumeroAcoes += numAcoes;
@@ -187,12 +192,11 @@
             {
                 option.CloseAfterNavigation = true;
             });
-            await cData(idUsuario);
-            acao.loading = false;
-            StateHasChanged();
+            cData();
+            acao.loading = false;            
             return;
         }
-        Snackbar.Add($"Você não pode vender essa quantidade", Severity.Error, option =>
+        Snackbar.Add($"Adicione o número de ações", Severity.Error, option =>
         {
             option.CloseAfterNavigation = true;
         });

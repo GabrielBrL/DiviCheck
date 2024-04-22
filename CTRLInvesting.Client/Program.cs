@@ -30,10 +30,12 @@ builder.Services.AddScoped<IAcoesService, AcoesService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IInvestimentosService, InvestimentosService>();
 builder.Services.AddScoped<IHomeStocksService, HomeStocksService>();
+builder.Services.AddScoped<ITaxasService, TaxasService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddScoped<CustomHttpHandler>();
 
 builder.Services.AddScoped<FluentValidationRegisterUsuario>();
+builder.Services.AddScoped<FluentValidationCalculadoraSelic>();
 
 builder.Services.AddScoped(opt => new HttpClient
 {

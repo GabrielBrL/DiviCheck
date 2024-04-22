@@ -8,8 +8,7 @@
 {
     <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
 }
-<MudGrid Justify="Justify.Center"
-    Style="position: fixed; object-position: center; left: 0; top:65px; background-color: var(--mud-palette-background); z-index:100;">
+<MudGrid Justify="Justify.Center" Class="searchField">
     <MudItem xs="12" sm="4">
         <MudTextField T="string" @bind-Value="@searchText" TextChanged="@FilterData" Immediate="true"
             Placeholder="Digite o ticket da empresa" Variant="Variant.Outlined" />
@@ -24,16 +23,16 @@
 {
     <MudGrid Justify="Justify.Center">
         <MudItem xs="8">
-            <MudText Align="Align.Justify" Inline="true" Typo="Typo.h5" Class="p-3">
+            <MudText Align="Align.Center" Inline="true" Typo="Typo.h5" Class="p-3">
                 <p>O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
                     criar e simular carteiras personalizadas.</p>
             </MudText>
         </MudItem>
     </MudGrid>
-    @* <AdsComponente /> *@
-    <MudGrid Class="mb-10" Spacing="10">
+    <MudGrid Class="mb-5" Spacing="10">
         <MudItem xs="12">
-            <MudText Typo="Typo.h1" Align="Align.Center" Style="font-weight: bold;">Simule seu Futuro Financeiro</MudText>
+            <MudText Class="titleFuturoFinanceiro" Align="Align.Center" Style="font-weight: bold;">Simule seu Futuro
+                Financeiro</MudText>
             <MudText Typo="Typo.body1" Align="Align.Center">Nessa etapa você pode pesquisar pelos papeis que possui ou que
                 deseja simular seus investimetos.</MudText>
             <MudText Typo="Typo.body1" Align="Align.Center">Digite o ticket da empresa ou o nome da mesma no campo acima.
@@ -59,18 +58,27 @@
                     </ItemDot>
                     <ItemContent>
                         <MudText Color="Color.Default" Typo="Typo.h6" GutterBottom="true">Carteira</MudText>
-                        <MudText Align="Align.Start">Acesse a sua carteira e visualize as informações sobre sua carteira.
+                        <MudText Align="Align.Start">Acesse a sua carteira e visualize as informações sobre suas ações.
                         </MudText>
                     </ItemContent>
                 </MudTimelineItem>
             </MudTimeline>
         </MudItem>
     </MudGrid>
+    <div class="d-flex justify-center pb-2">
+        <MudImage Src="assets/tutorialdivicheck.gif" Class="imgTutorial" />
+    </div>
     <div class="d-flex justify-center pb-10">
-        <MudButton Color="Color.Error" Style="width: 50%; height: 100px;" Href="/carteira" Variant="Variant.Filled">
-            <MudText Typo="Typo.h4" Style="font-weight: bold;">Crie sua carteira gratuitamente</MudText>
+        <MudButton Color="Color.Error" Class="btnCrieContaGratuitamente" Href="/carteira" Variant="Variant.Filled">
+            <MudText Class="lblCrieContaGratuitamente" Style="font-weight: bold;">Crie sua carteira gratuitamente</MudText>
         </MudButton>
     </div>
+    <div class="d-flex justify-center pb-10">
+        <MudLink Href="/calculadorarendafixa">
+            <MudText Typo="Typo.body1">Utilize também nossa calculadora de juros compostos</MudText>
+        </MudLink>
+    </div>
+    <AdsComponente />
 }
 else
 {

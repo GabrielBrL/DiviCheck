@@ -20,10 +20,10 @@
                     <MudTextField Label="Email" HelperText="exemplo@exemplo.com" Class="mt-3" @bind-Value="model.Email"
                         For="@(() => model.Email)" />
                     <MudTextField Label="Senha" HelperText="Max. 20 caracteres" Class="mt-3"
-                        @bind-Value="model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
+                        @bind-Value="model.Password" For="@(() => model.Password)" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonChangeVisibility" AdornmentAriaLabel="Mostrar senha" />
                     <MudTextField Label="Confirme a senha" HelperText="Repita a senha" Class="mt-3"
                         @bind-Value="model.ConfirmPassword" For="@(() => model.ConfirmPassword)"
-                        InputType="InputType.Password" />
+                        InputType="@PasswordConfirmInput" Adornment="Adornment.End" AdornmentIcon="@PasswordConfirmInputIcon" OnAdornmentClick="ButtonConfirmChangeVisibility" AdornmentAriaLabel="Mostrar senha" />
                 </MudCardContent>
                 <MudCardActions>
                     <MudButton Variant="Variant.Filled" Color="Color.Success" Class="ml-auto" Disabled="@loading"
@@ -48,6 +48,12 @@
     private Snackbar? _snackBar;
     RegisterModel model = new RegisterModel();
     private bool loading = false;
+    bool isShow;
+    bool isShowConfirm;
+    InputType PasswordInput = InputType.Password;
+    InputType PasswordConfirmInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+    string PasswordConfirmInputIcon = Icons.Material.Filled.VisibilityOff;
     private async Task OnValidSubmit()
     {
         loading = true;
@@ -69,5 +75,32 @@
         }        
         loading = false;
     }
-
+    void ButtonChangeVisibility()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
+    void ButtonConfirmChangeVisibility()
+    {
+        @if (isShowConfirm)
+        {
+            isShowConfirm = false;
+            PasswordConfirmInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordConfirmInput = InputType.Password;
+        }
+        else {
+            isShowConfirm = true;
+            PasswordConfirmInputIcon = Icons.Material.Filled.Visibility;
+            PasswordConfirmInput = InputType.Text;
+        }
+    }
 }

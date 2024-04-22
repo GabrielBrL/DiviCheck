@@ -27,6 +27,7 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IHashService, HashService>();
 builder.Services.AddScoped<IInvestimentosService, InvestimentosService>();
+builder.Services.AddScoped<ITaxasAnuaisService, TaxasAnuaisService>();
 
 builder.Services.AddScoped<IInvestidorRepository, InvestidorRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();

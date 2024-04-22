@@ -23,8 +23,8 @@
             <Authorized>
                 <MudLink Href="/carteira" Underline="Underline.Hover" style="color: #FFFFFF!important;">Minha carteira
                 </MudLink>
-                <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Dark" AnchorOrigin="Origin.BottomCenter"
-                    TransformOrigin="Origin.TopCenter" ActivationEvent="@MouseEvent.LeftClick" Class="mx-5">
+                <MudMenu Icon="@Icons.Material.Filled.Person" style="color: #FFFFFF!important;" AnchorOrigin="Origin.BottomCenter"
+                    TransformOrigin="Origin.TopCenter" ActivationEvent="@MouseEvent.LeftClick" Class="mx-3">
                     <ChildContent>
                         <MudMenuItem Href="/perfil">Perfil</MudMenuItem>
                         <MudMenuItem OnClick="(() => LogOut())">Sair</MudMenuItem>
@@ -39,6 +39,7 @@
                     Registrar</MudLink>
             </NotAuthorized>
         </AuthorizeView>
+        <MudIconButton Icon="@Icons.Material.Filled.Home" Href="/" style="color: #FFFFFF!important;" Title="Início" />
         @if (this._isDarkMode)
         {
             <MudIconButton Icon="@Icons.Material.Filled.DarkMode" Class="ml-2 mudIconButtonThemeDark"

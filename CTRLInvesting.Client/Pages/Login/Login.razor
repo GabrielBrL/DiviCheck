@@ -18,7 +18,7 @@
                     <MudTextField Disabled="@loading" Label="Usuário ou email" @bind-Value="model.Usuario"
                         For="@(() => model.Usuario)" MaxLength="100" />
                     <MudTextField Disabled="@loading" Label="Senha" Class="mt-3" @bind-Value="model.Password"
-                        For="@(() => model.Password)" InputType="InputType.Password" />
+                        For="@(() => model.Password)" Variant="Variant.Text" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonChangeVisibility" AdornmentAriaLabel="Mostrar senha" />
                 </MudCardContent>
                 <MudCardActions>
                     <MudButton ButtonType="MudBlazor.ButtonType.Submit" Color="Color.Success" Disabled="@loading" Variant="Variant.Filled"
@@ -43,6 +43,9 @@
     LoginModel model = new LoginModel();
     private Snackbar? _snackBar;
     private bool loading = false;
+    bool isShow;
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
     private async Task OnValidSubmit(EditContext context)
     {
         loading = true;
@@ -59,5 +62,20 @@
             _snackBar = Snackbar.Add($"Sucesso!", Severity.Success);
         StateHasChanged();
         loading = false;
+    }    
+
+    void ButtonChangeVisibility()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
     }
 }

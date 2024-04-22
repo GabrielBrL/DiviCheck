@@ -5,9 +5,14 @@
     <MudNavLink Href="/" Class="navMenu" Match="NavLinkMatch.All">
         <MudText Class="navLink" Typo="Typo.body1">Home</MudText>
     </MudNavLink>
-    <MudNavLink OnClick="(() => AlertUser())" ForceLoad="true" Class="navMenu" Match="NavLinkMatch.Prefix">
+    <MudNavLink Href="/carteira" ForceLoad="false" Class="navMenu" Match="NavLinkMatch.Prefix">
         <MudText Class="navLink" Typo="Typo.body2">Carteira</MudText>
     </MudNavLink>
+    <MudNavGroup Title="Renda Fixa" Expanded="true" Class="navGroup">
+        <MudNavLink Href="/calculadorarendafixa" ForceLoad="false" Class="navMenu" Match="NavLinkMatch.Prefix">
+            <MudText Class="navLink" Typo="Typo.body2">Tesouro</MudText>
+        </MudNavLink>
+    </MudNavGroup>
     <AuthorizeView Roles="Free">
         @* <Authorized>
         <MudNavLink Href="/carteira" Class="navMenu" Match="NavLinkMatch.Prefix">
@@ -21,17 +26,3 @@
         </NotAuthorized> *@
     </AuthorizeView>
 </MudNavMenu>
-
-@code {
-    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
-    async Task AlertUser()
-    {
-        var user = (await authenticationStateTask).User;
-        if (!user.Identity.IsAuthenticated){
-            Snackbar.Add("Necessário estar logado para entrar na carteira.", Severity.Warning);
-            nav.NavigateTo("/login");
-            return;
-        }
-        nav.NavigateTo("/carteira");
-    }
-}

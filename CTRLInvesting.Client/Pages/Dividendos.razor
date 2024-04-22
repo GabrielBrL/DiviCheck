@@ -19,7 +19,7 @@
         <PropertyColumn Property="x => x.NumeroAcoes" Title="Número de ações" />
         <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C"
             Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Valor total" />
-        <PropertyColumn Property="x => x.DividendYield" Format="P"
+        <PropertyColumn Property="x => x.DividendYield" Format="P2"
             Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Percentual de dividendos a.a." />
         <TemplateColumn Title="Valor de dividendos m.m.">
             <CellTemplate>

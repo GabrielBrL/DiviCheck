@@ -73,6 +73,33 @@ h1:focus {
     color: var(--mud-palette-text-primary);
 }
 
+.imgTutorial {
+    width: 1200px !important;
+}
+
+.searchField {
+    position: fixed;
+    object-position: center;
+    left: 0;
+    top: 65px;
+    background-color: var(--mud-palette-background);
+    z-index: 100;
+    width: calc(100% + 24px);
+}
+
+.btnCrieContaGratuitamente {
+    width: 50%;
+    height: 100px;
+}
+
+.lblCrieContaGratuitamente {
+    font-size: 2em !important;
+}
+
+.titleFuturoFinanceiro {
+    font-size: 4em !important;
+}
+
 @media screen and (min-width: 600px) {
     .precoCarteira {
         font-size: 30px !important;
@@ -121,7 +148,26 @@ h1:focus {
         height: 50px;
     }
 
-    /* .mudDataGridDividend {
-        margin-bottom: 40px;
-    } */
+    .imgTutorial {
+        width: 100% !important;
+    }
+
+    .searchField {
+        width: 100% !important;
+        margin: 0 !important;
+        top: 50px !important;
+    }
+
+    .btnCrieContaGratuitamente {
+        width: 80%;
+        height: 50px;
+    }
+
+    .lblCrieContaGratuitamente {
+        font-size: 20px !important;
+    }
+
+    .titleFuturoFinanceiro {
+        font-size: 5em !important;
+    }
 }

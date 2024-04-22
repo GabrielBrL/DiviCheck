@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0v85p3Nu4WSkv+V2OFjUG9Eu0xwVh5/msQ30CRyIANI=",
+  "Hash": "rp+mZt+OUbI5rMBToQnGsCuNudSF5Hp8ADlQ/EPnK8g=",
   "Source": "CTRLInvesting.Client",
   "BasePath": "_content/CTRLInvesting.Client",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CTRLInvesting.Client\\wwwroot",
       "Source": "CTRLInvesting.Client",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CTRLInvesting.Client.styles.css",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CTRLInvesting.Client.styles.css",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Computed",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "CTRLInvesting.Client.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CTRLInvesting.Client.styles.css"
+      "OriginalItemSpec": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CTRLInvesting.Client.styles.css"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CTRLInvesting.Client.bundle.scp.css",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CTRLInvesting.Client.bundle.scp.css",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Computed",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "CTRLInvesting.Client.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CTRLInvesting.Client.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CTRLInvesting.Client.bundle.scp.css"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ABEV.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ABEV.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/ABEV.svg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\ABEV.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ALPA.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ALPA.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/ALPA.svg",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\ALPA.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ARZZ.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ARZZ.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/ARZZ.svg",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\ARZZ.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ASAI.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ASAI.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/ASAI.svg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\ASAI.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\AZUL.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\AZUL.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/AZUL.svg",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\AZUL.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\B3SA.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\B3SA.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/B3SA.svg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\B3SA.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BBAS.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BBAS.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/BBAS.svg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\BBAS.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BBDC.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BBDC.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/BBDC.svg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\BBDC.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BBSE.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BBSE.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/BBSE.svg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\BBSE.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BRAP.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BRAP.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/BRAP.svg",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\BRAP.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BRFS.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BRFS.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/BRFS.svg",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\BRFS.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BRKM.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\BRKM.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/BRKM.svg",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\BRKM.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CCRO.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CCRO.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/CCRO.svg",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\CCRO.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CMIG.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CMIG.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/CMIG.svg",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\CMIG.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CRFB.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CRFB.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/CRFB.svg",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\CRFB.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CSNA.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\CSNA.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/CSNA.svg",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\CSNA.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\GGBR.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\GGBR.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/GGBR.svg",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\GGBR.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\KLBN.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\KLBN.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/KLBN.svg",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\KLBN.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\MGLU.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\MGLU.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/MGLU.svg",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\MGLU.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\PETR.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\PETR.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/PETR.svg",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\PETR.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\RRRP.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\RRRP.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/RRRP.svg",
       "AssetKind": "All",
@@ -408,10 +408,27 @@
       "OriginalItemSpec": "wwwroot\\assets\\RRRP.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\VALE.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\tutorialdivicheck.gif",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "BasePath": "_content/CTRLInvesting.Client",
+      "RelativePath": "assets/tutorialdivicheck.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\tutorialdivicheck.gif"
+    },
+    {
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\VALE.svg",
+      "SourceId": "CTRLInvesting.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/VALE.svg",
       "AssetKind": "All",
@@ -425,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\VALE.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\WEGE.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\WEGE.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "assets/WEGE.svg",
       "AssetKind": "All",
@@ -442,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\WEGE.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -459,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -476,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -493,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -510,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -527,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -544,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -561,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -578,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -595,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -612,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -629,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\site.css",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -646,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\favicon.png",
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\favicon.png",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
       "BasePath": "_content/CTRLInvesting.Client",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

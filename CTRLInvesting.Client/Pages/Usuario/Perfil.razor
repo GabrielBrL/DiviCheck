@@ -44,24 +44,24 @@
                                     {
                                         <MudItem>
                                             <MudAvatar>
-                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave" Width="50px"
-                                                    Height="50px" />
+                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave"
+                                                    Width="50px" Height="50px" />
                                             </MudAvatar>
                                             <MudAvatar>
-                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave" Width="50px"
-                                                    Height="50px" />
+                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave"
+                                                    Width="50px" Height="50px" />
                                             </MudAvatar>
                                             <MudAvatar>
-                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave" Width="50px"
-                                                    Height="50px" />
+                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave"
+                                                    Width="50px" Height="50px" />
                                             </MudAvatar>
                                             <MudAvatar>
-                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave" Width="50px"
-                                                    Height="50px" />
+                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave"
+                                                    Width="50px" Height="50px" />
                                             </MudAvatar>
                                             <MudAvatar>
-                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave" Width="50px"
-                                                    Height="50px" />
+                                                <MudSkeleton SkeletonType="SkeletonType.Circle" Animation="Animation.Wave"
+                                                    Width="50px" Height="50px" />
                                             </MudAvatar>
                                         </MudItem>
                                     }
@@ -97,7 +97,7 @@
 {
     <MudProgressLinear Color="Color.Default" Indeterminate="true" Class="my-7" />
 }
-<AdsComponente/>
+<AdsComponente />
 @code {
     MudForm form;
     private Snackbar? _snackBar;
@@ -126,8 +126,10 @@
             loadingTickets = false;
             return;
         }
+        loadingTickets = true;
         icon = Icons.Material.Filled.AttachMoney;
         colorUser = "#F3B93F";
         topTickets = await _investidorService.GetTop5Tickets(idUsuario);
+        loadingTickets = false;
     }
 }
