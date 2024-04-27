@@ -13,6 +13,9 @@
             <MudText Class="navLink" Typo="Typo.body2">Calculadora</MudText>
         </MudNavLink>
     </MudNavGroup>
+
+
+
     <AuthorizeView Roles="Free">
         @* <Authorized>
         <MudNavLink Href="/carteira" Class="navMenu" Match="NavLinkMatch.Prefix">
@@ -26,3 +29,6 @@
         </NotAuthorized> *@
     </AuthorizeView>
 </MudNavMenu>
+<MudLink Href="/politica-e-termos-de-uso" style="bottom: 20px; left: 0; position: absolute; margin-left: 8px">
+    <MudText Typo="Typo.body2" Align="Align.Justify" Inline>Politicas e Termos de uso</MudText>
+</MudLink>    
