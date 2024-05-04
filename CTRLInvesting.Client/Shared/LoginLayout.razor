@@ -3,7 +3,7 @@
 @inject ISnackbar Snackbar
 @inject IAcoesService _acoesService
 
-<PageTitle>CTRLInvesting</PageTitle>
+<PageTitle>DiviCheck</PageTitle>
 
 <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="MyCustomTheme" />
 <MudDialogProvider />
@@ -11,7 +11,7 @@
 
 <MudLayout>
     <MudAppBar Style="@($"background:{Colors.Blue.Accent1}")">
-        <MudText Typo="Typo.body1" Style="font-weight:bold">Control Investing</MudText>
+        <MudText Typo="Typo.body1" Style="font-weight:bold">DiviCheck</MudText>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu />
