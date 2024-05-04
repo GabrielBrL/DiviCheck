@@ -840,11 +840,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
+      "projectUniqueName": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
       "projectName": "CTRLInvesting.Client",
-      "projectPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
+      "projectPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
       "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\",
+      "outputPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

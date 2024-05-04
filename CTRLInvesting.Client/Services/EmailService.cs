@@ -9,7 +9,11 @@ using Microsoft.Extensions.Options;
 namespace CTRLInvesting.Client.Services;
 public class EmailService : IEmailService
 {
+    #if DEBUG
     private const string _templatePath = @"EmailTemplate/{0}.html";
+    #else
+    private const string _templatePath = @"./EmailTemplate/{0}.html";
+    #endif
     private readonly SMTPConfigModel _smtpConfig;
     public EmailService(IOptions<SMTPConfigModel> smtpConfig)
     {
