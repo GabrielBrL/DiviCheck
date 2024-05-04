@@ -9,11 +9,11 @@ using Microsoft.Extensions.Options;
 namespace CTRLInvesting.Client.Services;
 public class EmailService : IEmailService
 {
-    #if DEBUG
+#if DEBUG
     private const string _templatePath = @"EmailTemplate/{0}.html";
-    #else
+#else
     private const string _templatePath = @"../EmailTemplate/{0}.html";
-    #endif
+#endif
     private readonly SMTPConfigModel _smtpConfig;
     public EmailService(IOptions<SMTPConfigModel> smtpConfig)
     {
@@ -48,7 +48,8 @@ public class EmailService : IEmailService
 
     public string GetEmailBody(string templateName)
     {
-        return File.ReadAllText(string.Format(_templatePath, templateName));
+        //return File.ReadAllText(string.Format("https://divicheck.com.br/EmailTemplate/{0}.html", templateName));
+        return File.ReadAllText(Path.Combine(Environment.CurrentDirectory, string.Format("EmailTemplate\\{0}.html", templateName)));
     }
 
     public Task SendEmailForEmailConfirmation(UserEmailOptions userEmailOptions)

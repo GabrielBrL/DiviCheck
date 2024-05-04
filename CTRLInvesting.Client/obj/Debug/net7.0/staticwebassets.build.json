@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6fC3szWeAdl1LCLnP0WnyEi7tEXL/ZS5H0LhhtbS5Cg=",
+  "Hash": "khR47t7zsUX4YaTkZGCj6TkYSYPAXrJxpdGlOb3IAdk=",
   "Source": "CTRLInvesting.Client",
   "BasePath": "_content/CTRLInvesting.Client",
   "Mode": "Default",
@@ -661,6 +661,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\EmailTemplate\\ForgotPassword.html",
+      "SourceId": "CTRLInvesting.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "BasePath": "_content/CTRLInvesting.Client",
+      "RelativePath": "EmailTemplate/ForgotPassword.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\EmailTemplate\\ForgotPassword.html"
     },
     {
       "Identity": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\favicon.png",

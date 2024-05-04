@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CTRLInvesting.Client.bundle.scp.css"
     },
     {
+      "Id": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\EmailTemplate\\ForgotPassword.html",
+      "PackagePath": "staticwebassets\\EmailTemplate\\ForgotPassword.html"
+    },
+    {
       "Id": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ABEV.svg",
       "PackagePath": "staticwebassets\\assets\\ABEV.svg"
     },

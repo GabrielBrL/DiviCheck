@@ -32,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj": {
-                "projectPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj"
+              "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj": {
+                "projectPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj"
               }
             }
           }
@@ -88,14 +88,14 @@
         }
       }
     },
-    "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj": {
+    "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj",
+        "projectUniqueName": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj",
         "projectName": "CTRLInvesting.Model",
-        "projectPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj",
+        "projectPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\obj\\",
+        "outputPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
