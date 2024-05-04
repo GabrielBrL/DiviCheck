@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor.Services;
 using CTRLInvesting.Client.Validations;
 using MudBlazor;
+using CTRLInvesting.Model.Configs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,16 +27,21 @@ builder.Services.AddMudServices(config =>
 });
 builder.Services.AddBlazoredLocalStorage();
 
+builder.Services.Configure<SMTPConfigModel>(builder.Configuration.GetSection("SMTPConfig"));
+
 builder.Services.AddScoped<IAcoesService, AcoesService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IInvestimentosService, InvestimentosService>();
 builder.Services.AddScoped<IHomeStocksService, HomeStocksService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ITaxasService, TaxasService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddScoped<CustomHttpHandler>();
 
 builder.Services.AddScoped<FluentValidationRegisterUsuario>();
 builder.Services.AddScoped<FluentValidationCalculadoraSelic>();
+builder.Services.AddScoped<FluentValidationResetSenha>();
+builder.Services.AddScoped<FluentValidationConfirmResetSenha>();
 
 builder.Services.AddScoped(opt => new HttpClient
 {

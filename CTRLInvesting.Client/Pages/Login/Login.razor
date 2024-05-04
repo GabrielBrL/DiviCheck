@@ -29,8 +29,13 @@
                 </MudCardActions>
             </MudCard>
         </MudItem>
-        <MudItem xs="12">            
-            Não possui conta? <MudLink OnClick='(() => _nav.NavigateTo("/register"))' Underline="Underline.Always" Disabled="@loading">Registre-se</MudLink>
+        <MudItem xs="12" sm="6">            
+            <MudStack>
+                <MudText>Não possui conta? <MudLink OnClick='(() => _nav.NavigateTo("/register"))' Underline="Underline.Always" Disabled="@loading">Registre-se</MudLink></MudText>
+                <MudText>Esqueceu a senha? <MudLink OnClick='(() => _nav.NavigateTo("/resetsenha"))' Underline="Underline.Always" Disabled="@loading">Clique aqui</MudLink></MudText>
+            </MudStack>
+        </MudItem>
+        <MudItem xs="12" sm="6">            
         </MudItem>
     </MudGrid>
 </EditForm>

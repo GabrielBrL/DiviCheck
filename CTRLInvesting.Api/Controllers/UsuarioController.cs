@@ -58,6 +58,18 @@ public class UsuarioController : ControllerBase
             return registerUsuario.Usuario;
         }
         return "Erro";
+    }    
+    [HttpPost("reset-senha")]
+    public async Task<IActionResult> ResetSenha([FromBody] UserResetModel reset)
+    {
+        var salt = SaltService.GenerateSalt(16);
+        var passwordHashed = _hashService.GenerateHashPassword(reset.NewPassword, salt);
+        Usuario usuarioReset = await _userService.GetUserByHash(reset.Hash);
+        usuarioReset.Password = passwordHashed;
+        usuarioReset.JwtToken = _tokenService.GenerateJwtToken(usuarioReset);
+        usuarioReset.Salt = salt;
+        await _userService.UpdateUser(usuarioReset);
+        return Ok("Senha resetada");
     }
     [HttpGet("usuario={usuario}")]
     public async Task<bool> GetUsuarioUnique(string usuario)
@@ -66,7 +78,19 @@ public class UsuarioController : ControllerBase
     }
     [HttpGet("email={email}")]
     public async Task<bool> GetEmailUnique(string email)
-    {
+    {        
         return await _userService.GetEmailUnique(email) == null;
+    }
+
+    [HttpGet("getUser/email={email}")]
+    public async Task<Usuario> GetUserByEmail(string email)
+    {
+        return await _userService.GetEmailUnique(email);
+    }
+
+    [HttpGet("getUser/hash={hash}")]
+    public async Task<Usuario> GetUserByHash(string hash)
+    {
+        return await _userService.GetUserByHashSpecific(hash);
     }
 }

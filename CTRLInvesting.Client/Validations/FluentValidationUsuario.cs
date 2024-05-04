@@ -39,7 +39,7 @@ public class FluentValidationRegisterUsuario : AbstractValidator<RegisterModel>
     }
     private async Task<bool> UniqueEmail(string email)
     {
-        return await _userService.GetUserByEmailAsync(email);
+        return await _userService.GetUniqueUserByEmailAsync(email);
     }
     private async Task<bool> UniqueUsuario(string usuario)
     {

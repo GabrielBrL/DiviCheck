@@ -34,12 +34,27 @@ public class UserService : IUserService
         _context.SaveChanges();
     }
 
+    public async Task UpdateUser(Usuario usuario)
+    {
+        _context.Usuario.Update(usuario);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<Usuario> GetEmailUnique(string email)
     {
         return await _context.Usuario.FirstOrDefaultAsync(x => x.Email == email);
     }
 
+    public async Task<Usuario> GetUserByHash(string hash)
+    {
+        return await _context.Usuario.FirstOrDefaultAsync(x => x.JwtToken == hash);
+    }
 
+    public async Task<Usuario> GetUserByHashSpecific(string hash)
+    {
+        return await _context.Usuario.FirstOrDefaultAsync(x => x.JwtToken.Contains(hash));
+    }
+    
     public async Task<Usuario> GetUsuarioUnique(string usuario)
     {
         return await _context.Usuario.FirstOrDefaultAsync(x => x.UserName == usuario);
