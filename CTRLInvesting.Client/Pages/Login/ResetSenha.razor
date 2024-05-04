@@ -13,6 +13,8 @@
 @using Model.Usuario
 @using Validations
 
+<p>@Directory.GetCurrentDirectory()</p>
+<p>@Environment.CurrentDirectory</p>
 @if(!emailSended){
     <MudForm Model="@model" @ref="@form" Disabled="@loading" Validation="formValid.ValidateValue" ValidationDelay="0">
         <MudGrid Justify="Justify.Center">

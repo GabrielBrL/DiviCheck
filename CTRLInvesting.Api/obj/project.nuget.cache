@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gWV8GCPYs0J7EbxxMD1C2w+/LHig8be5IQjEkxSAooUJBi4jz10mLx9g7HEL+4TmPp/8jYttziyuFgmjgOfQfg==",
+  "dgSpecHash": "y9Wwqq3hdzXxjdpBOQgt+mWCAiqNbi7coN2AGdo9Yw5e0NDjVoqx3WzAWZWNg+xdQkp9/hwJlinrNlptiWl6vQ==",
   "success": true,
-  "projectFilePath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj",
+  "projectFilePath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Api\\CTRLInvesting.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
