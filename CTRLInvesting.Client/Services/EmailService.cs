@@ -12,7 +12,7 @@ public class EmailService : IEmailService
 #if DEBUG
     private const string _templatePath = @"EmailTemplate/{0}.html";
 #else
-    private const string _templatePath = @"/app/publish/wwwroot/EmailTemplate/{0}.html";
+    private const string _templatePath = @"/app/wwwroot/EmailTemplate/{0}.html";
 #endif
     private readonly SMTPConfigModel _smtpConfig;
     public EmailService(IOptions<SMTPConfigModel> smtpConfig)
