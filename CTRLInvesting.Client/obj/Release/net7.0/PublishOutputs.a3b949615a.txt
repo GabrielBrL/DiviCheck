@@ -1,6 +1,11 @@
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\CTRLInvesting.Client.exe
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\publish\web.config
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\appsettings.Development.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\appsettings.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\publish\appsettings.Development.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\publish\appsettings.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\publish\CTRLInvesting.Client.deps.json
+C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\publish\CTRLInvesting.Client.runtimeconfig.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\CTRLInvesting.Client.dll
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\CTRLInvesting.Client.deps.json
 C:\Projeto Controle Investimentos\CTRLInvesting.Client\publish\CTRLInvesting.Client.runtimeconfig.json

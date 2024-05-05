@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FXk+oHBoTuItqpn5xKoMK1NCt9ojcKW7gG7DlgXu/X4=",
+  "Hash": "8JYKRwoh5Jmmfh4YHTGtoyzFStAU385BemxkVBBIX8g=",
   "Source": "CTRLInvesting.Client",
   "BasePath": "_content/CTRLInvesting.Client",
   "Mode": "Default",
@@ -408,6 +408,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\RRRP.svg"
     },
     {
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\tutorialdivicheck.gif",
+      "SourceId": "CTRLInvesting.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "BasePath": "_content/CTRLInvesting.Client",
+      "RelativePath": "assets/tutorialdivicheck.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\tutorialdivicheck.gif"
+    },
+    {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\VALE.svg",
       "SourceId": "CTRLInvesting.Client",
       "SourceType": "Discovered",
@@ -644,6 +661,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\EmailTemplate\\ForgotPassword.html",
+      "SourceId": "CTRLInvesting.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\",
+      "BasePath": "_content/CTRLInvesting.Client",
+      "RelativePath": "EmailTemplate/ForgotPassword.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\EmailTemplate\\ForgotPassword.html"
     },
     {
       "Identity": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\favicon.png",

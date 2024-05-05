@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CTRLInvesting.Client.bundle.scp.css"
     },
     {
+      "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\EmailTemplate\\ForgotPassword.html",
+      "PackagePath": "staticwebassets\\EmailTemplate\\ForgotPassword.html"
+    },
+    {
       "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\ABEV.svg",
       "PackagePath": "staticwebassets\\assets\\ABEV.svg"
     },
@@ -95,6 +99,10 @@
     {
       "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\WEGE.svg",
       "PackagePath": "staticwebassets\\assets\\WEGE.svg"
+    },
+    {
+      "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\assets\\tutorialdivicheck.gif",
+      "PackagePath": "staticwebassets\\assets\\tutorialdivicheck.gif"
     },
     {
       "Id": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",

@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNvZXNDb21wcmFkYXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Calculadora/CalculadoraTesouroDireto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsY3VsYWRvcmFcQ2FsY3VsYWRvcmFUZXNvdXJvRGlyZXRvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Carteira.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydGVpcmEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,12 +36,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9zaWNhb0NhcnRlaXJhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/DetalhesAcao.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWxoZXNBY2FvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Dividendos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGl2aWRlbmRvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/GraphBarDividends.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JhcGhCYXJEaXZpZGVuZHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/GraphLineAcao.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JhcGhMaW5lQWNhby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/HomeStocks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVN0b2Nrcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/ListaAcoesFiltradas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdGFBY29lc0ZpbHRyYWRhcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Login/ConfirmResetSenha.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cQ29uZmlybVJlc2V0U2VuaGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Login/Login.razor]
@@ -48,8 +76,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/DialogInformationStock.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0luZm9ybWF0aW9uU3RvY2sucmF6b3I=
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Login/ResetSenha.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUmVzZXRTZW5oYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/RedirectUnthorized.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVkaXJlY3RVbnRob3JpemVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Termos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVybW9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Pages/Usuario/Perfil.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb1xQZXJmaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/AdsComponente.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFkc0NvbXBvbmVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/DialogTemporary.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ1RlbXBvcmFyeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/LoginLayout.razor]
@@ -59,6 +107,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/DialogInformationStock.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0luZm9ybWF0aW9uU3RvY2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-nqp0thl5j6
 
 [C:/Projeto Controle Investimentos/CTRLInvesting.Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

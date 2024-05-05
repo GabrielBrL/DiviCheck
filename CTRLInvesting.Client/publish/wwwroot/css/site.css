@@ -17,7 +17,7 @@ h1:focus {
 }
 
 .navLink {
-    color: #FFFFFF;
+    color: var(--mud-palette-text-primary) !important;
 }
 
 .navLink:hover {
@@ -50,7 +50,54 @@ h1:focus {
 }
 
 .navMenu {
-    --mud-palette-action-default-hover: #82B1FF
+    --mud-palette-action-default-hover: #82B1FF;
+}
+
+.btnPeriodSelected {
+    background: var(--mud-palette-action-default) !important;
+    color: var(--mud-palette-primary-text) !important;
+}
+
+.hiddenTab {
+    display: none !important;
+}
+
+.footerRecomendacao {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    background-color: var(--mud-palette-secondary);
+    color: var(--mud-palette-text-primary);
+}
+
+.imgTutorial {
+    width: 1200px !important;
+}
+
+.searchField {
+    position: fixed;
+    object-position: center;
+    left: 0;
+    top: 65px;
+    background-color: var(--mud-palette-background);
+    z-index: 100;
+    width: calc(100% + 24px);
+}
+
+.btnCrieContaGratuitamente {
+    width: 50%;
+    height: 100px;
+}
+
+.lblCrieContaGratuitamente {
+    font-size: 2em !important;
+}
+
+.titleFuturoFinanceiro {
+    font-size: 4em !important;
 }
 
 @media screen and (min-width: 600px) {
@@ -60,6 +107,15 @@ h1:focus {
 
     .variacaoCarteira {
         font-size: 20px !important;
+    }
+
+    .pieChart {
+        width: 500px;
+        margin-left: 50px;
+    }
+
+    .dividendSum {
+        display: none;
     }
 }
 
@@ -78,5 +134,40 @@ h1:focus {
 
     .imgAcao {
         display: none !important;
+    }
+
+    .pieChart {
+        width: 320px;
+    }
+
+    .dividendSum {
+        position: fixed;
+        left: 0;
+        bottom: 25px;
+        width: 100%;
+        height: 50px;
+    }
+
+    .imgTutorial {
+        width: 100% !important;
+    }
+
+    .searchField {
+        width: 100% !important;
+        margin: 0 !important;
+        top: 50px !important;
+    }
+
+    .btnCrieContaGratuitamente {
+        width: 80%;
+        height: 50px;
+    }
+
+    .lblCrieContaGratuitamente {
+        font-size: 20px !important;
+    }
+
+    .titleFuturoFinanceiro {
+        font-size: 5em !important;
     }
 }
