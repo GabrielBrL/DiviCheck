@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Iy2/NW0PLfJlq5U+mhFI2ACK96ImxkmpyIkrLXIrQmCyNFhiEEqUI0EC2u8Opz3qE2cHhDtrBFzoSKB+sd3tmQ==",
+  "dgSpecHash": "9P7HViQlZdOogz9SlJEAMCNNrKGzagM6WVUPSgvlyNsfhq+LLJCkpqZnejztGmDj5J0eJOmF4JU76N+ksKm/vA==",
   "success": true,
-  "projectFilePath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
+  "projectFilePath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Client\\CTRLInvesting.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\blazor.bootstrap\\1.11.1\\blazor.bootstrap.1.11.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\blazored.localstorage\\4.4.0\\blazored.localstorage.4.4.0.nupkg.sha512",
