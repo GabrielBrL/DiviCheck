@@ -39,7 +39,7 @@ public class EmailService : IEmailService
             Host = _smtpConfig.Host,
             Port = _smtpConfig.Port,
             EnableSsl = _smtpConfig.EnableSSL,
-            UseDefaultCredentials = _smtpConfig.UseDefaultCredentials,
+            // UseDefaultCredentials = _smtpConfig.UseDefaultCredentials,
             Credentials = networkCredential
         };
         mail.BodyEncoding = Encoding.Default;
