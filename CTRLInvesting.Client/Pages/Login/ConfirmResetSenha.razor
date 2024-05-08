@@ -49,7 +49,14 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        UserReset = await _userService.GetUserByHashAsync(Hash);
+        try
+        {
+            UserReset = await _userService.GetUserByHashAsync(Hash);
+        }
+        catch(Exception e)
+        {
+            _nav.NavigateTo("/");
+        }
     }
     private async Task OnValidSubmit()
     {

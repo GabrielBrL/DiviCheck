@@ -2016,8 +2016,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj": {
-              "projectPath": "c:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj"
+            "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj": {
+              "projectPath": "C:\\Projeto Controle Investimentos\\CTRLInvesting.Model\\CTRLInvesting.Model.csproj"
             }
           }
         }
