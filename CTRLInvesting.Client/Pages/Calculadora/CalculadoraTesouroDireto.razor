@@ -20,11 +20,13 @@
             ValidationDelay="0" Class="mt-3">
             <MudGrid>
                 <MudItem xs="12" sm="6">
-                    <MudNumericField Min="0" Format="C2" Culture="@(new CultureInfo("pt-BR"))" HideSpinButtons="true" id="vlrInicialField" Label="Investimento inicial" @bind-Value="model.valorInicial"
+                    <MudNumericField Min="0" Format="C2" Culture="@(new CultureInfo("pt-BR"))" HideSpinButtons="true"
+                        id="vlrInicialField" Label="Investimento inicial" @bind-Value="model.valorInicial"
                         For="@(() => model.valorInicial)" Placeholder="0" T="double?" />
                 </MudItem>
                 <MudItem xs="12" sm="6">
-                    <MudNumericField Min="0" Format="C2" Culture="@(new CultureInfo("pt-BR"))" HideSpinButtons="true" id="vlrInicialField" Label="Investimento mensal" @bind-Value="model.valorMensal"
+                    <MudNumericField Min="0" Format="C2" Culture="@(new CultureInfo("pt-BR"))" HideSpinButtons="true"
+                        id="vlrInicialField" Label="Investimento mensal" @bind-Value="model.valorMensal"
                         For="@(() => model.valorMensal)" Placeholder="0" T="double?" />
                 </MudItem>
                 <MudItem xs="12" sm="6">
@@ -40,9 +42,10 @@
                 </MudItem>
                 <MudItem xs="12" sm="6">
                     <MudStack Row>
-                        <MudNumericField Min="0" HideSpinButtons="true" Label="Rentabilidade" Culture="@(new System.Globalization.CultureInfo("pt-BR"))"
-                            @bind-Value="model.PercentualRentabilidade" For="@(() => model.PercentualRentabilidade)" T="double?"
-                            Placeholder="@((taxasSelic * 100).ToString("G"))"
+                        <MudNumericField Min="0" HideSpinButtons="true" Label="Rentabilidade"
+                            Culture="@(new System.Globalization.CultureInfo("pt-BR"))"
+                            @bind-Value="model.PercentualRentabilidade" For="@(() => model.PercentualRentabilidade)"
+                            T="double?" Placeholder="@((taxasSelic * 100).ToString("G"))"
                             HelperText="@($"Taxa selic de {taxasSelic.ToString("P2")} a.a.")" style="width: 300px;" />
                         <MudSelect FullWidth="false" T="string" @bind-Value="model.AnoMes"
                             AnchorOrigin="Origin.BottomCenter">
@@ -54,7 +57,8 @@
                 <MudItem xs="12">
                     <MudGrid Justify="Justify.FlexEnd">
                         <MudButton Variant="Variant.Outlined" Class="ma-2" OnClick="@Calcula">Calcular</MudButton>
-                        <MudButton Variant="Variant.Text" Class="ma-2" OnClick="(() => {model = new(); resultadoSimulação.Clear();})">Limpar
+                        <MudButton Variant="Variant.Text" Class="ma-2"
+                            OnClick="(() => {model = new(); resultadoSimulação.Clear();})">Limpar
                         </MudButton>
                     </MudGrid>
                 </MudItem>
@@ -114,11 +118,10 @@
     private bool loading;
     List<GanhosRendaFixa> resultadoSimulação = new();
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         loading = true;
-        if (taxasSelic == 0)
-            taxasSelic = await taxas.GetSelicAsync();
+        taxasSelic = 0.105;        
         //taxasCdi = await taxas.GetCdiAsync();
         loading = false;
     }
