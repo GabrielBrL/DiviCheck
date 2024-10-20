@@ -39,7 +39,8 @@ jobs:
       - name: Update appsettings.json
         run: |
               echo "Updating appsettings.json with connection string..."
-              jq --arg conn "$DATABASE_CONNECTION_STRING" '.ConnectionStrings.Default = $conn' ./CTRLInvesting.Api/appsettings.json > tmp.$$.json && mv tmp.$$.json ./CTRLInvesting.Api/appsettings.json
+              cd CTRLInvesting.Api
+              jq --arg conn "$DATABASE_CONNECTION_STRING" '.ConnectionStrings.Default = $conn' appsettings.json > tmp.$$.json && mv tmp.$$.json appsettings.json
             
       - name: Construindo imagem Docker da Api
         uses: docker/build-push-action@v5.2.0
