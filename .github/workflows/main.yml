@@ -45,7 +45,7 @@ jobs:
       - name: Show updated appsettings.json
         run: |
               echo "Updated appsettings.json:"
-              cd Projeto2
+              cd CTRLInvesting.Api
               cat appsettings.json
             
       - name: Construindo imagem Docker da Api
