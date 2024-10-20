@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CTRLInvesting.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c99428f1b979fe50b24356a339103fee57404901")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c020fce17a3ca5a0ca10567097dda3635ded779e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CTRLInvesting.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CTRLInvesting.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
