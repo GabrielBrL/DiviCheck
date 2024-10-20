@@ -38,7 +38,7 @@ jobs:
 
       - name: Replace connection string
         run: |
-            sed -i "s|\"ConnectionStrings:Default\":.*|\"ConnectionStrings:Default\": \"${{ secrets.DATABASE_CONNECTION_STRING }}\"|" CTRLInvesting.Api/appsettings.json
+            sed -i "s|\"ConnectionStrings:Default\":.*|\"ConnectionStrings:Default\": \"${{ secrets.DATABASE_CONNECTION_STRING }}\"|" ./CTRLInvesting.Api/appsettings.json
             
       - name: Construindo imagem Docker da Api
         uses: docker/build-push-action@v5.2.0
