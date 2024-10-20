@@ -40,7 +40,7 @@ jobs:
         run: |
               echo "Updating appsettings.json with connection string..."
               cd CTRLInvesting.Api
-              jq --arg conn "${{ secrets.DEFAULT_CONNECTION_STRING }}" '.ConnectionStrings.Default = $conn' appsettings.json > tmp.$$.json && mv tmp.$$.json appsettings.json
+              jq --arg conn "${{ secrets.DEFAULT_CONNECTION_STRING }}" '.ConnectionStrings.Default = $conn' appsettings.json > tmp.json && mv tmp.json appsettings.json
       
       - name: Show updated appsettings.json
         run: |
