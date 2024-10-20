@@ -36,9 +36,10 @@ jobs:
             604210/divicheck-client:${{github.run_number}}
             604210/divicheck-client:latest
 
-      - name: Replace connection string
+      - name: Update appsettings.json
         run: |
-            sed -i "s|\"ConnectionStrings:Default\":.*|\"ConnectionStrings:Default\": \"${{ secrets.DATABASE_CONNECTION_STRING }}\"|" ./CTRLInvesting.Api/appsettings.json
+              echo "Updating appsettings.json with connection string..."
+              jq --arg conn "$DATABASE_CONNECTION_STRING" '.ConnectionStrings.Default = $conn' ./CTRLInvesting.Api/appsettings.json > tmp.$$.json && mv tmp.$$.json ./CTRLInvesting.Api/appsettings.json
             
       - name: Construindo imagem Docker da Api
         uses: docker/build-push-action@v5.2.0
