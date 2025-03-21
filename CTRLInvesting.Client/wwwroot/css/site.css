@@ -1,0 +1,173 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+:root {
+    --icon-light: #FFE000;
+    --icon-light-hover: #D5BB00;
+    --icon-dark: #C4C4C4;
+    --icon-dark-hover: #545454;
+}
+
+html,
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1:focus {
+    outline: none;
+}
+
+.navLink {
+    color: var(--mud-palette-text-primary) !important;
+}
+
+.navLink:hover {
+    color: #e7e7e7;
+}
+
+.linkAppBar {
+    color: var(--mud-palette-appbar-text) !important;
+}
+
+
+.mudIconButtonThemeLight svg {
+    color: var(--icon-light) !important;
+}
+
+.mudIconButtonThemeLight:hover svg {
+    color: var(--icon-light-hover) !important;
+}
+
+.mudIconButtonThemeDark svg {
+    color: var(--icon-dark) !important;
+}
+
+.mudIconButtonThemeDark:hover svg {
+    color: var(--icon-dark-hover) !important;
+}
+
+.dialogInformationStock {
+    backdrop-filter: blur(10px);
+}
+
+.navMenu {
+    --mud-palette-action-default-hover: #82B1FF;
+}
+
+.btnPeriodSelected {
+    background: var(--mud-palette-action-default) !important;
+    color: var(--mud-palette-primary-text) !important;
+}
+
+.hiddenTab {
+    display: none !important;
+}
+
+.footerRecomendacao {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    background-color: var(--mud-palette-secondary);
+    color: var(--mud-palette-text-primary);
+}
+
+.imgTutorial {
+    width: 1200px !important;
+}
+
+.searchField {
+    position: fixed;
+    object-position: center;
+    left: 0;
+    top: 65px;
+    background-color: var(--mud-palette-background);
+    z-index: 100;
+    width: calc(100% + 24px);
+}
+
+.btnCrieContaGratuitamente {
+    width: 50%;
+    height: 100px;
+}
+
+.lblCrieContaGratuitamente {
+    font-size: 2em !important;
+}
+
+.titleFuturoFinanceiro {
+    font-size: 4em !important;
+}
+
+@media screen and (min-width: 600px) {
+    .precoCarteira {
+        font-size: 30px !important;
+    }
+
+    .variacaoCarteira {
+        font-size: 20px !important;
+    }
+
+    .pieChart {
+        width: 500px;
+        margin-left: 50px;
+    }
+
+    .dividendSum {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mudListCarteira {
+        width: 55px;
+    }
+
+    .precoCarteira {
+        font-size: 30px !important;
+    }
+
+    .variacaoCarteira {
+        font-size: 20px !important;
+    }
+
+    .imgAcao {
+        display: none !important;
+    }
+
+    .pieChart {
+        width: 320px;
+    }
+
+    .dividendSum {
+        position: fixed;
+        left: 0;
+        bottom: 25px;
+        width: 100%;
+        height: 50px;
+    }
+
+    .imgTutorial {
+        width: 100% !important;
+    }
+
+    .searchField {
+        width: 100% !important;
+        margin: 0 !important;
+        top: 50px !important;
+    }
+
+    .btnCrieContaGratuitamente {
+        width: 80%;
+        height: 50px;
+    }
+
+    .lblCrieContaGratuitamente {
+        font-size: 20px !important;
+    }
+
+    .titleFuturoFinanceiro {
+        font-size: 5em !important;
+    }
+}

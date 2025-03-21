@@ -1,0 +1,12 @@
+@inject NavigationManager nav
+@inject ISnackbar Snackbar
+@code {
+    protected override void OnInitialized()
+    {
+        Snackbar.Add("Necessário estar logado para entrar na carteira.", Severity.Warning, opt =>
+        {
+            opt.CloseAfterNavigation = false;
+        });
+        nav.NavigateTo("/login");
+    }
+}

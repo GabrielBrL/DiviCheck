@@ -1,0 +1,63 @@
+@using CTRLInvesting.Client.Pages
+<MudDialog>
+    <DialogContent>
+        <MudGrid Justify="Justify.Center">
+            <MudButtonGroup Color="Color.Primary" Size="MudBlazor.Size.Large" Variant="Variant.Outlined">
+                <MudButton Class="@StyleForButton1()" OnClick="() => Activate(0)">Detalhes</MudButton>
+                <MudButton Class="@StyleForButton2()" OnClick="() => Activate(1)">Gráfico</MudButton>
+                <MudButton Class="@StyleForButton3()" OnClick="() => Activate(2)">Dividendos</MudButton>
+            </MudButtonGroup>
+        </MudGrid>
+        <MudTabs Border="false" DisableRipple="true" Elevation="0" Rounded="true" PanelClass="pa-6" Centered="true"
+            @ref="tabs" HideSlider="true" TabHeaderClass="hiddenTab">
+            <MudTabPanel Icon="@Icons.Material.Filled.Info">
+                <DetalhesAcao stock="stock" />
+            </MudTabPanel>
+            <MudTabPanel Icon="@Icons.Material.Filled.TrendingUp">
+                <GraphLineAcao Ticket="@stock.Symbol.Substring(0, stock.Symbol.IndexOf('.'))" />
+            </MudTabPanel>
+            <MudTabPanel Icon="@Icons.Material.Filled.TrendingUp">
+                <GraphBarDividends Ticket="@stock.Symbol.Substring(0, stock.Symbol.IndexOf('.'))" />
+            </MudTabPanel>
+        </MudTabs>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Close">Fechar</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter] public StockDataDetails stock { get; set; } = new StockDataDetails();
+    MudTabs tabs;
+    int indexTab = 0;
+    void Close() => MudDialog.Close();
+    void Activate(int index)
+    {
+        indexTab = index;
+        tabs.ActivatePanel(index);
+    }
+    string StyleForButton1()
+    {
+        if (indexTab == 0)
+        {
+            return "btnPeriodSelected px-5";
+        }
+        return "px-5";
+    }
+    string StyleForButton2()
+    {
+        if (indexTab == 1)
+        {
+            return "btnPeriodSelected px-5";
+        }
+        return "px-5";
+    }
+    string StyleForButton3()
+    {
+        if (indexTab == 2)
+        {
+            return "btnPeriodSelected px-5";
+        }
+        return "px-5";
+    }
+}

@@ -1,0 +1,170 @@
+@page "/calculadorarendafixa"
+
+@using CTRLInvesting.Client.Validations
+@using CTRLInvesting.Model.CalculadoraRendaFixa
+@using System.Globalization
+
+@inject ITaxasService taxas
+@inject FluentValidationCalculadoraSelic formValid
+
+<MudOverlay @bind-Visible="loading" DarkBackground="true" ZIndex="9999" AutoClose="false">
+    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+</MudOverlay>
+
+@* <AdsComponente /> *@
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" sm="8">
+        <MudText Align="Align.Center" Typo="Typo.h3">Calculadora Renda Fixa</MudText>
+        <MudForm Model="@model" autocomplete="off" @ref="@form" Disabled="@loading" Validation="formValid.ValidateValue"
+            ValidationDelay="0" Class="mt-3">
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudNumericField Min="0" Format="C2" Culture="@(new CultureInfo("pt-BR"))" HideSpinButtons="true"
+                        id="vlrInicialField" Label="Investimento inicial" @bind-Value="model.valorInicial"
+                        For="@(() => model.valorInicial)" Placeholder="0" T="double?" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudNumericField Min="0" Format="C2" Culture="@(new CultureInfo("pt-BR"))" HideSpinButtons="true"
+                        id="vlrInicialField" Label="Investimento mensal" @bind-Value="model.valorMensal"
+                        For="@(() => model.valorMensal)" Placeholder="0" T="double?" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudStack Row>
+                        <MudNumericField Min="0" id="vlrInicialField" Label="Prazo" @bind-Value="model.Prazo"
+                            For="@(() => model.Prazo)" Placeholder="0" T="int?" style="width: 300px;" />
+                        <MudSelect FullWidth="false" T="string" @bind-Value="model.AnoMesPercentual"
+                            AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem Value="@("Ano")" />
+                            <MudSelectItem Value="@("Mês")" />
+                        </MudSelect>
+                    </MudStack>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudStack Row>
+                        <MudNumericField Min="0" HideSpinButtons="true" Label="Rentabilidade"
+                            Culture="@(new System.Globalization.CultureInfo("pt-BR"))"
+                            @bind-Value="model.PercentualRentabilidade" For="@(() => model.PercentualRentabilidade)"
+                            T="double?" Placeholder="@((taxasSelic * 100).ToString("G"))"
+                            HelperText="@($"Taxa selic de {taxasSelic.ToString("P2")} a.a.")" style="width: 300px;" />
+                        <MudSelect FullWidth="false" T="string" @bind-Value="model.AnoMes"
+                            AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem Value="@("Ano")" />
+                            <MudSelectItem Value="@("Mês")" />
+                        </MudSelect>
+                    </MudStack>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudGrid Justify="Justify.FlexEnd">
+                        <MudButton Variant="Variant.Outlined" Class="ma-2" OnClick="@Calcula">Calcular</MudButton>
+                        <MudButton Variant="Variant.Text" Class="ma-2"
+                            OnClick="(() => {model = new(); resultadoSimulação.Clear();})">Limpar
+                        </MudButton>
+                    </MudGrid>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudItem>
+</MudGrid>
+@if (resultadoSimulação.Count > 0)
+{
+
+    <MudCard Class="mt-5" Elevation="2">
+        <MudGrid>
+            <MudItem xs="12" sm="4">
+                <MudText Align="Align.Center">Valor investido</MudText>
+                <MudText Align="Align.Center">@resultadoSimulação.Last().ValorMensalInvestido.ToString("C2", new
+                CultureInfo("pt-BR"))
+                </MudText>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudText Align="Align.Center">Total de juros</MudText>
+                <MudText Align="Align.Center">@resultadoSimulação.Last().Juros.ToString("C2", new
+                CultureInfo("pt-BR"))</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudText Align="Align.Center">Valor total</MudText>
+                <MudText Align="Align.Center">@resultadoSimulação.Last().ValorTotal.ToString("C2", new CultureInfo("pt-BR"))
+                </MudText>
+            </MudItem>
+        </MudGrid>
+    </MudCard>
+
+
+    <MudGrid Class="mt-5 mb-5" Justify="Justify.Center">
+        <MudItem xs="12">
+            <MudDataGrid Items="@resultadoSimulação">
+                <Columns>
+                    <PropertyColumn Property="x => x.Mes" Title="Mês" />
+                    <PropertyColumn Format="C2" Property="x => x.ValorMensalInvestido" Title="Valor investido" />
+                    <PropertyColumn Format="C2" Property="x => x.JurosMes" Title="Juros do mês" />
+                    <PropertyColumn Format="C2" Property="x => x.Juros" Title="Juros Total" />
+                    <PropertyColumn Format="C2" Property="x => x.ValorTotal" Title="Total" />
+                </Columns>
+                <PagerContent>
+                    <MudDataGridPager T="GanhosRendaFixa" PageSizeOptions=@(new int[] {13, 25, 37, 49, 61}) />
+                </PagerContent>
+            </MudDataGrid>
+        </MudItem>
+    </MudGrid>
+
+}
+
+@code {
+    MudForm form;
+    CalculadoraSelic model = new();
+    private static double taxasSelic;
+    private static double taxasCdi;
+    private bool loading;
+    List<GanhosRendaFixa> resultadoSimulação = new();
+
+    protected override void OnInitialized()
+    {
+        loading = true;
+        taxasSelic = 0.105;        
+        //taxasCdi = await taxas.GetCdiAsync();
+        loading = false;
+    }
+
+    async Task Calcula()
+    {
+        await form.Validate();
+        if (form.IsValid)
+        {
+            resultadoSimulação.Clear();
+            int prazo = model.Prazo.Value;
+            double investimento = model.valorInicial.Value;
+            double percentual = model.PercentualRentabilidade == null ? taxasSelic : model.PercentualRentabilidade.Value / 100;
+            double vlrMensal = model.valorMensal == null ? 0 : model.valorMensal.Value;
+            double vlrMensalAcumulado = investimento;
+            double jurosAnterior = 0.0;
+            if (model.AnoMes == "Ano")
+            {
+                double percentualFinal = Math.Pow((1 + percentual), 1.0 / 12.0) - 1;
+                percentual = percentualFinal;
+            }
+            if (model.AnoMesPercentual == "Ano")
+            {
+                prazo = model.Prazo.Value * 12;
+            }
+            for (int i = 0; i <= prazo; i++)
+            {
+                double montante = (investimento * Math.Pow((1 + percentual), i)) + (vlrMensal * ((Math.Pow((1 + percentual), i) -
+                1) / percentual));
+                double juros = montante - vlrMensalAcumulado;
+                double jurosMes = juros - jurosAnterior;
+                vlrMensalAcumulado += vlrMensal;
+                jurosAnterior = juros;
+                double investimentoTotal = montante - juros;
+                resultadoSimulação.Add(new()
+                    {
+                        Mes = i,
+                        Juros = Math.Round(juros, 2),
+                        ValorMensalInvestido = Math.Round(investimentoTotal, 2),
+                        ValorTotal = Math.Round(montante, 2),
+                        JurosMes = Math.Round(jurosMes, 2)
+                    });
+            }
+        }
+    }
+}

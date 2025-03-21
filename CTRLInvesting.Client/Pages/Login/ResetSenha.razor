@@ -1,0 +1,75 @@
+@layout LoginLayout
+@page "/resetsenha"
+
+@inject ISnackbar Snackbar
+@inject FluentValidationResetSenha formValid
+@inject NavigationManager _nav
+@inject IUsuarioService _userService
+@inject IEmailService _emailService
+@inject IConfiguration _config
+
+@using System.ComponentModel.DataAnnotations
+@using CTRLInvesting.Client.Options
+@using Model.Usuario
+@using Validations
+
+@if(!emailSended){
+    <MudForm Model="@model" @ref="@form" Disabled="@loading" Validation="formValid.ValidateValue" ValidationDelay="0">
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5">Favor informar o email do usuário</MudText>
+                        <MudTextField Label="Email" HelperText="Max. 100 caracteres" @bind-Value="model.Email"
+                            For="@(() => model.Email)" />                    
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Filled" Color="Color.Success" Class="ml-auto" Disabled="@loading"
+                            OnClick="@(async () => await OnValidSubmit())">Continuar</MudButton>
+                        <MudSpacer />
+                        <MudButton ButtonType="MudBlazor.ButtonType.Button" OnClick='(() => _nav.NavigateTo("/login"))' Disabled="@loading"
+                            Variant="Variant.Filled" Class="ml-auto">Voltar</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudForm>
+}else{
+    <MudGrid Justify="Justify.Center" Class="ma-10">
+        <MudText Align="Align.Center" Typo="Typo.h4">Por favor, verifique o seu email.</MudText>
+        <MudText Align="Align.Center" Typo="Typo.body1">Será enviada um confirmação para resetar a sua senha.</MudText>
+        <MudText Align="Align.Center" Typo="Typo.body1">Caso deseje voltar ao início <a href="/" style="font-weight: bold;">clique aqui</a>.</MudText>
+    </MudGrid>
+}
+@if (loading)
+{
+    <MudProgressLinear Color="Color.Default" Indeterminate="true" Class="my-7" />
+}
+@code {
+    MudForm form;
+    private Snackbar? _snackBar;
+    ResetSenhaModel model = new ResetSenhaModel();
+    private bool loading = false;   
+    private bool emailSended = false;   
+    private async Task OnValidSubmit()
+    {
+        loading = true;
+        await form.Validate();
+        if (form.IsValid)
+        {
+            var hash = (await _userService.GetUserByEmailAsync(model.Email)).JwtToken.Split('.')[1];
+            string link = $"{_config.GetSection("AppDomain").Value}/confirm-reset/{hash}";
+            UserEmailOptions options = new UserEmailOptions
+            {
+                ToEmails = new List<string>() { model.Email},
+                PlaceHolders= new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("{{Link}}", link)
+                }
+            };
+            await _emailService.SendEmailForForgotPassword(options);
+            emailSended = true;
+        }        
+        loading = false;
+    }
+}

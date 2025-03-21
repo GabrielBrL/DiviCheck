@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTRLInvesting.Api", "CTRLInvesting.Api\CTRLInvesting.Api.csproj", "{4618B6B2-CE08-4290-8671-1AC4261C8F15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTRLInvesting.Client", "CTRLInvesting.Client\CTRLInvesting.Client.csproj", "{87204FB6-0A22-43A2-B471-02F23AE4C7F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTRLInvesting.Model", "CTRLInvesting.Model\CTRLInvesting.Model.csproj", "{4C0FFC75-9F65-4767-905B-32289A7ABE66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4618B6B2-CE08-4290-8671-1AC4261C8F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4618B6B2-CE08-4290-8671-1AC4261C8F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4618B6B2-CE08-4290-8671-1AC4261C8F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4618B6B2-CE08-4290-8671-1AC4261C8F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87204FB6-0A22-43A2-B471-02F23AE4C7F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87204FB6-0A22-43A2-B471-02F23AE4C7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87204FB6-0A22-43A2-B471-02F23AE4C7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87204FB6-0A22-43A2-B471-02F23AE4C7F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0FFC75-9F65-4767-905B-32289A7ABE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0FFC75-9F65-4767-905B-32289A7ABE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0FFC75-9F65-4767-905B-32289A7ABE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0FFC75-9F65-4767-905B-32289A7ABE66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

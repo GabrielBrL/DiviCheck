@@ -1,0 +1,70 @@
+<MudText Typo="Typo.h6" Class="m-2" Align="Align.Start">Composição da carteira:</MudText>
+<MudList></MudList>
+<MudGrid Justify="Justify.FlexStart">
+    <MudItem xs="12">
+        <PieChart @ref="pieChart" Class="pieChart mb-5 justify-center" />
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public List<KeyValuePair<string, double>>? acoes { get; set; }
+    List<IChartDataset> data = new List<IChartDataset>();
+    List<double> dataValues = new List<double>();
+    List<string> labels = new List<string>();
+    private PieChart pieChart = default!;
+    private PieChartOptions pieChartOptions = default!;
+    private ChartData chartData = default!;
+    private string[]? backgroundColors;
+    protected override void OnInitialized()
+    {
+        cData();
+        cGraph();
+        StateHasChanged();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await pieChart.InitializeAsync(chartData, pieChartOptions);
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+    void cData()
+    {
+        var datasets = new List<IChartDataset>();
+        var sum = acoes.Sum(x => x.Value);
+        foreach (var item in acoes)
+        {
+            var percent = item.Value / sum;
+            labels.Add($"{item.Key.Substring(0, item.Key.IndexOf('.'))} ({percent.ToString("P2")})");
+            dataValues.Add(item.Value);
+        }
+        data.Add(new PieChartDataset { Data = dataValues });
+    }
+    void cGraph()
+    {
+        backgroundColors = ColorBuilder.CategoricalTwelveColors;
+        chartData = new ChartData { Labels = labels, Datasets = data };
+        pieChartOptions = new();
+        pieChartOptions.Responsive = false;
+        pieChartOptions.Plugins.Legend.Position = "right";
+        pieChartOptions.Plugins.Datalabels.Color = "black";
+        pieChartOptions.Plugins.Datalabels.Padding = 10;
+        pieChartOptions.Plugins.Tooltip = new ChartPluginsTooltip
+            {
+                BodyFont = new ChartPluginsTooltipFont
+                {
+                    Size = 20,
+                },
+                TitleFont = new ChartPluginsTooltipFont
+                {
+                    Size = 30,
+                }
+            };
+    }
+    @* private void OnSelectedValue(ChartType tipo)
+{
+tipoGrafico = tipo;
+} *@
+}
