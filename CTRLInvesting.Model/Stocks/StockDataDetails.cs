@@ -29,7 +29,7 @@ public class StockDataDetails
     private double? _dividendYield;
     public double? DividendYield
     {
-        get => _dividendYield;
+        get => _dividendYield / 100;
         set => _dividendYield = value;
     }
     // public double? EarningsGrowth { get; set; }
