@@ -19,13 +19,13 @@
         <PropertyColumn Property="x => x.NumeroAcoes" Title="Número de ações" />
         <PropertyColumn Property="x => x.CurrentPrice == null ? 0 : (x.NumeroAcoes * x.CurrentPrice.Value)" Format="C"
             Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Valor total" />
-        <PropertyColumn Property="x => x.DividendYield" Format="P2"
+        <PropertyColumn Property="x => x.dividendYield" Format="P2"
             Culture='(new System.Globalization.CultureInfo("pt-BR"))' Title="Percentual de dividendos a.a." />
         <TemplateColumn Title="Valor de dividendos m.m.">
             <CellTemplate>
                 <MudStack Spacing="0">
                     @context.Item.VlrDivYieldMes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
-                    @if (context.Item.DividendYield == null)
+                    @if (context.Item.dividendYield == null)
                     {
                         <MudText style="font-size: 10px;" Typo="Typo.caption">(Baseado no último dividendo)</MudText>
                     }
@@ -39,7 +39,7 @@
             <CellTemplate>
                 <MudStack Spacing="0">
                     @context.Item.VlrDivYieldAno.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
-                    @if (context.Item.DividendYield == null)
+                    @if (context.Item.dividendYield == null)
                     {
                         <MudText style="font-size: 10px;" Typo="Typo.caption">(Baseado no último dividendo)</MudText>
                     }
@@ -87,8 +87,8 @@
             double perc_dividendos = 0.0;
             try
             {
-                perc_dividendos = item.DividendYield == null ? (item.LastDividendValue.Value * 12) /
-                item.CurrentPrice.Value : item.DividendYield.Value;
+                perc_dividendos = item.dividendYield == null ? (item.LastDividendValue.Value * 12) /
+                item.CurrentPrice.Value : item.dividendYield.Value;
             }
             catch (Exception e)
             {

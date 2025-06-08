@@ -26,11 +26,11 @@ public class StockDataDetails
     // public double? CurrentRatio { get; set; }
     // public double? DebtToEquity { get; set; }
     // public double? DividendRate { get; set; }
-    private double? _dividendYield;
+    public double? dividendYield;
     public double? DividendYield
     {
-        get => _dividendYield / 100;
-        set => _dividendYield = value;
+        get => dividendYield / 100;
+        set => dividendYield = value;
     }
     // public double? EarningsGrowth { get; set; }
     // public double? EarningsQuarterlyGrowth { get; set; }

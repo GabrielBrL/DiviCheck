@@ -24,9 +24,9 @@
                 <MudText Typo="Typo.body1" Inline="true">Dividend Yield</MudText>
             </MudCardHeader>
             <MudCardContent>
-                @if (stock.DividendYield != null)
+                @if (stock.dividendYield != null)
                 {
-                    @stock.DividendYield.Value.ToString("P2")
+                    @stock.dividendYield.Value.ToString("P2")
                 }
                 else
                 {

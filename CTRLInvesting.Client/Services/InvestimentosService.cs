@@ -22,7 +22,8 @@ public class InvestimentosService : IInvestimentosService
     {
         var savedToken = await _localStorageService.GetItemAsync<string>("token");
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", savedToken);
-        return await _httpClient.GetFromJsonAsync<List<StockDataDetails>>($"/Investimento/{idUsuario}");
+        var result = await _httpClient.GetFromJsonAsync<List<StockDataDetails>>($"/Investimento/{idUsuario}");
+        return result;
     }
     public async Task<List<string>> GetTop5Tickets(int idUsuario)
     {
