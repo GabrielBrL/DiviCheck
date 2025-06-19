@@ -7,7 +7,7 @@
 {
     <MudText Align="Align.Center" Typo="Typo.h3">Não há dados sobre esse papel ou empresa.</MudText>
 }
-<MudGrid Class="pt-0" Justify="Justify.Center">
+<MudGrid Class="pt-0" Justify="Justify.Center" Spacing="2">
     @if (filterData)
     {
         <MudItem xs="12" lg="3" md="4" sm="6">
@@ -52,9 +52,9 @@
             </MudCard>
         </MudItem>
     }
-    else if (_acoesFiltradas != null && _acoesFiltradas.Count > 0)
+    else if (AcoesFiltradas != null && AcoesFiltradas.Count > 0)
     {
-        foreach (var acao in _acoesFiltradas)
+        foreach (var acao in AcoesFiltradas)
         {
             @if (acao.loading)
             {
@@ -187,9 +187,9 @@
     [Parameter]
     public int idUsuario {get; set;}
     [Parameter]
-    public List<StockDataDetails> _acoesFiltradas { get; set; }
+    public List<StockDataDetails> AcoesFiltradas { get; set; }
     [Parameter]
-    public List<StockDataDetails> _acoesCompradas { get; set; }
+    public List<StockDataDetails> AcoesCompradas { get; set; }
     @* private Snackbar _snackBar; *@
     private void UpdateNumberAcoes(int number, StockDataDetails acao) => acao.NumeroAcoes += number;
     private async Task AddToWallet(StockDataDetails acao)
@@ -202,12 +202,12 @@
             return;
         }       
         int numAcoes = acao.NumeroAcoes; 
-        StockDataDetails existAcao = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
+        StockDataDetails existAcao = AcoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
         if (existAcao != null)
             existAcao.NumeroAcoes += acao.NumeroAcoes;
         else
-            _acoesCompradas.Add(acao);
-        //await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
+            AcoesCompradas.Add(acao);
+        //await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", AcoesCompradas);
         var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')),NumeroAcoes = acao.NumeroAcoes};
         await investimentos.InsertStockDataDetails(formStock);
         acao.NumeroAcoes = numAcoes;
