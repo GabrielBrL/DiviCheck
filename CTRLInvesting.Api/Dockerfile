@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
 WORKDIR /app
 
 COPY ["CTRLInvesting.Api/CTRLInvesting.Api.csproj", "CTRLInvesting.Api/"]
@@ -14,7 +14,7 @@ FROM build-env AS publish
 RUN dotnet publish "CTRLInvesting.Api.csproj" -c Release -o /app/publish
  
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app 
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CTRLInvesting.Api.dll"]
