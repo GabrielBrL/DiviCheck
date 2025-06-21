@@ -1,41 +1,33 @@
 ﻿@page "/"
-@inject IAcoesService acoesService
-@* @inject Blazored.LocalStorage.ILocalStorageService _localStore *@
-@inject ISnackbar Snackbar
+
 @using System.Timers
 
-@if (loading)
-{
-    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
-}
-<MudGrid Justify="Justify.Center" Class="searchField">
-    <MudItem xs="12" sm="4">
-        <MudTextField T="string" @bind-Value="@searchText" TextChanged="@FilterData" Immediate="true"
-            Placeholder="Digite o ticket da empresa" Variant="Variant.Outlined" />
-    </MudItem>
-</MudGrid>
+<FilterStocks LoadingItems="ChangeVisibility" />
 
-<div style="margin-top: 100px;">
-    <ListaAcoesFiltradas containsStock="containsStock" filterData="filterData" _acoesFiltradas="_acoesFiltradas"
-        _acoesCompradas="_acoesCompradas" idUsuario="idUsuario" />
-</div>
-@if (!filterData && _acoesFiltradas.Count == 0 && containsStock)
+@if (_showInfo)
 {
     <MudGrid Justify="Justify.Center">
         <MudItem xs="8">
             <MudText Align="Align.Center" Inline="true" Typo="Typo.h5" Class="p-3">
-                <p>O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
-                    criar e simular carteiras personalizadas.</p>
+                <p>
+                    O <b>Divi Check</b> é a sua plataforma para acompanhar o mercado de ações, analisar dividendos e
+                    criar e simular carteiras personalizadas.
+                </p>
             </MudText>
         </MudItem>
     </MudGrid>
     <MudGrid Class="mb-5" Spacing="10">
         <MudItem xs="12">
-            <MudText Class="titleFuturoFinanceiro" Align="Align.Center" Style="font-weight: bold;">Simule seu Futuro
-                Financeiro</MudText>
-            <MudText Typo="Typo.body1" Align="Align.Center">Nessa etapa você pode pesquisar pelos papeis que possui ou que
-                deseja simular seus investimetos.</MudText>
-            <MudText Typo="Typo.body1" Align="Align.Center">Digite o ticket da empresa ou o nome da mesma no campo acima.
+            <MudText Class="titleFuturoFinanceiro" Align="Align.Center" Style="font-weight: bold;">
+                Simule seu Futuro
+                Financeiro
+            </MudText>
+            <MudText Typo="Typo.body1" Align="Align.Center">
+                Nessa etapa você pode pesquisar pelos papeis que possui ou que
+                deseja simular seus investimetos.
+            </MudText>
+            <MudText Typo="Typo.body1" Align="Align.Center">
+                Digite o ticket da empresa ou o nome da mesma no campo acima.
             </MudText>
         </MudItem>
         <MudItem xs="12">
@@ -58,7 +50,8 @@
                     </ItemDot>
                     <ItemContent>
                         <MudText Color="Color.Default" Typo="Typo.h6" GutterBottom="true">Carteira</MudText>
-                        <MudText Align="Align.Start">Acesse a sua carteira e visualize as informações sobre suas ações.
+                        <MudText Align="Align.Start">
+                            Acesse a sua carteira e visualize as informações sobre suas ações.
                         </MudText>
                     </ItemContent>
                 </MudTimelineItem>
@@ -78,89 +71,10 @@
             <MudText Typo="Typo.body1">Utilize também nossa calculadora de juros compostos</MudText>
         </MudLink>
     </div>
-    @* <AdsComponente /> *@
-}
-else
-{
-    @* <AdsComponente /> *@
 }
 
 @code {
-    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
-    private List<Stock> _tickets = new List<Stock>();
-    private string? searchText;
-    private List<StockDataDetails> _acoesFiltradas = new List<StockDataDetails>();
-    private List<StockDataDetails> _acoesCompradas = new();
-    private List<StockDataDetails> _acoesAleatorias = new();
-    private Snackbar _snackBar;
-    private bool loading;
-    private bool containsStock = true;
-    private bool filterData = false;
-    private bool searchingRamdomStocks = false;
-    private int idUsuario;
-    private bool IsAuthenticated = false;
-    private Timer typingTimer;
-    protected override async Task OnInitializedAsync()
-    {
-        _tickets = await acoesService.GetAllTicketsAsync();
-        @* var acoesStorage = await _localStore.GetItemAsync<List<StockDataDetails>>("acoes"); *@
-        var user = await authenticationStateTask;
-        var identity = user.User.Identity;
-        IsAuthenticated = identity.IsAuthenticated;
-        if (IsAuthenticated)
-        {
-            idUsuario = Int32.Parse(user.User.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
-        }
-    }
-    private void FilterData()
-    {
-        filterData = true;
-        containsStock = true;
-        typingTimer?.Stop();
-        typingTimer = new Timer(500);
-        typingTimer.Elapsed += TypingTimerElapsed;
-        typingTimer.Start();
-    }
+    private bool _showInfo = true;
 
-    void TypingTimerElapsed(object sender, ElapsedEventArgs e)
-    {
-
-        typingTimer?.Stop();
-        GetItems();
-        InvokeAsync(() => this.StateHasChanged());
-    }
-
-    void GetItems()
-    {
-        _acoesFiltradas.Clear();
-        string value = searchText;
-        if (value.Length > 3)
-        {
-            var result = _tickets.Where(x => x.Symbol.StartsWith(value, StringComparison.OrdinalIgnoreCase) ||
-            x.LongName.Contains(value, StringComparison.OrdinalIgnoreCase));
-            foreach (var item in result)
-            {
-                var stock = new StockDataDetails();
-                try
-                {
-                    stock = acoesService.GetAcao(item.Symbol);
-                }
-                catch
-                {
-                    _snackBar = Snackbar.Add($"Não existe informação atualizada do papel {item.Symbol}", Severity.Warning);
-                }
-                if (stock.CurrentPrice != null)
-                {
-                    if (_acoesFiltradas.FirstOrDefault(x => x.Symbol == stock.Symbol) == null)
-                        _acoesFiltradas.Add(stock);
-                }
-            }
-            filterData = false;
-            if (_acoesFiltradas.Count == 0)
-                containsStock = false;
-            return;
-        }
-        if (searchText.Length == 0)
-            filterData = false;
-    }
+    private void ChangeVisibility(bool value) => _showInfo = value;
 }

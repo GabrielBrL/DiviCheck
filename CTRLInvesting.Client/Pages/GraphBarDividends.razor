@@ -13,7 +13,7 @@
     private BarChartOptions barChartOptions = default!;
     private ChartData chartData = default!;
     private List<string> _Labels = new List<string>();
-    private List<double> _Data = new List<double>();
+    private List<double?> _Data = new List<double?>();
 
     protected override async void OnInitialized()
     {
@@ -35,7 +35,7 @@
         {
             formatKeys.Add(DateTime.Parse(item).ToString("dd/MM/yyyy"));
         }
-        List<double> formatValues = new List<double>();
+        List<double?> formatValues = new List<double?>();
         foreach (var item in dividendos.Values)
         {
             formatValues.Add(double.Parse(item.ToString("N2")));
@@ -44,7 +44,7 @@
         _Data = formatValues;
         var maxDiv = formatValues.Max();
         var minDiv = formatValues.Min();
-        var colors = ColorBuilder.CategoricalTwelveColors;
+        var colors = ColorUtility.CategoricalTwelveColors;
 
         var datasets = new List<IChartDataset>();
 

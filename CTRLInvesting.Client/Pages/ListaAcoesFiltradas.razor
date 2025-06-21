@@ -7,7 +7,7 @@
 {
     <MudText Align="Align.Center" Typo="Typo.h3">Não há dados sobre esse papel ou empresa.</MudText>
 }
-<MudGrid Class="pt-0" Justify="Justify.Center">
+<MudGrid Class="pt-0" Justify="Justify.Center" Spacing="2">
     @if (filterData)
     {
         <MudItem xs="12" lg="3" md="4" sm="6">
@@ -52,9 +52,9 @@
             </MudCard>
         </MudItem>
     }
-    else if (_acoesFiltradas != null && _acoesFiltradas.Count > 0)
+    else if (AcoesFiltradas != null && AcoesFiltradas.Count > 0)
     {
-        foreach (var acao in _acoesFiltradas)
+        foreach (var acao in AcoesFiltradas)
         {
             @if (acao.loading)
             {
@@ -109,21 +109,22 @@
                     <MudCard Elevation="20" Outlined="true" Class="rounded-lg pb-4">
                         @if (investimentos.FileExist(acao.Symbol.Substring(0, 4)))
                         {
-                            <MudCardMedia Image="@($"/assets/{acao.Symbol.Substring(0,4)}.svg")" Height="150" />
+                            <MudCardMedia Image="@($"/assets/{acao.Symbol.Substring(0, 4)}.svg")" Height="150" />
                         }
                         else
                         {
                             <MudAvatar Square="true" Style="height:150px; width:100%; font-size:2rem; z-index: 0;" Color="Color.Primary"
-                                Variant="Variant.Text">
+                                       Variant="Variant.Text">
                                 @acao.Symbol.Substring(0, 1)
                             </MudAvatar>
                         }
                         <MudCardContent>
                             <MudStack Spacing="0" Row="true" AlignItems="AlignItems.Center" Justify="Justify.Center">
-                                <MudText Typo="Typo.h5">@acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))
+                                <MudText Typo="Typo.h5">
+                                    @acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))
                                 </MudText>
                                 <MudIconButton Icon="@Icons.Material.Filled.Info"
-                                    OnClick="@(() => OpenInformationAboutStock(acao))" />
+                                               OnClick="@(() => OpenInformationAboutStock(acao))" />
                             </MudStack>
                             <MudGrid Justify="Justify.FlexStart">
                                 <MudItem xs="8" Class="pt-5">
@@ -131,21 +132,20 @@
                                 </MudItem>
                                 <MudItem xs="4" Class="pt-5">
                                     <MudStack AlignItems="AlignItems.Start" Spacing="0">
-                                        <MudText
-                                            Color="(acao.VariacaoPercentual < 0 ? Color.Error : acao.VariacaoPercentual == 0 ? Color.Primary : Color.Success)"
-                                            Typo="Typo.h6">
+                                        <MudText Color="(acao.VariacaoPercentual < 0 ? Color.Error : acao.VariacaoPercentual == 0 ? Color.Primary : Color.Success)"
+                                                 Typo="Typo.h6">
                                             @acao.VariacaoPercentual.ToString("P2")
                                         </MudText>
-                                        <MudText
-                                            Color="(acao.VariacaoValue < 0 ? Color.Error : acao.VariacaoValue == 0 ? Color.Primary : Color.Success)"
-                                            Typo="Typo.h6">
+                                        <MudText Color="(acao.VariacaoValue < 0 ? Color.Error : acao.VariacaoValue == 0 ? Color.Primary : Color.Success)"
+                                                 Typo="Typo.h6">
                                             @acao.VariacaoValue.ToString("N2")
                                         </MudText>
                                     </MudStack>
                                 </MudItem>
                             </MudGrid>
-                            <MudListItem Icon="@Icons.Material.Filled.CalendarToday" Disabled="true">
-                                <MudText Typo="Typo.body2">@(acao.DataUltCotacao.ToString("dd/MM/yyyy"))
+                            <MudListItem T="string" Icon="@Icons.Material.Filled.CalendarToday" Disabled="true">
+                                <MudText Typo="Typo.body2">
+                                    @(acao.DataUltCotacao.ToString("dd/MM/yyyy"))
                                 </MudText>
                             </MudListItem>
                         </MudCardContent>
@@ -153,16 +153,17 @@
                             <Authorized>
                                 <MudCardActions>
                                     <MudGrid style="width: 100%;">
-                                        <MudItem xs="12" Class="ml-5 p-0">
+                                        <MudItem xs="12">
                                             <MudStack Spacing="0" Row="true">
-                                                <MudNumericField T="int" style="margin: 0; width: 75%;" FullWidth="false"
-                                                    @bind-Value="acao.NumeroAcoes" Min="0" />
+                                                <MudNumericField T="int" style="width: 85%;" FullWidth="false"
+                                                                 @bind-Value="acao.NumeroAcoes" Min="0" />
                                                 <MudButton OnClick="@(() => AddToWallet(acao))" Variant="Variant.Text"
-                                                    Color="Color.Primary" id="@acao.Symbol">
-                                                    Adicionar</MudButton>
+                                                           Color="Color.Primary" id="@acao.Symbol">
+                                                    Adicionar
+                                                </MudButton>
                                             </MudStack>
                                         </MudItem>
-                                        <MudItem xs="12" style="padding: 0;">
+                                        <MudItem xs="12" class="pt-0">
                                             <MudStack Row="true" Spacing="0">
                                                 <MudButton OnClick="(() => UpdateNumberAcoes(10, acao))">+10</MudButton>
                                                 <MudButton OnClick="(() => UpdateNumberAcoes(100, acao))">+100</MudButton>
@@ -185,45 +186,51 @@
     [Parameter]
     public bool filterData { get; set; }
     [Parameter]
-    public int idUsuario {get; set;}
+    public int idUsuario { get; set; }
     [Parameter]
-    public List<StockDataDetails> _acoesFiltradas { get; set; }
+    public List<StockDataDetails> AcoesFiltradas { get; set; }
     [Parameter]
-    public List<StockDataDetails> _acoesCompradas { get; set; }
+    public List<StockDataDetails> AcoesCompradas { get; set; }
+    [Parameter] public EventCallback<StockDataDetails> ReturningAcoesCompradas { get; set; }
+    [Parameter] public EventCallback<bool> UpdateStocks { get; set; }
     @* private Snackbar _snackBar; *@
     private void UpdateNumberAcoes(int number, StockDataDetails acao) => acao.NumeroAcoes += number;
     private async Task AddToWallet(StockDataDetails acao)
     {
         acao.loading = true;
+        await UpdateStocks.InvokeAsync(true);
         if (acao.NumeroAcoes <= 0)
         {
             Snackbar.Add("Número de ações inválidas.", Severity.Error);
             acao.loading = false;
+            await UpdateStocks.InvokeAsync(false);
             return;
-        }       
-        int numAcoes = acao.NumeroAcoes; 
-        StockDataDetails existAcao = _acoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
+        }
+        int numAcoes = acao.NumeroAcoes;
+        StockDataDetails existAcao = AcoesCompradas.FirstOrDefault(x => x.Symbol == acao.Symbol);
         if (existAcao != null)
             existAcao.NumeroAcoes += acao.NumeroAcoes;
         else
-            _acoesCompradas.Add(acao);
-        //await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", _acoesCompradas);
-        var formStock = new FormStocks{IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0,acao.Symbol.IndexOf('.')),NumeroAcoes = acao.NumeroAcoes};
+            AcoesCompradas.Add(acao);
+        //await _localStore.SetItemAsync<List<StockDataDetails>>("acoes", AcoesCompradas);
+        var formStock = new FormStocks { IdUsuario = idUsuario, Symbol = acao.Symbol.Substring(0, acao.Symbol.IndexOf('.')), NumeroAcoes = acao.NumeroAcoes };
         await investimentos.InsertStockDataDetails(formStock);
         acao.NumeroAcoes = numAcoes;
         Snackbar.Add($"Parabéns!! {acao.NumeroAcoes} ações {acao.Symbol.Substring(0, acao.Symbol.IndexOf('.'))} foram adicionadas na sua carteira.",
         Severity.Success);
         acao.loading = false;
+        await UpdateStocks.InvokeAsync(false);
+        await ReturningAcoesCompradas.InvokeAsync(acao);
     }
     private async Task OpenInformationAboutStock(StockDataDetails stock)
     {
         var options = new DialogOptions
-            {
-                ClassBackground = "dialogInformationStock",
-                MaxWidth = MaxWidth.Medium,
-                FullWidth = true,
-                CloseButton = true
-            };
+        {
+            BackgroundClass = "dialogInformationStock",
+            MaxWidth = MaxWidth.Medium,
+            FullWidth = true,
+            CloseButton = true
+        };
         var parameter = new DialogParameters<DialogInformationStock> { { x => x.stock, stock } };
         await DialogService.ShowAsync<DialogInformationStock>(stock.Symbol.Substring(0, stock.Symbol.IndexOf('.')), parameter,
         options);

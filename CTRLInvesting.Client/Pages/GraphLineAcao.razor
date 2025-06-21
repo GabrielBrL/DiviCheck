@@ -1,4 +1,5 @@
-@inject IAcoesService _acoesService
+@inject IAcoesService acoesService
+@inject ISnackbar snackbar
 
 <MudOverlay @bind-Visible="isVisible" DarkBackground="true" AutoClose="false">
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
@@ -6,24 +7,30 @@
 <MudStack Row="true">
     <MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined">
         <MudButton Class="@StyleFor7dButton(periodo)" Color="Color.Error" ButtonType="MudBlazor.ButtonType.Button"
-            Disabled="@periodo7d" OnClick="@(async () => await TrocaPeriodo("7d"))">7D
+                   Disabled="@periodo7d" OnClick="@(async () => await TrocaPeriodo("7d"))">
+            7D
         </MudButton>
         <MudButton Class="@StyleFor3mButton(periodo)" ButtonType="MudBlazor.ButtonType.Button" Disabled="@periodo3mo"
-            OnClick="@(async () => await TrocaPeriodo("3mo"))">3M
+                   OnClick="@(async () => await TrocaPeriodo("3mo"))">
+            3M
         </MudButton>
         <MudButton Class="@StyleFor6mButton(periodo)" ButtonType="MudBlazor.ButtonType.Button" Disabled="@periodo6mo"
-            OnClick="@(async () => await TrocaPeriodo("6mo"))">6M
+                   OnClick="@(async () => await TrocaPeriodo("6mo"))">
+            6M
         </MudButton>
         <MudButton Class="@StyleFor5yButton(periodo)" ButtonType="MudBlazor.ButtonType.Button" Disabled="@periodo5y"
-            OnClick="@(async () => await TrocaPeriodo("5y"))">5A</MudButton>
+                   OnClick="@(async () => await TrocaPeriodo("5y"))">5A</MudButton>
         <MudButton Class="@StyleForMaxButton(periodo)" ButtonType="MudBlazor.ButtonType.Button" Disabled="@periodoMax"
-            OnClick="@(async () => await TrocaPeriodo("max"))">Tudo
+                   OnClick="@(async () => await TrocaPeriodo("max"))">
+            Tudo
         </MudButton>
     </MudButtonGroup>
     <MudSpacer />
-    <MudText Inline="true">Var: <MudText Inline="true" Style="font-weight: bold;"
-            Color="@(PercentVariation > 0 ? Color.Success : PercentVariation == 0 ? Color.Default : Color.Error)">
-            @PercentVariation.ToString("P2")</MudText>
+    <MudText Inline="true">
+        Var: <MudText Inline="true" Style="font-weight: bold;"
+                      Color="@(PercentVariation > 0 ? Color.Success : PercentVariation == 0 ? Color.Default : Color.Error)">
+            @PercentVariation.ToString("P2")
+        </MudText>
     </MudText>
     <MudText>Max: @MaxValue.ToString("C")</MudText>
     <MudText>Min: @MinValue.ToString("C")</MudText>
@@ -42,7 +49,7 @@
     private LineChartOptions lineChartOptions = default!;
     private ChartData chartData = default!;
     private List<string> _Labels = new List<string>();
-    private List<double> _Data = new List<double>();
+    private List<double?> _Data = new List<double?>();
     private bool periodo7d = false;
     private bool periodo3mo = false;
     private bool periodo6mo = false;
@@ -55,7 +62,7 @@
     protected override async void OnInitialized()
     {
         cData(periodo);
-        await DisablePeriodos();
+        //await DisablePeriodos();
     }
 
     async Task DisablePeriodos()
@@ -64,7 +71,7 @@
         await Task.Delay(500);
         try
         {
-            _acoesService.GetVariacaoAcao(Ticket, "7d");
+            acoesService.GetVariacaoAcao(Ticket, "7d");
         }
         catch (Exception e)
         {
@@ -72,7 +79,7 @@
         }
         try
         {
-            _acoesService.GetVariacaoAcao(Ticket, "3mo");
+            acoesService.GetVariacaoAcao(Ticket, "3mo");
         }
         catch (Exception e)
         {
@@ -80,7 +87,7 @@
         }
         try
         {
-            _acoesService.GetVariacaoAcao(Ticket, "6mo");
+            acoesService.GetVariacaoAcao(Ticket, "6mo");
         }
         catch (Exception e)
         {
@@ -88,7 +95,7 @@
         }
         try
         {
-            _acoesService.GetVariacaoAcao(Ticket, "5y");
+            acoesService.GetVariacaoAcao(Ticket, "5y");
         }
         catch (Exception e)
         {
@@ -96,7 +103,7 @@
         }
         try
         {
-            _acoesService.GetVariacaoAcao(Ticket, "max");
+            acoesService.GetVariacaoAcao(Ticket, "max");
         }
         catch (Exception e)
         {
@@ -106,58 +113,60 @@
         StateHasChanged();
     }
 
-    void cData(string periodo)
+    bool cData(string periodo)
     {
-        var variacoes = _acoesService.GetVariacaoAcao(Ticket, periodo);
-        List<string> formatKeys = new List<string>();
-        foreach (var item in variacoes.Keys)
+        try
         {
-            formatKeys.Add(DateTime.Parse(item).ToString("dd/MM/yyyy"));
-        }
-        List<double> formatValues = new List<double>();
-        foreach (var item in variacoes.Values)
-        {
-            formatValues.Add(double.Parse(item.ToString("N2")));
-        }
-        _Labels = formatKeys;
-        _Data = formatValues;
-        MinValue = _Data.Min();
-        MaxValue = _Data.Max();
-        PercentVariation = (_Data.Last() - _Data.First()) / _Data.First();
-        var colors = ColorBuilder.CategoricalTwelveColors;
+            var variacoes = acoesService.GetVariacaoAcao(Ticket, periodo);
+            List<string> formatKeys = new List<string>();
+            foreach (var item in variacoes.Keys)
+            {
+                formatKeys.Add(DateTime.Parse(item).ToString("dd/MM/yyyy"));
+            }
+            List<double?> formatValues = new List<double?>();
+            foreach (var item in variacoes.Values)
+            {
+                formatValues.Add(double.Parse(item.ToString("N2")));
+            }
+            _Labels = formatKeys;
+            _Data = formatValues;
+            MinValue = _Data.Min().Value;
+            MaxValue = _Data.Max().Value;
+            PercentVariation = (_Data.Last().Value - _Data.First().Value) / _Data.First().Value;
+            var colors = ColorUtility.CategoricalTwelveColors;
 
-        var datasets = new List<IChartDataset>();
+            var datasets = new List<IChartDataset>();
 
-        var dataset1 = new LineChartDataset
+            var dataset1 = new LineChartDataset
             {
                 Data = _Data,
-                BackgroundColor = new List<string> { colors[0] },
-                BorderColor = new List<string> { colors[0] },
-                BorderWidth = new List<double> { 2 },
-                HoverBorderWidth = new List<double> { 4 },
+                BackgroundColor = colors[0],
+                BorderColor = colors[0],
+                BorderWidth = 2,
+                HoverBorderWidth = 4,
                 PointBackgroundColor = new List<string> { colors[0] },
-                PointRadius = new List<int> { 0 }, // hide points
-                PointHoverRadius = new List<int> { 4 },
+                PointRadius = new List<double> { 0 }, // hide points
+                PointHoverRadius = new List<double> { 4 },
                 Label = Ticket,
                 SpanGaps = true
             };
-        datasets.Add(dataset1);
+            datasets.Add(dataset1);
 
-        chartData = new ChartData
+            chartData = new ChartData
             {
                 Labels = _Labels,
                 Datasets = datasets
             };
 
-        lineChartOptions = new();
-        lineChartOptions.Responsive = true;
-        lineChartOptions.Locale = "pt-BR";
-        lineChartOptions.Plugins.Datalabels = new LineChartDataLabels
+            lineChartOptions = new();
+            lineChartOptions.Responsive = true;
+            lineChartOptions.Locale = "pt-BR";
+            lineChartOptions.Plugins.Datalabels = new LineChartDataLabels
             {
                 Padding = 10,
                 Color = "white"
             };
-        lineChartOptions.Plugins.Tooltip = new ChartPluginsTooltip
+            lineChartOptions.Plugins.Tooltip = new ChartPluginsTooltip
             {
                 BodyFont = new ChartPluginsTooltipFont
                 {
@@ -168,13 +177,20 @@
                     Size = 20,
                 }
             };
-        lineChartOptions.Scales.Y = new ChartAxes
+            lineChartOptions.Scales.Y = new ChartAxes
             {
                 Min = MinValue - 5,
                 Max = MaxValue + 5
             };
-        lineChartOptions.Layout = new ChartLayout { AutoPadding = true };
-        lineChartOptions.Interaction = new Interaction { Mode = InteractionMode.Index };
+            lineChartOptions.Layout = new ChartLayout { AutoPadding = true };
+            lineChartOptions.Interaction = new Interaction { Mode = InteractionMode.Index };
+            return true;
+        }
+        catch
+        {
+            snackbar.Add("Não foi possível obter os dados desse período");
+            return false;
+        }
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -188,8 +204,8 @@
     async Task TrocaPeriodo(string per)
     {
         periodo = per;
-        cData(periodo);
-        await lineChart.UpdateAsync(chartData, lineChartOptions);
+        if (cData(periodo))
+            await lineChart.UpdateAsync(chartData, lineChartOptions);
     }
     string StyleFor7dButton(string periodo)
     {
