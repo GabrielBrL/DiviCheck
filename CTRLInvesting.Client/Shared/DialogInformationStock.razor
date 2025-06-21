@@ -2,14 +2,16 @@
 <MudDialog>
     <DialogContent>
         <MudGrid Justify="Justify.Center">
-            <MudButtonGroup Color="Color.Primary" Size="MudBlazor.Size.Large" Variant="Variant.Outlined">
-                <MudButton Class="@StyleForButton1()" OnClick="() => Activate(0)">Detalhes</MudButton>
-                <MudButton Class="@StyleForButton2()" OnClick="() => Activate(1)">Gráfico</MudButton>
-                <MudButton Class="@StyleForButton3()" OnClick="() => Activate(2)">Dividendos</MudButton>
-            </MudButtonGroup>
+            <MudItem>
+                <MudButtonGroup Color="Color.Primary" Size="MudBlazor.Size.Large" Variant="Variant.Outlined">
+                    <MudButton Class="@StyleForButton1()" OnClick="() => Activate(0)">Detalhes</MudButton>
+                    <MudButton Class="@StyleForButton2()" OnClick="() => Activate(1)">Gráfico</MudButton>
+                    <MudButton Class="@StyleForButton3()" OnClick="() => Activate(2)">Dividendos</MudButton>
+                </MudButtonGroup>
+            </MudItem>
         </MudGrid>
         <MudTabs Border="false" DisableRipple="true" Elevation="0" Rounded="true" PanelClass="pa-6" Centered="true"
-            @ref="tabs" HideSlider="true" TabHeaderClass="hiddenTab">
+                 @ref="tabs" HideSlider="true" TabHeaderClass="hiddenTab">
             <MudTabPanel Icon="@Icons.Material.Filled.Info">
                 <DetalhesAcao stock="stock" />
             </MudTabPanel>
@@ -26,7 +28,7 @@
     </DialogActions>
 </MudDialog>
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [CascadingParameter] IMudDialogInstance MudDialog { get; set; }
     [Parameter] public StockDataDetails stock { get; set; } = new StockDataDetails();
     MudTabs tabs;
     int indexTab = 0;

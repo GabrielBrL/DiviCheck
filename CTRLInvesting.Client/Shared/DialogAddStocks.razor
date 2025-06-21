@@ -2,17 +2,22 @@
 
 <MudDialog>
     <DialogContent>
-        <div>
-            <FilterStocks />
-        </div>
+        <FilterStocks LoadingItems="GetLoading" ReturningAcoesCompradas="GetAcoes" />
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">Fechar</MudButton>
+        <MudButton Disabled="@(loading)" Variant="Variant.Filled" OnClick="Add" title="@(loading ? "Favor esperar que os dados sejam salvos" : string.Empty)">Salvar</MudButton>
     </DialogActions>
 </MudDialog>
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    void Add() => MudDialog.Close(DialogResult.Ok(true));
+    [CascadingParameter] IMudDialogInstance MudDialog { get; set; }
+    private List<StockDataDetails> acoesBought = new();
+    private bool loading = false;
+    void GetAcoes(StockDataDetails acao)
+    {
+        acoesBought.Add(acao);
+    }
+    void GetLoading(bool value) => loading = value;
+    void Add() => MudDialog.Close(DialogResult.Ok(acoesBought));
     void Cancel() => MudDialog.Cancel();
 }

@@ -3,18 +3,16 @@
 @inject IAcoesService acoesService
 @inject ISnackbar Snackbar
 
-
-<MudGrid Justify="Justify.Center" Class="searchField" Spacing="0">
-    <MudItem xs="12" sm="4">
-        <MudTextField T="string" @bind-Value="@searchText" TextChanged="@FilterStockByName" Immediate="true"
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" lg="4" md="4" xl="4" xxl="4" sm="8">
+        <MudTextField FullWidth="false" T="string" @bind-Value="@searchText" TextChanged="@FilterStockByName" Immediate="true"
                       Placeholder="Digite o ticket da empresa" Variant="Variant.Outlined" Clearable />
     </MudItem>
+    <MudItem xs="12">
+        <ListaAcoesFiltradas containsStock="ContainsStock" FilterData="FilterData" AcoesFiltradas="AcoesFiltradas"
+                             AcoesCompradas="_acoesCompradas" idUsuario="idUsuario" UpdateStocks="ActiveLoading" ReturningAcoesCompradas="UpdateAcoesCompradas" />
+    </MudItem>
 </MudGrid>
-
-<div style="margin-top: 100px;">
-    <ListaAcoesFiltradas containsStock="ContainsStock" FilterData="FilterData" AcoesFiltradas="AcoesFiltradas"
-                         AcoesCompradas="_acoesCompradas" idUsuario="idUsuario" />
-</div>
 
 @code {
     [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
@@ -22,6 +20,7 @@
     [Parameter] public List<StockDataDetails> AcoesFiltradas { get; set; } = new List<StockDataDetails>();
     [Parameter] public bool ContainsStock { get; set; } = true;
     [Parameter] public EventCallback<bool> LoadingItems { get; set; }
+    [Parameter] public EventCallback<StockDataDetails> ReturningAcoesCompradas { get; set; }
     private List<Stock> _tickets = new List<Stock>();
     private string? searchText;
     private List<StockDataDetails> _acoesCompradas = new();
@@ -44,6 +43,13 @@
             idUsuario = Int32.Parse(user.User.Claims.Where(_ => _.Type == "IdUsuario").Select(_ => _.Value).First());
         }
     }
+
+    void UpdateAcoesCompradas(StockDataDetails acoes)
+    {
+        ReturningAcoesCompradas.InvokeAsync(acoes);
+    }
+
+    void ActiveLoading(bool value) => LoadingItems.InvokeAsync(value);
 
     private void FilterStockByName()
     {
