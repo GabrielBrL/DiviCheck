@@ -78,5 +78,5 @@ jobs:
         env:
           GOOGLE_PROJECT: ${{secrets.GCP_PROJECT_ID}}
         run: |
-          gcloud run deploy api --image southamerica-east1-docker.pkg.dev/$GOOGLE_PROJECT/divicheck-api/divicheck-homol:latest --region southamerica-east1 --platform managed --memory 256Mi --port 80 --allow-unauthenticated
+          gcloud run deploy api --image southamerica-east1-docker.pkg.dev/$GOOGLE_PROJECT/divicheck-api/divicheck-homol:latest --region southamerica-east1 --platform managed --memory 256Mi --port 8080 --allow-unauthenticated
           gcloud run deploy client --image us-east1-docker.pkg.dev/$GOOGLE_PROJECT/divicheck-client-usa/divicheck-homol:latest --region us-east1 --platform managed --memory 256Mi --port 80 --allow-unauthenticated
