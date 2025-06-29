@@ -28,7 +28,7 @@
                 <MudMenu Icon="@Icons.Material.Filled.Person" style="color: #FFFFFF!important;" AnchorOrigin="Origin.BottomCenter"
                          TransformOrigin="Origin.TopCenter" ActivationEvent="@MouseEvent.LeftClick" Class="mx-3">
                     <ChildContent>
-                        <MudMenuItem Href="/perfil">Perfil</MudMenuItem>
+                        <MudMenuItem OnClick="@(() => _nav.NavigateTo("/perfil"))">Perfil</MudMenuItem>
                         <MudMenuItem OnClick="(() => LogOut())">Sair</MudMenuItem>
                     </ChildContent>
                 </MudMenu>
